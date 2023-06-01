@@ -5,22 +5,25 @@
     Global Styles
   ##################
 */
+
+*:focus {
+  outline: 1px dashed var(--clr-orange);
+}
 :root {
   --clr-orange: #ff6838;
   --clr-dark: #302f3c;
   --clr-secondary: #fafafa;
   --rounded-1: ;
-  --rounded-2: .5rem;
+  --rounded-2: 1rem;
   --ff-gotham: ;
   --fw-md: ;
   --fw-bold: ;
   --padding-1: ;
-  --padding-2: .4rem;
+  --padding-2: .8rem;
 }
 
 body {
   width: 90%;
-  border: 1px solid red;
   margin-inline: auto;
 }
 
@@ -30,18 +33,29 @@ body {
   height: 100%;
 }
 
+
 header {
+  align-items: center;
   display: flex;
   justify-content: space-between;
   margin-top: 2rem;
+  position: relative;
 }
 
-header .page-name {
-  border: 1px solid red;
-  font-size: 1.2rem;
-  margin: 0;
-  
+header a {
+  border-radius: 100%;
+  aspect-ratio: 1/1;
 }
+
+header a:focus {
+  outline: 0;
+  cursor: pointer;
+}
+
+header img {
+  width: 40px;
+}
+
 
 h1,
 h2,
@@ -86,11 +100,54 @@ p {
 .btn {
   border: 0;
   border-radius: var(--rounded-2);
-  padding: var(--padding-2)
+  padding: var(--padding-2);
+  position: relative;
 }
+
+.btn-secondary {
+  background-color: var(--clr-secondary)
+}
+
+.btn-hover::before {
+  background: rgba(0, 0, 0, .2);
+  border-radius: inherit;
+  content: "";
+  display: none;
+  inset: 0;
+  position: absolute;
+  hover
+}
+
 
 .category {
   display: flex;
   gap: .5rem;
 }
+
+
+.identity {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+
+.notification {
+
+}
+
+.notification::after {
+  content: url("../icons/Notification.png")
+}
+
+
+
+
+
+
+
+/*
+  #################
+    Other Styles
+  #################
+*/
 
