@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/*
+  ##################
+    Global Styles
+  ##################
+*/
+:root {
+  --clr-orange: #ff6838;
+  --clr-dark: #302f3c;
+  --clr-secondary: #fafafa;
+  --rounded-1: ;
+  --rounded-2: .5rem;
+  --ff-gotham: ;
+  --fw-md: ;
+  --fw-bold: ;
+  --padding-1: ;
+  --padding-2: .4rem;
+}
+
+body {
+  width: 90%;
+  border: 1px solid red;
+  margin-inline: auto;
+}
+
+html, 
+body {
+  margin-top: 0;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+header .page-name {
+  border: 1px solid red;
+  font-size: 1.2rem;
+  margin: 0;
+  
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: serif;
+}
+
+p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+
+
+
+
+
+
+/*
+  ######################
+    Typography Styles
+  ######################
+*/
+
+
+
+
+
+
+
+
+
+
+/*
+  ######################
+    Component Styles
+  ######################
+*/
+.btn {
+  border: 0;
+  border-radius: var(--rounded-2);
+  padding: var(--padding-2)
+}
+
+.category {
+  display: flex;
+  gap: .5rem;
+}
+
