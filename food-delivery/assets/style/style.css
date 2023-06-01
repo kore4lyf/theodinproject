@@ -44,7 +44,6 @@ header {
 
 header a {
   border-radius: 100%;
-  aspect-ratio: 1/1;
 }
 
 header a:focus {
@@ -52,8 +51,13 @@ header a:focus {
   cursor: pointer;
 }
 
-header img {
-  width: 40px;
+header svg {
+  color: gray;
+  width: min(35px, 50px);
+}
+
+header svg:hover {
+  color: red;
 }
 
 
@@ -108,16 +112,9 @@ p {
   background-color: var(--clr-secondary)
 }
 
-.btn-hover::before {
-  background: rgba(0, 0, 0, .2);
-  border-radius: inherit;
-  content: "";
-  display: none;
-  inset: 0;
-  position: absolute;
-  hover
+.btn-secondary:hover {
+  background: var(--clr-orange);
 }
-
 
 .category {
   display: flex;
