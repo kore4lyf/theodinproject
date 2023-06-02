@@ -6,9 +6,12 @@
   ##################
 */
 
-*:focus {
-  outline: 1px dashed var(--clr-orange);
+:focus {
+  /* outline: 1px dashed var(--clr-orange); */
+  /* outline-offset: 2px; */
+  outline: 0;
 }
+
 :root {
   --clr-orange: #ff6838;
   --clr-dark: #302f3c;
@@ -19,7 +22,7 @@
   --fw-md: ;
   --fw-bold: ;
   --padding-1: ;
-  --padding-2: .8rem;
+  --padding-2: .6rem;
 }
 
 body {
@@ -56,7 +59,7 @@ header svg {
   width: min(35px, 50px);
 }
 
-header svg:hover {
+header .logo svg:hover {
   color: red;
 }
 
@@ -112,8 +115,9 @@ p {
   background-color: var(--clr-secondary)
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover, .btn-secondary:focus {
   background: var(--clr-orange);
+  color: white;
 }
 
 .category {
@@ -128,15 +132,13 @@ p {
 }
 
 
-.notification {
-
+.notification svg {
+  color: var(--clr-dark);
 }
 
-.notification::after {
-  content: url("../icons/Notification.png")
+.notification:hover svg, .notification:focus svg  {
+  color: white;
 }
-
-
 
 
 

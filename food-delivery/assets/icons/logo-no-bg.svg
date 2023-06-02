@@ -10,3 +10,16 @@
       <rect x="16.22" y="68.75" width="5.49" height="17.63" rx="2.74" ry="2.74" transform="translate(-33.18 138.05) rotate(-125.5)"/>
 
 </svg>
+     <div class="location"> <span class="gps icon"></span>Lagos, NG <span class="arrow-down icon"></span></div>
+
+.icon {
+
+}
+
+.gps::after {
+  content: url("../icons/location.png");
+}
+
+.arrow-down {
+  content: url("../icons/arrow-bottom.png");
+}
