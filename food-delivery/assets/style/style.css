@@ -36,8 +36,9 @@ body {
 
 html, 
 body {
-  margin-top: 0;
+  margin: 0;
   height: 100%;
+  width: 100%;
 }
 
 
@@ -45,7 +46,7 @@ header {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 2.5rem !important;
   position: relative;
 }
 
@@ -86,7 +87,7 @@ h6 {
   color: var(--clr-dark);
 }
 
-p {
+p, .search input[type=text] {
   font-family: var(--ff-sans-serif)
 }
 
@@ -138,9 +139,38 @@ p {
   color: var(--clr-accent);
 }
 
-.icon {
-  stroke: var(--clr-accent);
+icon {
+  color: var(--clr-dark)
 }
+
+button.icon-fill, 
+.icon-fill {
+  color: var(--clr-dark);
+  background: transparent;
+  border: 0px;
+}
+
+button.icon-fill:hover,
+button.icon-fill:focus {
+  color: var(--clr-accent);
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+
+button.icon-stroke, 
+.icon-stroke {
+  stroke: var(--clr-dark);
+  background: transparent;
+  border: 0px;
+}
+
+button.icon-stroke:hover,
+button.icon-stroke:focus {
+  stroke: var(--clr-accent);
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+
 
 .identity {
   font-size: 1.2rem;
@@ -166,6 +196,33 @@ p {
 }
 
 
+.search {
+  align-items: center;
+  background: var(--clr-secondary);
+  border-radius: var(--rounded-2);
+  fill-opacity: 0.5;
+  display: flex;
+  padding: var(--padding-2);
+  justify-content: space-between;
+  stroke-opacity: .5;
+}
+
+.search > span {
+  display: flex;
+  gap: .5rem;
+  width: 100%;
+}
+
+.search input[type=text] {
+  background: transparent;
+  border: 0px;
+  color: var(--clr-dark);
+  font-size: .85rem;
+  font-weight: bold;
+  opacity: .6;
+  width: 100%;
+}
+
 
 
 
@@ -175,3 +232,7 @@ p {
   #################
 */
 
+.w-90 {
+  margin: auto;
+  width: 90%;
+}
