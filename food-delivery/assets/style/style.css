@@ -5,6 +5,9 @@
     Global Styles
   ##################
 */
+*, ::after, ::before {
+  box-sizing: border-box    ;
+}
 
 :focus {
   /* outline: 1px dashed var(--clr-orange); */
@@ -13,7 +16,7 @@
 }
 
 :root {
-  --clr-orange: #ff6838;
+  --clr-accent: rgb(255, 33, 33);
   --clr-dark: #302f3c;
   --clr-secondary: #fafafa;
   --rounded-1: ;
@@ -58,11 +61,6 @@ header svg {
   color: gray;
   width: min(35px, 50px);
 }
-
-header .logo svg:hover {
-  color: red;
-}
-
 
 h1,
 h2,
@@ -116,7 +114,7 @@ p {
 }
 
 .btn-secondary:hover, .btn-secondary:focus {
-  background: var(--clr-orange);
+  background: var(--clr-accent);
   color: white;
 }
 
@@ -129,6 +127,10 @@ p {
 .identity {
   font-size: 1.2rem;
   margin: 0;
+}
+
+.logo:hover svg, .logo:focus svg {
+  color: var(--clr-accent);
 }
 
 
