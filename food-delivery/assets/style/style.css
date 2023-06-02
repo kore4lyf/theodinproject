@@ -6,7 +6,7 @@
   ##################
 */
 *, ::after, ::before {
-  box-sizing: border-box    ;
+  box-sizing: border-box;
 }
 
 :focus {
@@ -21,6 +21,7 @@
   --clr-secondary: #fafafa;
   --rounded-1: ;
   --rounded-2: 1rem;
+  --ff-sans-serif: ;
   --ff-gotham: ;
   --fw-md: ;
   --fw-bold: ;
@@ -123,10 +124,18 @@ p {
   gap: .5rem;
 }
 
+.icon {
+  stroke: var(--clr-accent);
+}
 
 .identity {
   font-size: 1.2rem;
   margin: 0;
+}
+
+.location {
+  display: flex;
+  align-items: center;
 }
 
 .logo:hover svg, .logo:focus svg {
