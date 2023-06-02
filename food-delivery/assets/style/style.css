@@ -21,8 +21,8 @@
   --clr-secondary: #fafafa;
   --rounded-1: ;
   --rounded-2: 1rem;
-  --ff-sans-serif: ;
-  --ff-gotham: ;
+  --ff-sans-serif: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;;
+  --ff-gotham: serif;
   --fw-md: ;
   --fw-bold: ;
   --padding-1: ;
@@ -30,8 +30,8 @@
 }
 
 body {
-  width: 90%;
   margin-inline: auto;
+  width: 90%;
 }
 
 html, 
@@ -63,18 +63,6 @@ header svg {
   width: min(35px, 50px);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: serif;
-}
-
-p {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
 
 
 
@@ -88,6 +76,28 @@ p {
     Typography Styles
   ######################
 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-gotham);
+  color: var(--clr-dark);
+}
+
+p {
+  font-family: var(--ff-sans-serif)
+}
+
+.intro-text {
+  font-size: clamp(1.5rem, .5rem + 5vw, 6rem);
+  margin: auto;
+  text-align: center;
+  padding-block: 2rem;
+  width: 16ch;
+}
+
 
 
 
@@ -122,6 +132,10 @@ p {
 .category {
   display: flex;
   gap: .5rem;
+}
+
+.highlight {
+  color: var(--clr-accent);
 }
 
 .icon {
