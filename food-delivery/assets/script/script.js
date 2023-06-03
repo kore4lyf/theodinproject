@@ -1,3 +1,3 @@
-let foodCategories = ["burger", "pizza", "salad", "chicken"];
+let foodCategoriesItems = ["burger", "pizza", "salad", "chicken"];
 
 // for(item of )
