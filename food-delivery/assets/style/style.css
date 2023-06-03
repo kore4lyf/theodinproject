@@ -63,7 +63,9 @@ header svg {
   width: min(35px, 50px);
 }
 
-
+section {
+  padding-block: 2rem;
+}
 
 
 
@@ -94,12 +96,12 @@ p, .search input[type=text] {
   font-size: clamp(1.5rem, .5rem + 5vw, 6rem);
   margin: auto;
   text-align: center;
-  padding-block: 2rem;
+  /* padding-block: 2rem; */
   width: 16ch;
 }
 
 .subheader {
-  font-size: 1.2rem;
+  font-size: clamp(.9rem, .1rem + 3vw, 1.5rem);
 }
 
 
@@ -167,8 +169,7 @@ button.icon-stroke:focus {
   overflow-x: auto;
   -ms-overflow-style: none;
   padding-bottom: 1rem;
-  margin-left: 1rem;
-  padding-left: 1rem;
+  padding-inline: 5%;
   overflow: none;
 }
 
