@@ -261,6 +261,7 @@ button.icon-stroke:hover {
   display: flex;
   align-items: center;
   color: var(--clr-dark);
+  font-size: small;
 }
 
 .logo:hover svg, .logo:focus svg {
@@ -309,7 +310,7 @@ button.icon-stroke:hover {
   font-weight: bold;
   font-size: 1.2rem;
   margin-top: 0px;
-  margin-bottom: .8rem;
+  margin-bottom: .5rem;
 }
 
 .popular .item-desc,
@@ -330,7 +331,7 @@ button.icon-stroke:hover {
   align-items: center;
   display: flex;
   gap:.2rem;
-  margin-bottom: .8rem;
+  margin-bottom: .5rem;
 }
 
 
