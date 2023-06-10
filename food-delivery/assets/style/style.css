@@ -321,6 +321,14 @@ button.icon-stroke:hover {
   min-width: 30px;
 }
 
+
+@media screen and (min-width: 380px){
+  .item-profile img{
+    display: block;
+  }
+}
+
+
 .item-profile {
   display: flex;
   gap: 10px;
