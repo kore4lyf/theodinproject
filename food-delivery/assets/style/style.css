@@ -16,6 +16,11 @@
   src: url(../fonts/gotham-regular.ttf);
 }
 
+@font-face{
+  font-family: "playfair";
+  src: url("../fonts/playfair.ttf");
+}
+
 
 
 /*
@@ -39,8 +44,7 @@
   --clr-secondary: #fafafa;
   --rounded-1: .5rem;
   --rounded-2: 1rem;
-  --ff-serif: ;
-  font-family: 'Times New Roman', serif;
+  --ff-serif: "playfair", "Times New Roman", serif;
   --ff-gotham-reg: "gotham-regular", "sans-serif";
   --ff-gotham-bold: "gotham-bold", sans-serif;
   --padding-1: .3rem;
@@ -60,6 +64,7 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
+  min-width: 280px;
 }
 
 
