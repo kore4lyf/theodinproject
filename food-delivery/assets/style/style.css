@@ -291,7 +291,7 @@ button.icon-stroke:hover {
   flex-direction: column;
 }
  
-.popular .item img {
+.popular .item > img {
   aspect-ratio: 2/1;
   border-top-right-radius: inherit;
   border-top-left-radius: inherit;
@@ -315,12 +315,35 @@ button.icon-stroke:hover {
   justify-content: space-between;
 }
 
+.item-profile img {
+  display: none;
+  max-width: 50px;
+  min-width: 30px;
+}
+
+.item-profile {
+  display: flex;
+  gap: 10px;
+}
+
+.period-divider svg {
+  width: 4px;
+  transform: translateY(-2px);
+}
+
 .popular .item-title {
   font-family: var(--ff-gotham-bold) !important;
   font-weight: bold;
   font-size: clamp(1rem, .1rem + 4vw, 1.2rem);
   margin-top: 0px;
   margin-bottom: .5rem;
+}
+
+.item-desc  {
+  align-items: center;
+  display: flex;
+  font-size: small;
+  gap: 8px;
 }
 
 .popular .item-desc,
