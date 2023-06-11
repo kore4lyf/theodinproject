@@ -54,7 +54,7 @@ function switchCategory(itemName) {
 // Display Popurlar restaurant Items
 
 function loadPopularCategory(categoryName) {
-  console.log(categoryName)
+  
   const popularContainerDom = document.querySelector(".popularContainer");
   const popularDom = document.createElement("div");
   let popularInnerHtml = "";
@@ -67,7 +67,7 @@ function loadPopularCategory(categoryName) {
 
   for (let item of items) {
     popularInnerHtml += `
-      <a onclick="showMenu('chillox', 'burger')" class="items">
+      <div onclick="showMenu('chillox', 'burger')" class="items">
         <div class="item shadow text-bold">
           <img src="./assets/images/cover/${item.coverPhotoName[categoryName]}" alt="">
           <div class="item-details">
@@ -93,11 +93,11 @@ function loadPopularCategory(categoryName) {
                 </span>
                 <p class="text-faint-dark">${item.rating}</p>
               </div>
-              <p class="item-delivery-time text-faint-dark"> ${item.deliveryTime}mins</p>
+              <p class="item-delivery-time text-faint-dark"></p>
             </div>
           </div>
         </div>
-      </a>
+      </div>
 
 
     `
@@ -106,7 +106,7 @@ function loadPopularCategory(categoryName) {
   popularDom.innerHTML = popularInnerHtml;
   popularContainerDom.appendChild(popularDom);
 
-  console.log(popularDom);
+  
 }
 
 loadPopularCategory("burger");

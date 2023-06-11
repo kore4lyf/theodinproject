@@ -68,7 +68,7 @@ export const restaurants = [
   {
     name: "Madchef",
     menuCategory: ["burger"],
-    rating: parseFloat(4.0),
+    rating: 4.0,
     profilePhotoName: "madchef-profile.jpg",
     coverPhotoName: {
       burger: "madchef-cover.png"
@@ -80,7 +80,7 @@ export const restaurants = [
     name: "McDonalds",
     menuCategory: ["burger"],
     rating: 4.9,
-    profilePhotoName: "burger-king-profile.png",
+    profilePhotoName: "mcdonalds-profile.jpg",
     coverPhotoName: {
       burger: "mcdonalds-cover.png"
     },
