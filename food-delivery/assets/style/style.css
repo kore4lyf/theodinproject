@@ -300,7 +300,7 @@ button.icon-stroke:hover {
   width: 100%;
 }
 
-.popular .item:hover img {
+.popular .item:hover > img {
   filter: saturate(1.15);
 }
 
@@ -313,6 +313,25 @@ button.icon-stroke:hover {
   padding-block: 1rem;
   padding-inline: 1rem;
   justify-content: space-between;
+}
+
+.period-divider svg {
+  width: 4px;
+  transform: translateY(-2px);
+}
+
+.popular .item-title {
+  font-family: var(--ff-gotham-bold) !important;
+  font-weight: bold;
+  font-size: clamp(1rem, .1rem + 4vw, 1.2rem);
+  margin-top: 0px;
+  margin-bottom: .5rem;
+}
+
+.popular .item-desc,
+.popular .rating-and-delivery-time {
+  font-size: small;
+  margin-block: 0px;
 }
 
 .item-profile img {
@@ -334,18 +353,7 @@ button.icon-stroke:hover {
   gap: 10px;
 }
 
-.period-divider svg {
-  width: 4px;
-  transform: translateY(-2px);
-}
 
-.popular .item-title {
-  font-family: var(--ff-gotham-bold) !important;
-  font-weight: bold;
-  font-size: clamp(1rem, .1rem + 4vw, 1.2rem);
-  margin-top: 0px;
-  margin-bottom: .5rem;
-}
 
 .item-desc  {
   align-items: center;
@@ -354,11 +362,7 @@ button.icon-stroke:hover {
   gap: 8px;
 }
 
-.popular .item-desc,
-.popular .rating-and-delivery-time {
-  font-size: small;
-  margin-block: 0px;
-}
+
 
 .rating-and-delivery-time .item-rating p {
   margin-block: 0px;

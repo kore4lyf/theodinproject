@@ -49,3 +49,43 @@ function switchCategory(itemName) {
   } 
 }
   
+
+
+
+const restaurants = [
+  {
+    name: "Chillox Burger",
+    category: "Burger",
+    rating: 4.8,
+    profile: "./assets/images/restaurants/chillox.png",
+    cover: "./assets/images/cover/chillox.png",
+    delivery: "free",
+  },
+  {
+    name: "Madchef",
+    category: "Burger",
+    rating: 4.0,
+    profile: "./assets/images/restaurants/madchef-profile.png",
+    cover: "./assets/images/cover/madchef-cover.png",
+    delivery: "free"
+  },
+  {
+    name: "McDonalds",
+    category: "Burgers",
+    rating: 4.9,
+    profile: "./assets/images/restaurants/mcdonalds-profile.png",
+    cover: "./assets/images/cover/mcdonalds-cover.png",
+    delivery: "free"  
+  },
+  {
+    name: "Burger King",
+    category: "Burgers",
+    rating: 4.9,
+    profile: "./assets/images/restaurants/burger-king-profile.png",
+    cover: "./assets/images/cover/burger-king-cover.png",
+    delivery: "free"
+  }
+];
+
+
+// Display Popurlar restaurant Items
