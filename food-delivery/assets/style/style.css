@@ -281,9 +281,6 @@ button.icon-stroke:hover {
 
 
 /** ---popular--- **/
-.popular .items {
-
-}
 
 .popular .item {
   border-radius: 1.5rem;
@@ -335,6 +332,7 @@ button.icon-stroke:hover {
 }
 
 .item-profile img {
+  border-radius: 100%;
   display: none;
   max-width: 50px;
   min-width: 30px;

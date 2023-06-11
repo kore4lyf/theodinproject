@@ -68,7 +68,7 @@ export const restaurants = [
   {
     name: "Madchef",
     menuCategory: ["burger"],
-    rating: 4.0,
+    rating: parseFloat(4.0),
     profilePhotoName: "madchef-profile.jpg",
     coverPhotoName: {
       burger: "madchef-cover.png"
