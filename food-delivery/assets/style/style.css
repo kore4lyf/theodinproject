@@ -120,7 +120,7 @@ p, .search input[type=text] {
   margin: auto;
   text-align: center;
   /* padding-block: 2rem; */
-  width: 16ch;
+  width: 15ch;
 }
 
 .subheader {

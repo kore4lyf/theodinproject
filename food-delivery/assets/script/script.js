@@ -1,11 +1,12 @@
+import * as data from './data.js';
+
 
 // Display Category Items
-let foodCategoryList = ["burger", "pizza", "salad", "chicken", "sushi"];
 const foodCategoryContainer = document.querySelector(".category .items");
 
 // Displaying a list of items with javaScript is more
 // effective than have having to type them manually in HTML
-for(item of foodCategoryList) {
+for(let item of data.foodCategoryList) {
   item = `
   <button class="btn btn-secondary item ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
     <span class="item-bg">
@@ -19,12 +20,12 @@ for(item of foodCategoryList) {
   }; 
 
   // Identify the default active category tab
-  let activeFoodCategoryTabName = foodCategoryList[0];
+  let activeFoodCategoryTabName = data.foodCategoryList[0];
 
 
 // Colletion of DOM elements for each item
 const foodCategorytTabs = {};
-for (item of document.querySelectorAll(".category .items .item")) {
+for (let item of document.querySelectorAll(".category .items .item")) {
   let itemName = item.textContent.trim();
   foodCategorytTabs[itemName] = item;
 }
@@ -48,97 +49,65 @@ function switchCategory(itemName) {
     activeFoodCategoryTabName = itemName;
   } 
 }
-  
-
-restaurantsMenu = [
-  {
-    name: "Chicken Burger",
-    restaurant: "Chillox",
-    category: "Burger",
-    photoPath: "./assets/images/menu/chillox-chikena-burger.png",
-    desc: "Chicken Patty and special sauce",
-    price: 4.99
-  },
-  {
-    name: "Beef Burger",
-    restaurant: "Chillox",
-    category: "Burger",
-    photoPath: "./assets/images/menu/chillox-beef-burger.png",
-    desc: "Beef Patty and special sauce",
-    price: 7.99
-  },
-  {
-    name: "French Fries",
-    restaurant: "Chillox",
-    category: "Burger",
-    photoPath: "./assets/images/menu/chillox-french-fries.png",
-    desc: "Sliced deep fries potatoes",
-    price: 3.99
-  },
-  {
-    name: "Naga Drums",
-    restaurant: "Chillox",
-    category: "Chicken",
-    photoPath: "./assets/images/menu/chillox-naga-drums.png",
-    desc: "Crispy fried chicken drum",
-    price: 9.99
-  },
-  {
-    name: "XL Burger",
-    restaurant: "Chillox",
-    category: "Burger",
-    photoPath: "./assets/images/menu/chillox-xl-burger.png",
-    desc: "Cheese & beef pastra",
-    price: 11.00
-  },
-  {
-    name: "Chicken Fried",
-    restaurant: "Chillox",
-    category: "Chicken",
-    photoPath: "./assets/images/menu/chillox-chicken-fried.png",
-    desc: "Delicious crispy fried breaded chicken",
-    price: 7.99
-  }
-]
-
-
-
-const restaurants = [
-  {
-    name: "Chillox",
-    category: "Burger",
-    rating: 4.8,
-    profilePhotoPath: "./assets/images/restaurants/chillox.png",
-    coverPhotoPath: "./assets/images/cover/chillox.png",
-    delivery: "free",
-  },
-  {
-    name: "Madchef",
-    category: "Burger",
-    rating: 4.0,
-    profile: "./assets/images/restaurants/madchef-profile.png",
-    cover: "./assets/images/cover/madchef-cover.png",
-    delivery: "free"
-  },
-  {
-    name: "McDonalds",
-    category: "Burgers",
-    rating: 4.9,
-    profile: "./assets/images/restaurants/mcdonalds-profile.png",
-    cover: "./assets/images/cover/mcdonalds-cover.png",
-    delivery: "free"  
-  },
-  {
-    name: "Burger King",
-    category: "Burgers",
-    rating: 4.9,
-    profile: "./assets/images/restaurants/burger-king-profile.png",
-    cover: "./assets/images/cover/burger-king-cover.png",
-    delivery: "free"
-  }
-];
 
 
 // Display Popurlar restaurant Items
-const popularDom = document.querySelector(".popular");
-console.log(popularDom);
+
+function loadPopularCategory(categoryName) {
+  console.log(categoryName)
+  const popularContainerDom = document.querySelector(".popularContainer");
+  const popularDom = document.createElement("div");
+  let popularInnerHtml = "";
+
+  const capCategoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
+
+  popularDom.classList.add("popular");
+
+  let items = data.restaurants.filter(item => item.menuCategory.includes(categoryName.toLowerCase()));
+
+  for (let item of items) {
+    popularInnerHtml += `
+      <a onclick="showMenu('chillox', 'burger')" class="items">
+        <div class="item shadow text-bold">
+          <img src="./assets/images/cover/${item.coverPhotoName[categoryName]}" alt="">
+          <div class="item-details">
+            <div class="item-profile">
+              <img src="./assets/images/restaurants/${item.profilePhotoName}" alt="Chillox logo" class="restaurant-profile">
+              <div>
+                <p class="item-title">${item.name} ${capCategoryName}</p>
+                <p class="item-desc text-faint-dark"><span>${capCategoryName}</span> 
+                  <span class="period-divider">
+                    <svg fill="currentColor" viewBox="0 0 128 512">
+                      <path d="M64 352c-35.35 0-64 28.65-64 64c0 35.35 28.65 64 64 64s64-28.65 64-64C128 380.7 99.35 352 64 352z"/>
+                    </svg>
+                  </span>
+                  <span>Fast Food</span></p>
+              </div>
+            </div>
+            <div class="rating-and-delivery-time">
+              <div class="item-rating">
+                <span>
+                  <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="var(--clr-accent)" d="M9.65394 4.58646C10.5321 2.47118 13.4679 2.47118 14.3461 4.58646L14.9577 6.05983C15.3174 6.9261 16.107 7.52663 17.0227 7.63041L18.7297 7.82385C20.8853 8.06813 21.7756 10.7755 20.2013 12.2988L18.752 13.7012C18.1148 14.3177 17.8333 15.2258 18.0069 16.1045L18.3568 17.8758C18.7997 20.118 16.3977 21.8109 14.5018 20.5927L13.3571 19.8572C12.5276 19.3242 11.4724 19.3242 10.6429 19.8572L9.49819 20.5927C7.60234 21.8109 5.20031 20.118 5.64324 17.8758L5.99315 16.1045C6.16673 15.2258 5.88518 14.3177 5.24798 13.7012L3.79871 12.2988C2.22438 10.7755 3.11472 8.06813 5.27034 7.82385L6.97726 7.63041C7.89305 7.52663 8.68263 6.9261 9.04227 6.05983L9.65394 4.58646Z" stroke="#302F3C" stroke-width="0" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>                    
+                </span>
+                <p class="text-faint-dark">${item.rating}</p>
+              </div>
+              <p class="item-delivery-time text-faint-dark"> ${item.deliveryTime}mins</p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+
+    `
+  }
+
+  popularDom.innerHTML = popularInnerHtml;
+  popularContainerDom.appendChild(popularDom);
+
+  console.log(popularDom);
+}
+
+loadPopularCategory("burger");
+
