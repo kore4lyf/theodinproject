@@ -57,7 +57,7 @@ export const restaurants = [
   {
     name: "Chillox",
     menuCategory: ["burger", "frenchfries", "chicken"],
-    rating: 4.8,
+    rating: 4.7,
     profilePhotoName: "chillox-profile.png",
     coverPhotoName: {
       burger: "chillox-burger-cover.png"
@@ -90,7 +90,7 @@ export const restaurants = [
   {
     name: "Burger King",
     menuCategory: ["burger"],
-    rating: 4.9,
+    rating: 4.8,
     profilePhotoName: "burger-king-profile.png",
     coverPhotoName: {
       burger: "burger-king-cover.jpg"

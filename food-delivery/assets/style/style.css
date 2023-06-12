@@ -51,10 +51,6 @@
   --padding-2: .6rem;
 }
 
-body {
-  margin-inline: auto;
-}
-
 button {
   cursor: pointer;
 }
@@ -65,6 +61,7 @@ body {
   height: 100%;
   width: 100%;
   min-width: 280px;
+  position: relative;
 }
 
 
@@ -186,6 +183,7 @@ button.icon-fill:hover,
 }
 
 button.icon-stroke, 
+a .icon-stroke, 
 .icon-stroke {
   stroke: var(--clr-dark);
   background: transparent;
@@ -193,7 +191,8 @@ button.icon-stroke,
   border: 0px;
 }
 
-button.icon-stroke:hover {
+button.icon-stroke:hover,
+a > .icon-stroke:hover {
   stroke: var(--clr-accent);
   stroke-opacity: 1;
   fill-opacity: 1;
@@ -282,20 +281,15 @@ button.icon-stroke:hover {
   color: var(--clr-accent);
 }
 
-.sha {
-  display: grid;
-  
-  grid-template-columns: 100px, 100px;
-  grid-auto-rows: 100px;
-  gap: 1rem;
-}
-
 
 
 
 
 
 /** ---popular--- **/
+.popularContainer {
+  padding-bottom: 2rem;
+}
 .popular {
   display: flex;
   flex-wrap: wrap;
@@ -418,20 +412,24 @@ button.icon-stroke:hover {
 
 
 
-/** ---notification--- **/
+/** ---icon-effect--- **/
 
-.notification:hover, .notification:focus {
+.icon-effect:hover, .icon-effect:focus {
   background: var(--clr-secondary);
 }
 
-.notification svg {
+.icon-effect svg {
   color: var(--clr-dark);
   fill-opacity: .6;
 }
 
-.notification:hover svg, .notification.active svg  {
+.icon-effect:hover svg, .icon-effect.active svg  {
   color: var(--clr-accent);
   fill-opacity: 1;
+}
+
+.lean-icon {
+  padding-block: 1rem;
 }
 
 
@@ -455,12 +453,30 @@ button.icon-stroke:hover {
   width: 100%;
 }
 
-.search input[type=text] {
+.search .search-box {
   background: transparent;
   border: 0px;
   caret-color: var(--clr-accent);
   font-size: small;
   width: 100%;
+}
+
+.restaurant-cover {
+  width: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.restaurant-cover img {
+  width: 100%;
+}
+
+.restaurant-cover div::after {
+  background-color: rgb(0, 0, 0, .2);
+  content: "";
+  position: absolute;
+  inset: 0;
 }
 
 
