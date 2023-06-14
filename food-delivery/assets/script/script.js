@@ -72,7 +72,7 @@ function loadPopularCategory(categoryName) {
           <img src="./assets/images/cover/${item.coverPhotoName[categoryName]}" alt="">
           <div class="item-details">
             <div class="item-profile">
-              <img src="./assets/images/restaurants/${item.profilePhotoName}" alt="Chillox logo" class="restaurant-profile">
+              <img src="./assets/images/restaurants/${item.profilePhotoName}" alt="Chillox logo">
               <div>
                 <p class="item-title">${item.name} ${capCategoryName}</p>
                 <p class="item-desc text-faint-dark"><span>${capCategoryName}</span> 
