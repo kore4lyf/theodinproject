@@ -61,7 +61,6 @@ body {
   height: 100%;
   width: 100%;
   min-width: 280px;
-  position: relative;
 }
 
 
@@ -152,6 +151,7 @@ p, .search input[type=text] {
   border: 0;
   border-radius: var(--rounded-2);
   padding: var(--padding-2);
+  padding-block: .8rem;
   position: relative;
   transition: 
     background ease-in .3s,
@@ -212,6 +212,7 @@ a > .icon-stroke:hover {
   overflow: none;
 }
 
+
 .category .items::-webkit-scrollbar {
   display: none;
 }
@@ -223,10 +224,21 @@ a > .icon-stroke:hover {
   display: flex;  
   gap: 5px;
   justify-content: center;
-  padding-block: .5rem;
-  padding-inline: .35rem;
+  /* padding-block: .5rem;
+  padding-inline: .35rem; */
+  padding: .8rem;
   text-transform: capitalize;
   width: fit-content;
+}
+
+@media screen and (min-width: 450px) {
+  .category .item span.item-bg {
+    display: none;
+  }
+
+  .category .item {
+    padding: 1.2rem;
+  }
 }
 
 .category .item:focus, .item.active {
@@ -428,10 +440,9 @@ a > .icon-stroke:hover {
   fill-opacity: 1;
 }
 
-.lean-icon {
-  padding-block: 1rem;
+.inline-icon {
+  padding-block: 1.25rem;
 }
-
 
 
 
@@ -466,6 +477,7 @@ a > .icon-stroke:hover {
   display: inline-block;
   position: absolute;
   top: 0;
+  z-index: -1;
 }
 
 .restaurant-cover img {
@@ -473,7 +485,7 @@ a > .icon-stroke:hover {
 }
 
 .restaurant-cover div::after {
-  background-color: rgb(0, 0, 0, .2);
+  background-color: rgb(0, 0, 0, .5);
   content: "";
   position: absolute;
   inset: 0;
