@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="./assets/icons/logo.svg" width="20" type="image/x-icon">
   <script type="module" src="./assets/script/script.js" defer></script>
 </head>
-<body>
+<body id="restaurant">
   
   <header class="w-90 mx-auto">
     <a href="" class="btn btn-secodary icon-effect inline-icon btn-secondary">
@@ -55,9 +55,9 @@
     </div>
   </section>
 
-  <section class="restaurant-menu">
+  <section class="restaurant-menu w-90 mx-auto">
     <div class="search menu-search">
-      <h2 class="subheading">Menu</h2>
+      <h2 class="subheader">Menu</h2>
       <span>
         <input id="search-menu" type="text" name="search" class="hide search-box text-faint-dark text-bold" placeholder="Search your food"/>
         <button class="btn icon-fill">
@@ -68,16 +68,28 @@
       </span>
     </div>
     
-    <ul class="menu">
-      <li class="option">Popular</li>
-      <li class="option">Burgers</li>
-      <li class="option">French Fry</li>
-      <li class="option">Chicken</li>
+  </section>
+
+  <section id="menu" class="menu">
+    <ul type="none" class="options">
+      <li onclick="" class="option btn btn-secondary active">
+        <p class="text-bold">Popular</p>
+      </li>
+      <li class="option btn btn-secondary">
+        <p class="text-bold">Burgers</p>
+      </li>
+      <li class="option btn btn-secondary">
+        <p class="text-bold">French Fry</p>
+        </li>
+      <li class="option btn btn-secondary">
+        <p class="text-bold">Chicken</p>
+      </li>
     </ul>
   </section>
+  
     
 
-  <section class="products">
+  <!-- <section class="products">
       <ul class="items">
         <li class="item">
           <img src="./assets/font" alt="Chillox Chicken Burger">
@@ -91,7 +103,7 @@
         </li>
       </ul>
     </div>
-  </section>
+  </section> -->
 
 
 

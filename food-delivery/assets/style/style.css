@@ -153,9 +153,6 @@ p, .search input[type=text] {
   padding: var(--padding-2);
   padding-block: .8rem;
   position: relative;
-  transition: 
-    background ease-in .3s,
-    box-shadow ease-in .3s;
 
 }
 
@@ -201,7 +198,7 @@ a > .icon-stroke:hover {
 
 
 /** ---category--- **/
-.category .items {
+.menu .options {
   display: flex;
   font-size: small;
   gap: 1rem;
@@ -210,53 +207,57 @@ a > .icon-stroke:hover {
   padding-bottom: 1.2rem;
   padding-inline: 5%;
   overflow: none;
+  white-space: nowrap;
 }
 
 
-.category .items::-webkit-scrollbar {
+.menu .options::-webkit-scrollbar  {
   display: none;
 }
 
-.category .item {
+.menu .option {
   align-items: center;
   border-radius: .9rem;
   color: var(--clr-dark);
   display: flex;  
   gap: 5px;
   justify-content: center;
-  /* padding-block: .5rem;
-  padding-inline: .35rem; */
   padding: .8rem;
   text-transform: capitalize;
   width: fit-content;
 }
 
 @media screen and (min-width: 450px) {
-  .category .item span.item-bg {
+  #category .option span.option-bg {
     display: none;
   }
 
-  .category .item {
+  #category .option {
     padding: 1.2rem;
   }
 }
 
-.category .item:focus, .item.active {
+
+
+.menu .option:focus,
+.menu .option:hover,
+.menu .option.active {
   background: var(--clr-accent);
   box-shadow: 0px 5px .8rem rgba(0, 0, 0, 0.1);
   color: white;
 }
 
-.category .item p {
+
+.menu .option p {
   margin: 0px;
 }
 
-.category .item.active .item-bg  {
+.menu .option.active .option-bg  {
   background: white;
 }
 
 
-.category .item-bg {
+.menu .option-bg {
   align-items: center;
   border-radius: calc(var(--rounded-1));
   display: flex;
@@ -479,10 +480,11 @@ a > .icon-stroke:hover {
 }
 
 .restaurant-cover {
-  width: 100%;
   display: inline-block;
   position: absolute;
+  min-width: inherit;
   top: 0;
+  width: 100%;
   z-index: -1;
 }
 
@@ -547,6 +549,7 @@ img.restaurant-profile {
   display: flex;
   /* gap: 6rem; */
   justify-content: space-between;
+  padding: 0px;
 }
 
 .menu-search .btn {
@@ -563,6 +566,9 @@ img.restaurant-profile {
   transform: translateY(2.8px);
 }
 
+#menu .option {
+  padding: 1.2rem;
+}
 
 /*
   #################

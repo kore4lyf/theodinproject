@@ -6,17 +6,17 @@ import * as data from './data.js';
    ################## */
 
 // Display Category Items
-const foodCategoryContainer = document.querySelector(".category .items");
+const foodCategoryContainer = document.querySelector("#category .options");
 
 // Displaying a list of items with javaScript is more
 // effective than have having to type them manually in HTML
 for(let item of data.foodCategoryList) {
   item = `
-  <li class="btn btn-secondary item ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
-    <span class="item-bg">
-    <img src="./assets/images/categories/${item}.png" alt="">
+  <li class="btn btn-secondary option ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
+    <span class="option-bg">
+    <img src="./assets/images/categories/${item}.png" alt="${item} lcon">
     </span>
-    <p class="item-name text-bold">${item}</p>
+    <p class="text-bold">${item}</p>
     </li>
     `;
     
