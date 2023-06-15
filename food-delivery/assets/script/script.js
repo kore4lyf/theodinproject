@@ -1,6 +1,10 @@
 import * as data from './data.js';
 
 
+/* ################## 
+        HOMEPAGE 
+   ################## */
+
 // Display Category Items
 const foodCategoryContainer = document.querySelector(".category .items");
 
@@ -8,12 +12,12 @@ const foodCategoryContainer = document.querySelector(".category .items");
 // effective than have having to type them manually in HTML
 for(let item of data.foodCategoryList) {
   item = `
-  <button class="btn btn-secondary item ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
+  <li class="btn btn-secondary item ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
     <span class="item-bg">
     <img src="./assets/images/categories/${item}.png" alt="">
     </span>
     <p class="item-name text-bold">${item}</p>
-    </button>
+    </li>
     `;
     
     foodCategoryContainer.innerHTML += item;

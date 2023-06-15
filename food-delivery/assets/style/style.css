@@ -175,8 +175,8 @@ button.icon-fill,
   border: 0px;
 }
 
-button.icon-fill:hover,
-.icon-fill:hover {
+button.icon-fill:not(.search-icon):hover,
+.icon-fill:not(.search-icon):hover {
   color: var(--clr-accent);
   stroke-opacity: 1;
   fill-opacity: 1;
@@ -381,7 +381,6 @@ a > .icon-stroke:hover {
   display: none;
   height: 50px;
   width: 50px;
-  filter: drop-shadow(0px 1px 3px rgb(0, 0, 0, .2))
 }
 
 
@@ -473,7 +472,8 @@ a > .icon-stroke:hover {
   width: 100%;
 }
 
-*::not(img)::selection, .search .search-box::selection {
+
+*::selection, .search .search-box::selection {
   background: var(--clr-accent);
   color: white;
 }
@@ -518,13 +518,13 @@ a > .icon-stroke:hover {
   padding-left: 0px;
   font-family: var(--ff-gotham-reg);
   display: flex;
-  gap: 6rem;
+  gap: 5rem;
   justify-content: center;
 }
 
 .restaurant-details li {
-  display: flex;
   align-items: center;
+  display: flex;
   gap: .5rem;
 }
 
@@ -541,7 +541,31 @@ img.restaurant-profile {
   z-index: 1;
 }
 
+.menu-search {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+}
 
+.menu-search .btn {
+  padding: .35rem
+}
+
+.menu-search .search-box {
+  min-width: 24ch;
+  max-width: 50ch;
+  border: 1px solid red;
+}
+
+.menu-search span {
+  display: flex;
+  justify-content: flex-end;
+}
+.menu-search > *, .menu-search span > *{
+  border: 1px solid rgb(0, 0, 0, .5)
+}
 
 
 /*
@@ -549,6 +573,10 @@ img.restaurant-profile {
     Other Styles
   #################
 */
+
+.hide {
+  /* display: none; */
+}
 
 .mb-1rem {
   margin-block: 1rem;
