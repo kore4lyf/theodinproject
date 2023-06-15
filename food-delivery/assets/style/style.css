@@ -545,7 +545,7 @@ img.restaurant-profile {
   align-items: center;
   background: transparent;
   display: flex;
-  gap: 2rem;
+  /* gap: 6rem; */
   justify-content: space-between;
 }
 
@@ -554,12 +554,13 @@ img.restaurant-profile {
 }
 
 .menu-search .search-box {
-  max-width: 50ch;
+  max-width:15ch;
 }
 
 .menu-search span {
   display: flex;
   justify-content: flex-end;
+  transform: translateY(2.8px);
 }
 
 
