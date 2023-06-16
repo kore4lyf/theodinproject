@@ -1,62 +1,76 @@
 import * as data from './data.js';
 
 
+
+// Home DOM
+const home = document.querySelector("#home");
+
+// home.addEventListener("DOMContentLoaded", () => {
+  //   displayCategoryItems();
+  //   console.log("hey");
+  // });
+  
+  if (home) {
+    displayCategoryItems();
+    loadPopularCategory("burger");
+  }
+  
 /* ################## 
         HOMEPAGE 
-   ################## */
-
-// Display Category Items
-const foodCategoryContainer = document.querySelector("#category .options");
-
-// Displaying a list of items with javaScript is more
-// effective than have having to type them manually in HTML
-for(let item of data.foodCategoryList) {
-  item = `
-  <li class="btn btn-secondary option ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
-    <span class="option-bg">
-    <img src="./assets/images/categories/${item}.png" alt="${item} lcon">
-    </span>
-    <p class="text-bold">${item}</p>
-    </li>
-    `;
-    
-    foodCategoryContainer.innerHTML += item;
-  }; 
-
-  // Identify the default active category tab
-  let activeFoodCategoryTabName = data.foodCategoryList[0];
-
-
-// Colletion of DOM elements for each item
-const foodCategorytTabs = {};
-for (let item of document.querySelectorAll(".category .items .item")) {
-  let itemName = item.textContent.trim();
-  foodCategorytTabs[itemName] = item;
-}
-
-
-
-/*
- * swithCategory: Switches active tab propertise on click
- * @itemName: The name of the current active tab
- *  
- */
-function switchCategory(itemName) { 
-  if (!(activeFoodCategoryTabName === itemName)) {
-    // Remove the active class name from previous active tab
-    foodCategorytTabs[activeFoodCategoryTabName].classList.remove("active");
-
-    // Add the active class name to newly clicked tab 
-    foodCategorytTabs[itemName].classList.add("active");
-
-    // Change active tab name
-    activeFoodCategoryTabName = itemName;
-  } 
+    ################## */
+// * Display Category Items
+function displayCategoryItems() {
+  const foodCategoryContainer = document.querySelector("#category .options");
+  
+  // Displaying a list of items with javaScript is more
+  // effective than have having to type them manually in HTML
+  for(let item of data.foodCategoryList) {
+    item = `
+    <li class="btn btn-secondary option ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
+      <span class="option-bg">
+      <img src="./assets/images/categories/${item}.png" alt="${item} lcon">
+      </span>
+      <p class="text-bold">${item}</p>
+      </li>
+      `;
+      
+      foodCategoryContainer.innerHTML += item;
+    }; 
+  
+    // Identify the default active category tab
+    let activeFoodCategoryTabName = data.foodCategoryList[0];
+  
+  
+  // Colletion of DOM elements for each item
+  const foodCategorytTabs = {};
+  for (let item of document.querySelectorAll(".category .items .item")) {
+    let itemName = item.textContent.trim();
+    foodCategorytTabs[itemName] = item;
+  }
+  
+  
+  
+  /*
+   * swithCategory: Switches active tab propertise on click
+   * @itemName: The name of the current active tab
+   *  
+   */
+  function switchCategory(itemName) { 
+    if (!(activeFoodCategoryTabName === itemName)) {
+      // Remove the active class name from previous active tab
+      foodCategorytTabs[activeFoodCategoryTabName].classList.remove("active");
+  
+      // Add the active class name to newly clicked tab 
+      foodCategorytTabs[itemName].classList.add("active");
+  
+      // Change active tab name
+      activeFoodCategoryTabName = itemName;
+    } 
+  }
 }
 
 
 // Display Popurlar restaurant Items
-
 function loadPopularCategory(categoryName) {
   
   const popularContainerDom = document.querySelector(".popularContainer");
@@ -109,9 +123,7 @@ function loadPopularCategory(categoryName) {
 
   popularDom.innerHTML = popularInnerHtml;
   popularContainerDom.appendChild(popularDom);
-
-  
 }
 
-loadPopularCategory("burger");
+
 

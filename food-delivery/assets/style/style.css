@@ -113,6 +113,7 @@ p, .search input[type=text] {
 
 .intro-text {
   font-size: clamp(1.3rem, .5rem + 5vw, 6rem);
+  font-weight: bold;
   margin: auto;
   text-align: center;
   /* padding-block: 2rem; */
