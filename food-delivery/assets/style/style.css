@@ -567,7 +567,6 @@ img.restaurant-profile {
 
 /* +++ restaurant.html +++ */
 .product {
-  
   padding-bottom: 4rem;
 }
 
@@ -575,11 +574,15 @@ img.restaurant-profile {
   /* background-color: #302f3c; */
   border: 1px solid var(--clr-secondary);
   border-radius: 1.8rem;
-  min-width: 150px;
-  max-width: 250px;
+  min-width: 100px;
+  max-width: 200px;
 }
 
-
+.product .item-name, 
+.product .item-desc {
+  display: block;
+  text-align: center;
+}
 
 .product .items {
   display: grid;
@@ -605,9 +608,23 @@ img.restaurant-profile {
   transform: 
       scale(1.1) 
       translateY(20px);
-
 }
 
+.item-price-addtocart {
+  align-items: center;
+  color: var(--clr-dark);
+  display: flex;
+  font-family: var(--ff-gotham-bold);
+  font-weight: bold;
+  font-size: 1.3rem;
+  gap: .2rem;
+  justify-content: center;
+}
+
+.product .currency {
+  font-family: calibri, sans-serif;
+
+}
 
 
 
