@@ -306,7 +306,7 @@ a .icon-stroke:hover {
   /* display: flex;
   flex-wrap: wrap; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 450px));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 450px));
   gap: 2rem;
   justify-content: flex-start;
   padding-left: 0px;
@@ -377,7 +377,7 @@ a .icon-stroke:hover {
 }
 
 
-@media screen and (min-width: 380px){
+@media screen and (min-width: 310px){
   .item-profile img{
     display: block;
   }
@@ -565,15 +565,34 @@ img.restaurant-profile {
 
 
 /* +++ restaurant.html +++ */
-.product {
+.product .item {
   background-color: #302f3c;
-  border-radius: 1.rem;
-  width: fit-content;
+  border-radius: 1.8rem;
+  min-width: 150px;
+  max-width: 250px;
 }
 
-.product items {
+.product .items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 250px));
+  gap: 2rem;
   padding-left: 0px;
 }
+
+.product .item img {
+  aspect-ratio: 1 / 1;
+  display: block;
+  border: 1px solid white;
+  margin: auto;
+  object-fit: cover;
+  object-position: center;
+  transition: transform ease-in-out 0.5s;
+  width: 200px;
+}
+
+
+
+
 
 
 
