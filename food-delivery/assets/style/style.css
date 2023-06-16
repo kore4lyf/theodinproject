@@ -574,9 +574,14 @@ img.restaurant-profile {
   /* background-color: #302f3c; */
   border: 1px solid var(--clr-secondary);
   border-radius: 1.8rem;
-  min-width: 100px;
-  max-width: 200px;
+  /* min-width: 100px;
+  max-width: 200px; */
 }
+
+.product .item:focus {
+  border: 1px solid var(--clr-secondary);
+}
+
 
 .product .item-name, 
 .product .item-desc {
@@ -586,7 +591,7 @@ img.restaurant-profile {
 
 .product .items {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 250px));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
   gap: 2rem;
   padding-left: 0px;
 }
@@ -594,11 +599,10 @@ img.restaurant-profile {
 .product .item img {
   aspect-ratio: 1 / 1;
   display: block;
-  border: 1px solid red;
   margin: auto;
   object-fit: cover;
   object-position: center;
-  transition: transform ease-in-out 0.5s;
+  transition: transform ease-in-out 0.3s;
   transform: translateY(20px);
   width: 200px;
 }
@@ -612,20 +616,41 @@ img.restaurant-profile {
 
 .item-price-addtocart {
   align-items: center;
+  background-color: var(--clr-secondary);
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
   color: var(--clr-dark);
   display: flex;
-  font-family: var(--ff-gotham-bold);
+  font-family: var(--ff-gotham-reg);
   font-weight: bold;
-  font-size: 1.3rem;
-  gap: .2rem;
+  font-size: 1.2rem;
+  gap: .1rem;
   justify-content: center;
 }
 
 .product .currency {
   font-family: calibri, sans-serif;
-
 }
 
+.add-to-cart, 
+.remove-from-cart {
+  font-family: var(--ff-gotham-reg);
+  font-size: 1.3rem;
+}
+
+.remove-from-cart.disabled,
+.remove-from-cart.disabled:hover,
+.remove-from-cart.disabled:focus {
+  cursor:not-allowed;
+  color: lightgray !important;
+}
+
+  
+
+.add-to-cart:focus, 
+.remove-from-cart:focus {
+  color: var(--clr-accent)
+}
 
 
 
