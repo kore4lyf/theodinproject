@@ -352,7 +352,8 @@ a .icon-stroke:hover {
   transform: translateY(-2px);
 }
 
-.popular .item .item-title {
+.popular .item-title,
+.product .item-name {
   color: var(--clr-dark);
   font-family: var(--ff-gotham-bold) !important;
   font-weight: bold;
@@ -565,12 +566,20 @@ img.restaurant-profile {
 
 
 /* +++ restaurant.html +++ */
+.product {
+  
+  padding-bottom: 4rem;
+}
+
 .product .item {
-  background-color: #302f3c;
+  /* background-color: #302f3c; */
+  border: 1px solid var(--clr-secondary);
   border-radius: 1.8rem;
   min-width: 150px;
   max-width: 250px;
 }
+
+
 
 .product .items {
   display: grid;
@@ -582,15 +591,22 @@ img.restaurant-profile {
 .product .item img {
   aspect-ratio: 1 / 1;
   display: block;
-  border: 1px solid white;
+  border: 1px solid red;
   margin: auto;
   object-fit: cover;
   object-position: center;
   transition: transform ease-in-out 0.5s;
+  transform: translateY(20px);
   width: 200px;
 }
 
+.product .item:hover img {
+  filter: saturate(1.2);
+  transform: 
+      scale(1.1) 
+      translateY(20px);
 
+}
 
 
 
