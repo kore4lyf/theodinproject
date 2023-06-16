@@ -73,26 +73,29 @@ function displayCategoryItems() {
 // Display Popurlar restaurant Items
 function loadPopularCategory(categoryName) {
   
-  const popularContainerDom = document.querySelector(".popularContainer");
-  const popularDom = document.createElement("div");
-  let popularInnerHtml = "";
+  const popularContainerDom = document.querySelector(".popular-container");
+  const popularDom = document.createElement("ul");
+  popularDom.setAttribute("type", "none");
+  popularDom.classList.add("popular");
+  let innerHtml = "";
 
   const capCategoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
 
-  popularDom.classList.add("popular");
+  
+  
 
   let items = data.restaurants.filter(item => item.menuCategory.includes(categoryName.toLowerCase()));
 
   for (let item of items) {
-    popularInnerHtml += `
-      <div onclick="showMenu('chillox', 'burger')" class="items">
-        <div class="item shadow text-bold">
+    let itemTitle = item.name;
+     innerHtml += `
+        <li onclick="showMenu(item.name, categoryName)" class="item shadow text-bold">
           <img src="./assets/images/cover/${item.coverPhotoName[categoryName]}" alt="">
           <div class="item-details">
             <div class="item-profile">
               <img src="./assets/images/restaurants/${item.profilePhotoName}" alt="Chillox logo">
               <div>
-                <p class="item-title">${item.name} ${capCategoryName}</p>
+                <p class="item-title" title="${itemTitle}">${itemTitle.length <= 16 ? itemTitle : itemTitle.slice(0,13) + "..."}</p>
                 <p class="item-desc text-faint-dark"><span>${capCategoryName}</span> 
                   <span class="period-divider">
                     <svg fill="currentColor" viewBox="0 0 128 512">
@@ -114,15 +117,12 @@ function loadPopularCategory(categoryName) {
               <p class="item-delivery-time text-faint-dark"></p>
             </div>
           </div>
-        </div>
-      </div>
-
-
+        </li>
     `
+    
+      popularDom.innerHTML = innerHtml;
+    popularContainerDom.appendChild(popularDom);
   }
-
-  popularDom.innerHTML = popularInnerHtml;
-  popularContainerDom.appendChild(popularDom);
 }
 
 
