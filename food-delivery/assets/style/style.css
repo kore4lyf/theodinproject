@@ -30,6 +30,7 @@
 */
 *, ::after, ::before {
   box-sizing: border-box;
+  text-rendering: optimizeSpeed;
 }
 
 :focus {
@@ -591,7 +592,7 @@ img.restaurant-profile {
 
 .product .items {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  grid-template-columns: repeat(auto-fill, minmax(auto, 250px));
   gap: 2rem;
   padding-left: 0px;
 }
@@ -603,15 +604,16 @@ img.restaurant-profile {
   object-fit: cover;
   object-position: center;
   transition: transform ease-in-out 0.3s;
-  transform: translateY(20px);
+  transform: translateY(50px);
   width: 200px;
+  overflow: hidden;
 }
 
 .product .item:hover img {
   filter: saturate(1.2);
   transform: 
       scale(1.1) 
-      translateY(20px);
+      translateY(40px);
 }
 
 .item-price-addtocart {
@@ -624,8 +626,12 @@ img.restaurant-profile {
   font-family: var(--ff-gotham-reg);
   font-weight: bold;
   font-size: 1.2rem;
-  gap: .1rem;
+  gap: .5rem;
   justify-content: center;
+}
+
+.item-price-addtocart div {
+  padding: 1rem;
 }
 
 .product .currency {
@@ -634,6 +640,8 @@ img.restaurant-profile {
 
 .add-to-cart, 
 .remove-from-cart {
+  border: 1px solid lightgray;
+  border-radius: .5rem;
   font-family: var(--ff-gotham-reg);
   font-size: 1.3rem;
 }
@@ -641,12 +649,14 @@ img.restaurant-profile {
 .remove-from-cart.disabled,
 .remove-from-cart.disabled:hover,
 .remove-from-cart.disabled:focus {
-  cursor:not-allowed;
-  color: lightgray !important;
+  /* cursor:not-allowed;
+  color: lightgray !important; */
 }
 
   
 
+.add-to-cart:hover, 
+.remove-from-cart:hover,
 .add-to-cart:focus, 
 .remove-from-cart:focus {
   color: var(--clr-accent)

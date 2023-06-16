@@ -30,7 +30,7 @@ function displayCategoryItems() {
     item = `
     <li class="btn btn-secondary option ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
       <span class="option-bg">
-      <img src="./assets/images/categories/${item}.png" alt="${item} lcon">
+      <img loading="lazy" src="./assets/images/categories/${item}.png" alt="${item} lcon">
       </span>
       <p class="text-bold">${item}</p>
       </li>
@@ -95,7 +95,7 @@ function loadPopularCategory(categoryName) {
           <img src="./assets/images/cover/${item.coverPhotoName[categoryName]}" alt="">
           <span class="item-details">
             <span class="item-profile">
-              <img src="./assets/images/restaurants/${item.profilePhotoName}" alt="Chillox logo">
+              <img loading="lazy" src="./assets/images/restaurants/${item.profilePhotoName}" alt="Chillox logo">
               <span>
                 <p class="item-title" title="${itemTitle}">${itemTitle.length <= 16 ? itemTitle : itemTitle.slice(0,13) + "..."}</p>
                 <p class="item-desc text-faint-dark"><span>${capCategoryName}</span> 
@@ -135,6 +135,5 @@ function loadPopularCategory(categoryName) {
 /* #############################  
          RESTAURANT PAGE 
    ############################# */
-
 
 
