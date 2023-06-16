@@ -306,8 +306,7 @@ a .icon-stroke:hover {
   /* display: flex;
   flex-wrap: wrap; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 400px));
-  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(auto, 350px));
   gap: 2rem;
   justify-content: flex-start;
   padding-left: 0px;
@@ -320,24 +319,6 @@ a .icon-stroke:hover {
   display: flex;
   flex-direction: column;
 }
-
-/* @media screen and (min-width: 450px) {
-  .popular {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .popular {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (min-width: 1800px) {
-  .popular {
-    grid-template-columns: repeat(4, 1fr);
-  }
-} */
   
 
 .popular .item > img {
@@ -580,6 +561,8 @@ img.restaurant-profile {
 #menu .option {
   padding: 1.2rem;
 }
+
+
 
 /*
   #################
