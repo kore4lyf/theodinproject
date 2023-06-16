@@ -306,7 +306,7 @@ a .icon-stroke:hover {
   /* display: flex;
   flex-wrap: wrap; */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(auto, 350px));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 450px));
   gap: 2rem;
   justify-content: flex-start;
   padding-left: 0px;
@@ -560,6 +560,19 @@ img.restaurant-profile {
 
 #menu .option {
   padding: 1.2rem;
+}
+
+
+
+/* +++ restaurant.html +++ */
+.product {
+  background-color: #302f3c;
+  border-radius: 1.rem;
+  width: fit-content;
+}
+
+.product items {
+  padding-left: 0px;
 }
 
 
