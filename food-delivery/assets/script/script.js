@@ -18,6 +18,8 @@ const home = document.querySelector("#home");
 /* ################## 
         HOMEPAGE 
     ################## */
+
+
 // * Display Category Items
 function displayCategoryItems() {
   const foodCategoryContainer = document.querySelector("#category .options");
@@ -124,6 +126,15 @@ function loadPopularCategory(categoryName) {
     popularContainerDom.appendChild(popularDom);
   }
 }
+
+
+
+
+
+
+/* #############################  
+         RESTAURANT PAGE 
+   ############################# */
 
 
 

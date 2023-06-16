@@ -190,7 +190,8 @@ a .icon-stroke,
 }
 
 button.icon-stroke:hover,
-a > .icon-stroke:hover {
+button .icon-stroke:hover,
+a .icon-stroke:hover {
   stroke: var(--clr-accent);
   stroke-opacity: 1;
   fill-opacity: 1;
@@ -302,30 +303,43 @@ a > .icon-stroke:hover {
 
 /** ---popular--- **/
 .popular {
-  display: flex;
-  flex-wrap: wrap;
-  /* grid-template-columns: repeat(autofit, minmax(300px, 400px)); */
+  /* display: flex;
+  flex-wrap: wrap; */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(auto, 400px));
+  /* grid-template-columns: 1fr 1fr; */
   gap: 2rem;
   justify-content: flex-start;
   padding-left: 0px;
-  padding-bottom: 6rem;
-  width: 100%;
+  padding-bottom: 4rem;
+  max-width: 100%;
 }
-
-@media screen and (min-width: 450px) {
-  .popular .item {
-    width: 350px;
-    display: none;
-  }
-}
-
 
 .popular .item {
   border-radius: 1.5rem;
   display: flex;
   flex-direction: column;
 }
- 
+
+/* @media screen and (min-width: 450px) {
+  .popular {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .popular {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .popular {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} */
+  
+
 .popular .item > img {
   aspect-ratio: 2/1;
   border-top-right-radius: inherit;
@@ -347,7 +361,9 @@ a > .icon-stroke:hover {
   display: flex;
   padding-block: 1rem;
   padding-inline: 1rem;
+  gap: 1rem;
   justify-content: space-between;
+  white-space: nowrap;
 }
 
 .period-divider svg {
@@ -362,7 +378,6 @@ a > .icon-stroke:hover {
   font-size: clamp(1rem, .1rem + 4vw, 1.2rem);
   margin-top: 0px;
   margin-bottom: .5rem;
-  white-space: nowrap;
   word-break: keep-all;
 }
 
