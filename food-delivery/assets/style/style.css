@@ -649,8 +649,8 @@ img.restaurant-profile {
 .remove-from-cart.disabled,
 .remove-from-cart.disabled:hover,
 .remove-from-cart.disabled:focus {
-  /* cursor:not-allowed;
-  color: lightgray !important; */
+  cursor:not-allowed;
+  color: lightgray !important;
 }
 
   
