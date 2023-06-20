@@ -592,9 +592,12 @@ img.restaurant-profile {
 
 .product .items {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(auto, 250px));
+  grid-template-columns: repeat(auto-fit, minmax(auto, 250px));
   gap: 2rem;
   padding-left: 0px;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid red;
 }
 
 .product .item img {
