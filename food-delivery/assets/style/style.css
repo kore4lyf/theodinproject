@@ -309,7 +309,7 @@ a .icon-stroke:hover {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 450px));
   gap: 2rem;
-  justify-content: flex-start;
+  justify-content: center;
   padding-left: 0px;
   padding-bottom: 4rem;
   max-width: 100%;
@@ -597,7 +597,6 @@ img.restaurant-profile {
   padding-left: 0px;
   justify-content: center;
   width: 100%;
-  border: 1px solid red;
 }
 
 .product .item img {
