@@ -193,7 +193,7 @@ function loadRestaurantContent(name, category) {
   category = category.toLowerCase();
   
   /** Set content from top to bottom **/
-  let restaurantsData = data.restaurants;
+  let restaurantData = data.restaurants[name];
   let restaurantsMenu = data.restaurantsMenu;
 
   // {
@@ -210,11 +210,24 @@ function loadRestaurantContent(name, category) {
 
   // Set restaurant cover image
   const restaurantCoverDOM = document.querySelector(".restaurant-cover img");
-  let restaurantCover = restaurantsData[name].coverPhoto[category];
+  let restaurantCover = restaurantData.coverPhoto[category];
   restaurantCoverDOM.src = `./assets/images/cover/${restaurantCover}`;
   
+
+  // // Set restaurant profile photo
+  // const restaurantProfilePhotoDOM = document.querySelector(".restaurant-profile");
+  // let restaurantProfilePhoto = restaurantData.profilePhoto;
+  // restaurantProfilePhotoDOM.src =  `./assets/images/restaurants/${restaurantProfilePhoto}`;
   
- 
+
+  // // Set restaurant name
+  // const restaurantNameDOM = document.querySelector(".restaurant-details h1");
+  // restaurantNameDOM.innerText = name;
+
+
+  // // Set restaurant delivery price
+  // const restaurantDeliverPriceDOM = document.querySelector(".restaurant-details h1");
+
 
 
   // Set restaurant name

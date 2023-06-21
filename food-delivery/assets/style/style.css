@@ -534,6 +534,7 @@ img.restaurant-profile {
   margin-inline: auto;
   margin-top: 2.5rem;
   width: 80px;
+  height: 80px;
   position: relative;
   z-index: 1;
 }
