@@ -62,7 +62,7 @@ export const restaurants = {
     coverPhoto: {
       burger: "chillox-burger-cover.png"
     },
-    delivery: "Free",
+    deliveryFee: "Free",
     deliveryTime: 10
   },
   madchef: {
@@ -73,7 +73,7 @@ export const restaurants = {
     coverPhotoCover: {
       burger: "madchef-cover.png"
     },
-    delivery: "Free",
+    deliveryFee: "Free",
     deliveryTime: 10
   },
   mcdonalds: {
@@ -84,7 +84,7 @@ export const restaurants = {
     coverPhotoCover: {
       burger: "mcdonalds-cover.png"
     },
-    delivery: "Free",
+    deliveryFee: "Free",
     deliveryTime: 10
   },
   burgerking: {
@@ -95,7 +95,7 @@ export const restaurants = {
     coverPhotoCover: {
       burger: "burger-king-cover.jpg"
     },
-    delivery: "Free",
+    deliveryFee: "Free",
     deliveryTime: 10
   }
 };

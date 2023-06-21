@@ -183,7 +183,7 @@ function switchMenuCategory(category) {
 
 /** 
  * loadRestaurantContent() load the restaurtants logo, name,
- * delivery price, rating, menu and food.
+ * delivery fee, rating, menu and food.
  * @name: is the retaurants name.
  * @category: represents food category
  * */
@@ -197,18 +197,6 @@ function loadRestaurantContent(name, category) {
   /** Set content from top to bottom **/
   let restaurantData = data.restaurants[name];
   let restaurantsMenu = data.restaurantsMenu;
-
-  // {
-  //   name: "Chillox",
-  //   menuCategory: ["burger", "frenchfries", "chicken"],
-  //   rating: 4.7,
-  //   profilePhotoName: "chillox-profile.png",
-  //   coverPhotoName: {
-  //     burger: "chillox-burger-cover.png"
-  //   },
-  //   delivery: "Free",
-  //   deliveryTime: 10
-  // }
 
   // Set restaurant cover image
   const restaurantCoverDOM = document.querySelector(".restaurant-cover img");
@@ -227,8 +215,9 @@ function loadRestaurantContent(name, category) {
   restaurantNameDOM.innerText = `${capName} ${capCategory}`;
 
 
-  // // Set restaurant delivery price
-  // const restaurantDeliverPriceDOM = document.querySelector(".restaurant-details h1");
+  // Set restaurant delivery fee
+  const restaurantDeliverFeeDOM = document.querySelector(".restaurant-rating-delivery .delivery-fee");
+  restaurantDeliverFeeDOM.innerText = restaurantData.deliveryFee;
 
 
 
