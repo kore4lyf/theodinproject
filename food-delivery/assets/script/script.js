@@ -216,12 +216,14 @@ function loadRestaurantContent(name, category) {
 
 
   // Set restaurant delivery fee
-  const restaurantDeliverFeeDOM = document.querySelector(".restaurant-rating-delivery .delivery-fee");
-  restaurantDeliverFeeDOM.innerText = restaurantData.deliveryFee;
+  const restaurantDeliveryFeeDOM = document.querySelector(".restaurant-rating-delivery .delivery-fee");
+  restaurantDeliveryFeeDOM.innerText = restaurantData.deliveryFee;
 
 
 
-  // Set restaurant name
+  // Set restaurant rating
+  const restaurantRatingDOM = document.querySelector(".restaurant-rating-delivery .rating");
+  restaurantRatingDOM.innerText = restaurantData.rating;
 
 
 
