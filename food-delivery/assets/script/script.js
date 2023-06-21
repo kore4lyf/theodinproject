@@ -1,19 +1,30 @@
-import * as data from './data.js';
+import * as data from './data.js'; // Import all meun and menu categories
 
 
 
 // Home DOM
-const home = document.querySelector("#home");
+const homePageLoaded = document.querySelector("#home");
+
+// Restaurant Page
+const restaurantPageLoaded = document.querySelector("#restaurant");
 
 // home.addEventListener("DOMContentLoaded", () => {
   //   displayCategoryItems();
   //   console.log("hey");
   // });
   
-  if (home) {
+  if (homePageLoaded) {
     displayCategoryItems();
     loadPopularCategory("burger");
+  } else if (homePageLoaded) {
+
+    // Set restaurant image
+
   }
+  
+
+
+
   
 /* ################## 
         HOMEPAGE 
@@ -144,6 +155,14 @@ backBtn.addEventListener("click", function () {
 })
 
 
-// function loadMenu(restaurantName, category) {
+function loadRestaurantMenuCategory(restaurantName) {
+ 
+}
+
+function switchMenuCategory(category) {
+
+}
+
+function loadRestaurantMenu(restaurantName, category) {
   
-// }
+}
