@@ -214,15 +214,15 @@ function loadRestaurantContent(name, category) {
   restaurantCoverDOM.src = `./assets/images/cover/${restaurantCover}`;
   
 
-  // // Set restaurant profile photo
-  // const restaurantProfilePhotoDOM = document.querySelector(".restaurant-profile");
-  // let restaurantProfilePhoto = restaurantData.profilePhoto;
-  // restaurantProfilePhotoDOM.src =  `./assets/images/restaurants/${restaurantProfilePhoto}`;
+  // Set restaurant profile photo
+  const restaurantProfilePhotoDOM = document.querySelector(".restaurant-profile");
+  let restaurantProfilePhoto = restaurantData.profilePhoto;
+  restaurantProfilePhotoDOM.src =  `./assets/images/restaurants/${restaurantProfilePhoto}`;
   
 
-  // // Set restaurant name
-  // const restaurantNameDOM = document.querySelector(".restaurant-details h1");
-  // restaurantNameDOM.innerText = name;
+  // Set restaurant name
+  const restaurantNameDOM = document.querySelector(".restaurant-details h1");
+  restaurantNameDOM.innerText = name;
 
 
   // // Set restaurant delivery price
