@@ -53,8 +53,8 @@ export const restaurantsMenu = [
 ];
 
 
-export const restaurants = [
-  {
+export const restaurants = {
+  chillox: {
     name: "Chillox",
     menuCategory: ["burger", "frenchfries", "chicken"],
     rating: 4.7,
@@ -65,7 +65,7 @@ export const restaurants = [
     delivery: "Free",
     deliveryTime: 10
   },
-  {
+  madchef: {
     name: "Madchef",
     menuCategory: ["burger"],
     rating: 4.0,
@@ -76,7 +76,7 @@ export const restaurants = [
     delivery: "Free",
     deliveryTime: 10
   },
-  {
+  mcdonalds: {
     name: "McDonalds",
     menuCategory: ["burger"],
     rating: 4.9,
@@ -85,9 +85,9 @@ export const restaurants = [
       burger: "mcdonalds-cover.png"
     },
     delivery: "Free",
-    deliveryTime: 10  
+    deliveryTime: 10
   },
-  {
+  burgerking: {
     name: "Burger King",
     menuCategory: ["burger"],
     rating: 4.8,
@@ -98,7 +98,7 @@ export const restaurants = [
     delivery: "Free",
     deliveryTime: 10
   }
-];
+};
 
 
 

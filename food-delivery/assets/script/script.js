@@ -16,13 +16,8 @@ const restaurantPageLoaded = document.querySelector("#restaurant");
     displayCategoryItems();
     loadPopularCategory("burger");
   } else if (restaurantPageLoaded) {
+    
 
-    // Include content from top to bottom
-
-    // Add restaurant image
-    // document.querySelector
-
-    // Set restaurant image
 
   }
   
@@ -184,6 +179,32 @@ function switchMenuCategory(category) {
 
 }
 
-function loadRestaurantMenu(restaurantName, category) {
+
+
+/** 
+ * loadRestaurantContent() load the restaurtants logo, name,
+ * delivery price, rating, menu and food.
+ * @name: is the retaurants name.
+ * @category: represents food category
+ * */
+
+function loadRestaurantContent(name, category) {
   
+
+
+
+  // Set restaurant name
+
+
+
+  // Set restaurant rating
+
+
+
+  // Set list menu category options
+
+
+  // Set list menu category
 }
+
+loadRestaurantContent("Chillox", "Burger");
