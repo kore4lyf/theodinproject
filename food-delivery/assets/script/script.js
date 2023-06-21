@@ -193,7 +193,19 @@ function loadRestaurantContent(name, category) {
   let restaurantsData = data.restaurants;
   let restaurantsMenu = data.restaurantsMenu;
 
+  // {
+  //   name: "Chillox",
+  //   menuCategory: ["burger", "frenchfries", "chicken"],
+  //   rating: 4.7,
+  //   profilePhotoName: "chillox-profile.png",
+  //   coverPhotoName: {
+  //     burger: "chillox-burger-cover.png"
+  //   },
+  //   delivery: "Free",
+  //   deliveryTime: 10
+  // }
 
+  
 
 
   // Set restaurant name
