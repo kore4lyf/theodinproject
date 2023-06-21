@@ -22,7 +22,7 @@ const home = document.querySelector("#home");
 
 // * Display Category Items
 function displayCategoryItems() {
-  const foodCategoryContainer = document.querySelector("#category .options");
+  const foodCategoryContainer = document.querySelector("#home-category .options");
   
   // Displaying a list of items with javaScript is more
   // effective than have having to type them manually in HTML
@@ -144,3 +144,6 @@ backBtn.addEventListener("click", function () {
 })
 
 
+// function loadMenu(restaurantName, category) {
+  
+// }

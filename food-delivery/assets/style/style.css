@@ -201,7 +201,7 @@ a .icon-stroke:hover {
 
 
 /** ---category--- **/
-.menu .options {
+.menu-category .options {
   display: flex;
   font-size: small;
   gap: 1rem;
@@ -214,11 +214,11 @@ a .icon-stroke:hover {
 }
 
 
-.menu .options::-webkit-scrollbar  {
+.menu-category .options::-webkit-scrollbar  {
   display: none;
 }
 
-.menu .option {
+.menu-category .option {
   align-items: center;
   border-radius: .9rem;
   color: var(--clr-dark);
@@ -242,25 +242,25 @@ a .icon-stroke:hover {
 
 
 
-.menu .option:focus,
-.menu .option:hover,
-.menu .option.active {
+.menu-category .option:focus,
+.menu-category .option:hover,
+.menu-category .option.active {
   background: var(--clr-accent);
   box-shadow: 0px 5px .8rem rgba(0, 0, 0, 0.1);
   color: white;
 }
 
 
-.menu .option p {
+.menu-category .option p {
   margin: 0px;
 }
 
-.menu .option.active .option-bg  {
+.menu-category .option.active .option-bg  {
   background: white;
 }
 
 
-.menu .option-bg {
+.menu-category .option-bg {
   align-items: center;
   border-radius: calc(var(--rounded-1));
   display: flex;
@@ -354,7 +354,7 @@ a .icon-stroke:hover {
 }
 
 .popular .item-title,
-.product .item-name {
+.restaurant .item-name {
   color: var(--clr-dark);
   font-family: var(--ff-gotham-bold) !important;
   font-weight: bold;
@@ -560,18 +560,18 @@ img.restaurant-profile {
   transform: translateY(2.8px);
 }
 
-#menu .option {
+#menu-category .option {
   padding: 1.2rem;
 }
 
 
 
 /* +++ restaurant.html +++ */
-.product {
+.restaurant {
   padding-bottom: 4rem;
 }
 
-.product .item {
+.restaurant .item {
   /* background-color: #302f3c; */
   border: 1px solid var(--clr-secondary);
   border-radius: 1.8rem;
@@ -579,18 +579,18 @@ img.restaurant-profile {
   max-width: 200px; */
 }
 
-.product .item:focus {
+.restaurant .item:focus {
   border: 1px solid var(--clr-secondary);
 }
 
 
-.product .item-name, 
-.product .item-desc {
+.restaurant .item-name, 
+.restaurant .item-desc {
   display: block;
   text-align: center;
 }
 
-.product .items {
+.restaurant .items {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(auto, 250px));
   gap: 2rem;
@@ -599,7 +599,7 @@ img.restaurant-profile {
   width: 100%;
 }
 
-.product .item img {
+.restaurant .item img {
   aspect-ratio: 1 / 1;
   display: block;
   margin: auto;
@@ -611,7 +611,7 @@ img.restaurant-profile {
   overflow: hidden;
 }
 
-.product .item:hover img {
+.restaurant .item:hover img {
   filter: saturate(1.2);
   transform: 
       scale(1.1) 
@@ -636,7 +636,7 @@ img.restaurant-profile {
   padding: 1rem;
 }
 
-.product .currency {
+.restaurant .currency {
   font-family: calibri, sans-serif;
 }
 
