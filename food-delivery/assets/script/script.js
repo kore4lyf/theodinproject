@@ -57,20 +57,11 @@ function displayCategoryItems() {
   // Displaying a list of items with javaScript is more
   // effective than have having to type them manually in HTML
   for(let item of data.foodCategoryList) {
-    // item = `
-    // <li class="btn btn-secondary option ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
-    //   <span class="option-bg">
-    //   <img loading="lazy" src="./assets/images/categories/${item}.png" alt="${item} lcon">
-    //   </span>
-    //   <p class="text-bold">${item}</p>
-    //   </li>
-    //   `;
-
-    let li = document.createElement("li");
-    li.className = `btn btn-secondary option ${item === 'burger' ? 'active' : ''}`;
-    li.setAttribute("onclick",`switchCategory('${item}')`);
-    if (item === "burger") li.classList.add("active");
-    li.innerHTML = `
+    let option = document.createElement("li");
+    option.className = `btn btn-secondary option ${item === 'burger' ? 'active' : ''}`;
+    option.setAttribute("onclick",`switchCategory('${item}')`);
+    if (item === "burger") option.classList.add("active");
+    option.innerHTML = `
       <span class="option-bg">
       <img loading="lazy" src="./assets/images/categories/${item}.png" alt="${item} lcon">
       </span>
@@ -78,7 +69,7 @@ function displayCategoryItems() {
     `
       
     // foodCategoryContainer.innerHTML += item;
-    DOMFragment.appendChild(li);
+    DOMFragment.appendChild(option);
     homeCategoryOptions.appendChild(DOMFragment);
   }; 
     
