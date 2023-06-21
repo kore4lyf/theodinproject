@@ -1,7 +1,6 @@
 import * as data from './data.js'; // Import all meun and menu categories
 
 
-
 // Home DOM
 const homePageLoaded = document.querySelector("#home");
 
@@ -16,12 +15,27 @@ const restaurantPageLoaded = document.querySelector("#restaurant");
   if (homePageLoaded) {
     displayCategoryItems();
     loadPopularCategory("burger");
-  } else if (homePageLoaded) {
+  } else if (restaurantPageLoaded) {
+
+    // Include content from top to bottom
+
+    // Add restaurant image
+    // document.querySelector
 
     // Set restaurant image
 
   }
   
+
+/** Condition for Pages With Back Botton **/
+
+if (restaurantPageLoaded) {
+  const backBtn = document.querySelector("#back");
+
+  backBtn.addEventListener("click", function () {
+    console.log(window.history.back());
+  })
+  }
 
 
 
@@ -33,22 +47,42 @@ const restaurantPageLoaded = document.querySelector("#restaurant");
 
 // * Display Category Items
 function displayCategoryItems() {
-  const foodCategoryContainer = document.querySelector("#home-category .options");
+
+  // Create DOM Fragment
+  const DOMFragment = document.createDocumentFragment();
+
+  // Target  Home catgory options
+  const homeCategoryOptions = document.querySelector("#home-category .options");
   
   // Displaying a list of items with javaScript is more
   // effective than have having to type them manually in HTML
   for(let item of data.foodCategoryList) {
-    item = `
-    <li class="btn btn-secondary option ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
+    // item = `
+    // <li class="btn btn-secondary option ${item === 'burger' ? 'active' : ''}" onclick="switchCategory('${item}')">
+    //   <span class="option-bg">
+    //   <img loading="lazy" src="./assets/images/categories/${item}.png" alt="${item} lcon">
+    //   </span>
+    //   <p class="text-bold">${item}</p>
+    //   </li>
+    //   `;
+
+    let li = document.createElement("li");
+    li.className = `btn btn-secondary option ${item === 'burger' ? 'active' : ''}`;
+    li.setAttribute("onclick",`switchCategory('${item}')`);
+    if (item === "burger") li.classList.add("active");
+    li.innerHTML = `
       <span class="option-bg">
       <img loading="lazy" src="./assets/images/categories/${item}.png" alt="${item} lcon">
       </span>
       <p class="text-bold">${item}</p>
-      </li>
-      `;
+    `
       
-      foodCategoryContainer.innerHTML += item;
-    }; 
+    // foodCategoryContainer.innerHTML += item;
+    DOMFragment.appendChild(li);
+    homeCategoryOptions.appendChild(DOMFragment);
+  }; 
+    
+  
   
     // Identify the default active category tab
     let activeFoodCategoryTabName = data.foodCategoryList[0];
@@ -146,14 +180,6 @@ function loadPopularCategory(categoryName) {
 /* #############################  
          RESTAURANT PAGE 
    ############################# */
-
-
-const backBtn = document.querySelector("#back");
-
-backBtn.addEventListener("click", function () {
-  console.log(window.history.back());
-})
-
 
 function loadRestaurantMenuCategory(restaurantName) {
  

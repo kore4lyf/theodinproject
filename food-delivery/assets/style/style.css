@@ -228,6 +228,7 @@ a .icon-stroke:hover {
   padding: .8rem;
   text-transform: capitalize;
   width: fit-content;
+  transition: opacity ease-in-out 0.5s;
 }
 
 @media screen and (min-width: 450px) {
@@ -691,6 +692,14 @@ img.restaurant-profile {
 
 .mlx-auto {
   margin-left: auto;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 1;
 }
 
 .shadow {
