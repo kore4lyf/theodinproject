@@ -191,6 +191,8 @@ function switchMenuCategory(category) {
 function loadRestaurantContent(name, category) {
   name = name.toLowerCase();
   category = category.toLowerCase();
+  let capName = name[0].toUpperCase() + name.slice(1);
+  let capCategory = category[0].toUpperCase() + category.slice(1)
   
   /** Set content from top to bottom **/
   let restaurantData = data.restaurants[name];
@@ -222,7 +224,7 @@ function loadRestaurantContent(name, category) {
 
   // Set restaurant name
   const restaurantNameDOM = document.querySelector(".restaurant-details h1");
-  restaurantNameDOM.innerText = name;
+  restaurantNameDOM.innerText = `${capName} ${capCategory}`;
 
 
   // // Set restaurant delivery price
