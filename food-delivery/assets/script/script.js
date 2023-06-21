@@ -189,6 +189,9 @@ function switchMenuCategory(category) {
  * */
 
 function loadRestaurantContent(name, category) {
+  name = name.toLowerCase();
+  category = category.toLowerCase();
+  
   /** Set content from top to bottom **/
   let restaurantsData = data.restaurants;
   let restaurantsMenu = data.restaurantsMenu;
@@ -205,7 +208,13 @@ function loadRestaurantContent(name, category) {
   //   deliveryTime: 10
   // }
 
+  // Set restaurant cover image
+  const restaurantCoverDOM = document.querySelector(".restaurant-cover img");
+  let restaurantCover = restaurantsData[name].coverPhoto[category];
+  restaurantCoverDOM.src = `./assets/images/cover/${restaurantCover}`;
   
+  
+ 
 
 
   // Set restaurant name

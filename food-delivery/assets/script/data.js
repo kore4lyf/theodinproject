@@ -59,7 +59,7 @@ export const restaurants = {
     menuCategory: ["burger", "frenchfries", "chicken"],
     rating: 4.7,
     profilePhotoName: "chillox-profile.png",
-    coverPhotoName: {
+    coverPhoto: {
       burger: "chillox-burger-cover.png"
     },
     delivery: "Free",
@@ -70,7 +70,7 @@ export const restaurants = {
     menuCategory: ["burger"],
     rating: 4.0,
     profilePhotoName: "madchef-profile.jpg",
-    coverPhotoName: {
+    coverPhotoCover: {
       burger: "madchef-cover.png"
     },
     delivery: "Free",
@@ -81,7 +81,7 @@ export const restaurants = {
     menuCategory: ["burger"],
     rating: 4.9,
     profilePhotoName: "mcdonalds-profile.jpg",
-    coverPhotoName: {
+    coverPhotoCover: {
       burger: "mcdonalds-cover.png"
     },
     delivery: "Free",
@@ -92,7 +92,7 @@ export const restaurants = {
     menuCategory: ["burger"],
     rating: 4.8,
     profilePhotoName: "burger-king-profile.png",
-    coverPhotoName: {
+    coverPhotoCover: {
       burger: "burger-king-cover.jpg"
     },
     delivery: "Free",
