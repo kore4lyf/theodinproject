@@ -189,7 +189,10 @@ function switchMenuCategory(category) {
  * */
 
 function loadRestaurantContent(name, category) {
-  
+  /** Set content from top to bottom **/
+  let restaurantsData = data.restaurants;
+  let restaurantsMenu = data.restaurantsMenu;
+
 
 
 
