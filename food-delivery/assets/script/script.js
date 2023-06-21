@@ -110,6 +110,9 @@ function displayCategoryItems() {
 
 // Display Popurlar restaurant Items
 function loadPopularCategory(categoryName) {
+
+  // Create DOM Fragment
+  const DOMFragment = document.createDocumentFragment();
   
   const popularContainerDom = document.querySelector(".popular-container");
   const popularDom = document.createElement("ul");
@@ -158,8 +161,9 @@ function loadPopularCategory(categoryName) {
         </li>
     `
     
-      popularDom.innerHTML = innerHtml;
-    popularContainerDom.appendChild(popularDom);
+    popularDom.innerHTML = innerHtml;
+    DOMFragment.appendChild(popularDom);
+    popularContainerDom.appendChild(DOMFragment);
   }
 }
 
