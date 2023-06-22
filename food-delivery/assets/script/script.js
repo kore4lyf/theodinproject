@@ -62,12 +62,13 @@ function displayCategoryItems() {
       </span>
       <p class="text-bold">${item}</p>
     `
-      
-    // foodCategoryContainer.innerHTML += item;
+    // Append option to DOMFragment  
     DOMFragment.appendChild(option);
-    homeCategoryOptions.appendChild(DOMFragment);
   }; 
-    
+
+  // Let changes reflect at #home-category .options
+  homeCategoryOptions.appendChild(DOMFragment);
+  
   
   
     // Identify the default active category tab
@@ -124,7 +125,7 @@ function loadPopularCategory(categoryName) {
     restaurantsData.push(data.restaurants[restaurant]);
   }
   
-  //
+  // Filter restaurant data to only ones that contains 
   let restaurants = restaurantsData.filter(item => item.menuCategory.includes(categoryName.toLowerCase()));
 
   for (let restaurant of restaurants) {
@@ -240,22 +241,46 @@ function loadRestaurantContent(name, category) {
 loadRestaurantContent("Chillox", "Burger");
 
 
-function loadMenuCategory(restaurantName) {
+function loadMenuCategory(restaurantName, activeCategory) {
   // convert characters to lowercase
   restaurantName = restaurantName.toLowerCase();
 
   // Restaurant menu category
-  let restaurantMenuCategory = data.restaurants[restaurantName].menuCategory;
-  console.log(restaurantMenuCategory)
+  let restaurantMenuCategories = data.restaurants[restaurantName].menuCategory;
 
   // Create document fragment
   let DOMFragment = document.createDocumentFragment();
   
   // Set list menu category options
-  const menuCategory = document.querySelector(".menu-category .options");
-  console.log(menuCategory)
+  const menuCategoryDOM = document.querySelector(".menu-category .options");
 
+  // Load options 
+  for (let category of restaurantMenuCategories) {
+    console.log(category)
+    
+    let option = document.createElement("li");
+    // Add some classes to option
+    option.className = "option btn btn-secondary";
+    // Make option active if option = activeCategory
+    if (category === activeCategory) option.classList.add("active");
+    // add onclick event
+    option.setAttribute("onclick", `switchCategory(${category})`)
+    // Add innerHTML to content
+    option.innerHTML = `<p>${category}</p>`;
+    
+    
+    // <li onclick="" class="option btn btn-secondary active">
+    //       <p>Popular</p>
+    //     </li>
+    
+    // Append option to DOMFragment
+    DOMFragment.appendChild(option);
+  }
+
+  // Reflect changes
+  menuCategoryDOM.appendChild(DOMFragment);
+  // console.log(menuCategory)
 }
-loadMenuCategory("chillox")
+loadMenuCategory("chillox", "burger");
 
 // * Focus on .seach-menu when menu search button is pressed 
