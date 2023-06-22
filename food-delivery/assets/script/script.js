@@ -253,34 +253,26 @@ function loadMenuCategory(restaurantName, activeCategory) {
   
   // Set list menu category options
   const menuCategoryDOM = document.querySelector(".menu-category .options");
-
+  
   // Load options 
   for (let category of restaurantMenuCategories) {
-    console.log(category)
-    
     let option = document.createElement("li");
     // Add some classes to option
     option.className = "option btn btn-secondary";
     // Make option active if option = activeCategory
     if (category === activeCategory) option.classList.add("active");
     // add onclick event
-    option.setAttribute("onclick", `switchCategory(${category})`)
+      option.setAttribute("onclick", `switchCategory(${category})`)
     // Add innerHTML to content
     option.innerHTML = `<p>${category}</p>`;
-    
-    
-    // <li onclick="" class="option btn btn-secondary active">
-    //       <p>Popular</p>
-    //     </li>
     
     // Append option to DOMFragment
     DOMFragment.appendChild(option);
   }
-
-  // Reflect changes
+    // Reflect changes
   menuCategoryDOM.appendChild(DOMFragment);
-  // console.log(menuCategory)
 }
+
 loadMenuCategory("chillox", "burger");
 
 // * Focus on .seach-menu when menu search button is pressed 

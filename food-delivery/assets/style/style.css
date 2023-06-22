@@ -155,7 +155,6 @@ p, .search input[type=text] {
   padding: var(--padding-2);
   padding-block: .8rem;
   position: relative;
-
 }
 
 .btn-secondary {
