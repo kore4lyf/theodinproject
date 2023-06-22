@@ -232,11 +232,11 @@ a .icon-stroke:hover {
 }
 
 @media screen and (min-width: 450px) {
-  #category .option span.option-bg {
+  #home-category .option span.option-bg {
     display: none;
   }
 
-  #category .option {
+  #home-category .option {
     padding: 1.2rem;
   }
 }

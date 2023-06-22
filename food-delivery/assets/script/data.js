@@ -70,7 +70,7 @@ export const restaurants = {
     menuCategory: ["burger"],
     rating: 4.0,
     profilePhoto: "madchef-profile.jpg",
-    coverPhotoCover: {
+    coverPhoto: {
       burger: "madchef-cover.png"
     },
     deliveryFee: "Free",
@@ -81,7 +81,7 @@ export const restaurants = {
     menuCategory: ["burger"],
     rating: 4.9,
     profilePhoto: "mcdonalds-profile.jpg",
-    coverPhotoCover: {
+    coverPhoto: {
       burger: "mcdonalds-cover.png"
     },
     deliveryFee: "Free",
@@ -92,7 +92,7 @@ export const restaurants = {
     menuCategory: ["burger"],
     rating: 4.8,
     profilePhoto: "burger-king-profile.png",
-    coverPhotoCover: {
+    coverPhoto: {
       burger: "burger-king-cover.jpg"
     },
     deliveryFee: "Free",
