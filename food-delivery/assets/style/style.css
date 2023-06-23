@@ -736,24 +736,3 @@ img.restaurant-profile {
 
 
 
-/*
-  #################
-    Media Queries
-  #################
-*/
-
-@media screen and (orientation: landscape) {
-  body {
-    width: 50%;
-  }
-
-  .menu-item-display{
-    height: 70vh;
-  }
-}
-
-@media screen and (min-width: 500px) {
-  body {
-    width: 500px;
-  }
-}
