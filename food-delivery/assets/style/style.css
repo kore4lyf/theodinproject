@@ -66,7 +66,7 @@ body {
   width: 100%;
 }
 
-header {
+header div{
   align-items: center;
   display: flex;
   justify-content: space-between;
@@ -457,7 +457,7 @@ a .icon-stroke:hover {
   color: white;
 }
 
-.restaurant-cover, .menu-item-display {
+.restaurant-cover {
   display: inline-block;
   position: absolute;
   min-width: inherit;
@@ -658,10 +658,22 @@ img.restaurant-profile {
     +++++++++++++++++++++ */
 .menu-item-display {
   background-color: var(--clr-dark);
-  height: 50vh;
+  /* height: 50vh; */
 }
 
+.menu-item-display div {
+  height: inherit;
+  width: 50%;
+  position: relative;
+  border: 1px solid red;
+}
 
+.menu-item-display img{
+  display: block;
+  border: 1px solid yellow;
+  width: 100%;
+  bottom: 0px;
+}
 
 
 
@@ -671,6 +683,10 @@ img.restaurant-profile {
     Other Styles
   #################
 */
+
+.bg-dark {
+  background-color: var(--clr-dark);
+}
 
 .hide {
   /* display: none; */
@@ -730,7 +746,7 @@ img.restaurant-profile {
   }
 
   .menu-item-display{
-    height: 70vh;
+    /* height: 70vh; */
   }
 }
 
