@@ -58,18 +58,19 @@ button {
 
 html, 
 body {
-  margin: 0;
   height: 100%;
-  width: 100%;
+  margin: 0;
+  margin-inline: auto;
   min-width: 280px;
+  position: relative;
+  width: 100%;
 }
-
 
 header {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: 2.5rem !important;
+  padding-top: 2.5rem !important;
   position: relative;
 }
 
@@ -670,6 +671,15 @@ img.restaurant-profile {
 
 
 
+  /* +++++++++++++++++++++ 
+        restaurant.html 
+    +++++++++++++++++++++ */
+.menu-item-display {
+  background-color: var(--clr-dark);
+  height: 50vh;
+}
+
+
 
 
 
@@ -722,3 +732,28 @@ img.restaurant-profile {
   width: 95%;
 }
 
+
+
+
+
+/*
+  #################
+    Media Queries
+  #################
+*/
+
+@media screen and (orientation: landscape) {
+  body {
+    width: 50%;
+  }
+
+  .menu-item-display{
+    height: 70vh;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  body {
+    width: 500px;
+  }
+}
