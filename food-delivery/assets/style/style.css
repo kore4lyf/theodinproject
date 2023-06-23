@@ -232,17 +232,6 @@ a .icon-stroke:hover {
   transition: opacity ease-in-out 0.5s;
 }
 
-@media screen and (min-width: 450px) {
-  #home-category .option span.option-bg {
-    display: none;
-  }
-
-  #home-category .option {
-    padding: 1.2rem;
-  }
-}
-
-
 
 .menu-category .option:focus,
 .menu-category .option:hover,
@@ -378,13 +367,6 @@ a .icon-stroke:hover {
   display: none;
   height: 50px;
   width: 50px;
-}
-
-
-@media screen and (min-width: 310px){
-  .item-profile img{
-    display: block;
-  }
 }
 
 
@@ -755,5 +737,23 @@ img.restaurant-profile {
 @media screen and (min-width: 500px) {
   body {
     width: 500px;
+  }
+}
+
+
+@media screen and (min-width: 310px){
+  .item-profile img{
+    display: block;
+  }
+}
+
+/* Hide white background @ #home-category */
+@media screen and (min-width: 450px) {
+  #home-category .option span.option-bg {
+    display: none;
+  }
+
+  #home-category .option {
+    padding: 1.2rem;
   }
 }
