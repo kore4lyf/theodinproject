@@ -474,7 +474,7 @@ a .icon-stroke:hover {
   color: white;
 }
 
-.restaurant-cover {
+.restaurant-cover, .menu-item-display {
   display: inline-block;
   position: absolute;
   min-width: inherit;
@@ -568,7 +568,9 @@ img.restaurant-profile {
 
 
 
-/* +++ restaurant.html +++ */
+/* +++++++++++++++++++++ 
+      restaurant.html 
+   +++++++++++++++++++++ */
 .restaurant {
   padding-bottom: 4rem;
 }
@@ -665,6 +667,10 @@ img.restaurant-profile {
 .remove-from-cart:focus {
   color: var(--clr-accent)
 }
+
+
+
+
 
 
 
