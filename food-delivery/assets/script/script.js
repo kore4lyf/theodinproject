@@ -7,6 +7,9 @@ const homePageLoaded = document.querySelector("#home");
 // Restaurant Page
 const restaurantPageLoaded = document.querySelector("#restaurant");
 
+// Product Page
+const productPageLoaded = document.querySelector("#product");
+
 // home.addEventListener("DOMContentLoaded", () => {
   //   displayCategoryItems();
   //   console.log("hey");
@@ -15,9 +18,11 @@ const restaurantPageLoaded = document.querySelector("#restaurant");
   if (homePageLoaded) {
     displayCategoryItems();
     loadPopularCategory("burger");
-  } else if (restaurantPageLoaded) {
+  } else if(restaurantPageLoaded) {
     loadRestaurantContent("Chillox", "Burger");
     loadMenuCategory("chillox", "burger");
+    loadRestaurantMenu("chillox", "burger");
+  } else if(productPageLoaded) {
     
   }
   
@@ -310,22 +315,5 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
 
 
 }
-loadRestaurantMenu("chillox", "burger")
-  // <ul class="items" type="none">
-  //     <li class="item">
-  //       <img loading="lazy" src="./assets/images/menu/chillox-chicken-burger.png" alt="Chillox Chicken Burger">
-  //       <p class="item-name">Chicken Burger</p>
-  //       <p class="item-desc"><small>Chicken Patty and special sauce</small></p>
-  //       <div class="item-price-addtocart">
-  //         <div>
-  //           <button class="remove-from-cart disabled"> - </button>
-  //           <span class="currency">₦</span>
-  //           <span class="price">3,500</span>
-  //           <button class="add-to-cart"> + </button>
-  //         </div>
-  //       </div>
-  //     </li>
-  //   </ul>
-
 
 // * Focus on .seach-menu when menu search button is pressed 
