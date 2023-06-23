@@ -6,49 +6,49 @@ export const restaurantsMenu = [
       name: "Chicken Burger",
       restaurant: "Chillox",
       category: "Burger",
-      photoName: "./assets/images/menu/chillox-chikena-burger.png",
+      photoName: "chillox-chicken-burger.png",
       desc: "Chicken Patty and special sauce",
-      price: 4.99
+      price: 3500
     },
     {
       name: "Beef Burger",
       restaurant: "Chillox",
       category: "Burger",
-      photoName: "./assets/images/menu/chillox-beef-burger.png",
+      photoName: "chillox-beef-burger.png",
       desc: "Beef Patty and special sauce",
-      price: 7.99
+      price: 5790
     },
     {
       name: "French Fries",
       restaurant: "Chillox",
-      category: "Burger",
-      photoName: "./assets/images/menu/chillox-french-fries.png",
+      category: "Fries",
+      photoName: "chillox-french-fries.png",
       desc: "Sliced deep fries potatoes",
-      price: 3.99
+      price: 2800
     },
     {
       name: "Naga Drums",
       restaurant: "Chillox",
       category: "Chicken",
-      photoName: "./assets/images/menu/chillox-naga-drums.png",
+      photoName: "chillox-naga-drums.png",
       desc: "Crispy fried chicken drum",
-      price: 9.99
+      price: 7200
     },
     {
       name: "XL Burger",
       restaurant: "Chillox",
       category: "Burger",
-      photoName: "./assets/images/menu/chillox-xl-burger.png",
+      photoName: "chillox-xl-burger.png",
       desc: "Cheese & beef pastra",
-      price: 11.00
+      price: 7920
     },
     {
       name: "Chicken Fried",
       restaurant: "Chillox",
       category: "Chicken",
-      photoName: "./assets/images/menu/chillox-chicken-fried.png",
+      photoName: "chillox-chicken-fried.png",
       desc: "Delicious crispy fried breaded chicken",
-      price: 7.99
+      price: 5750
     }
 ];
 

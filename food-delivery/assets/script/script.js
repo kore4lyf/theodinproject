@@ -1,4 +1,4 @@
-import * as data from './data.js'; // Import all meun and menu categories
+import * as data from './data.js'; // Import all menu and menu categories
 
 
 // Home DOM
@@ -16,9 +16,9 @@ const restaurantPageLoaded = document.querySelector("#restaurant");
     displayCategoryItems();
     loadPopularCategory("burger");
   } else if (restaurantPageLoaded) {
+    loadRestaurantContent("Chillox", "Burger");
+    loadMenuCategory("chillox", "burger");
     
-
-
   }
   
 
@@ -229,16 +229,8 @@ function loadRestaurantContent(name, category) {
   // Set restaurant rating
   const restaurantRatingDOM = document.querySelector(".restaurant-rating-delivery .rating");
   restaurantRatingDOM.innerText = restaurantData.rating;
-
-
-  
-  
-  // * Set restaurant meun items
-  
   
 }
-
-loadRestaurantContent("Chillox", "Burger");
 
 
 function loadMenuCategory(restaurantName, activeCategory) {
@@ -273,6 +265,67 @@ function loadMenuCategory(restaurantName, activeCategory) {
   menuCategoryDOM.appendChild(DOMFragment);
 }
 
-loadMenuCategory("chillox", "burger");
+
+// * Set restaurant meun items
+function loadRestaurantMenu(restaurantName, activeCategory) {
+  // Create document fragment
+  const DOMFragment = document.createDocumentFragment();
+
+  // Target restaurant menu items
+  const restaurantMenuItemsDOM = document.querySelector(".restaurant .items");
+
+
+  // Create a new array, by collecting data that menu data using restaurantName and activeCategory
+  const restaurantMenuData = data.restaurantsMenu.filter(item => (
+    item.restaurant.toLowerCase() === restaurantName.toLowerCase() && item.category.toLowerCase() === activeCategory.toLowerCase() ));
+    
+  // create a menu items
+  for (let item of restaurantMenuData) {
+    console.log(item)
+    // Create a new element to hold menu items
+    let menuItem = document.createElement("li");
+    // Add class name .item to the new element
+    menuItem.classList.add("item");
+    // Add the new elements inner content
+    menuItem.innerHTML = `
+      <img loading="lazy" src="./assets/images/menu/${item.photoName}" alt="Chillox Chicken Burger">
+       <p class="item-name">${item.name}</p>
+       <p class="item-desc"><small>${item.desc}</small></p>
+       <div class="item-price-addtocart">
+         <div>
+           <button class="remove-from-cart disabled"> - </button>
+           <span class="currency">₦</span>
+           <span class="price">${item.price}</span>
+           <button class="add-to-cart"> + </button>
+         </div>
+       </div>
+    `;
+    
+    DOMFragment.appendChild(menuItem);
+  }
+  
+
+  // Reflect changes
+  restaurantMenuItemsDOM.appendChild(DOMFragment);
+
+
+}
+loadRestaurantMenu("chillox", "burger")
+  // <ul class="items" type="none">
+  //     <li class="item">
+  //       <img loading="lazy" src="./assets/images/menu/chillox-chicken-burger.png" alt="Chillox Chicken Burger">
+  //       <p class="item-name">Chicken Burger</p>
+  //       <p class="item-desc"><small>Chicken Patty and special sauce</small></p>
+  //       <div class="item-price-addtocart">
+  //         <div>
+  //           <button class="remove-from-cart disabled"> - </button>
+  //           <span class="currency">₦</span>
+  //           <span class="price">3,500</span>
+  //           <button class="add-to-cart"> + </button>
+  //         </div>
+  //       </div>
+  //     </li>
+  //   </ul>
+
 
 // * Focus on .seach-menu when menu search button is pressed 

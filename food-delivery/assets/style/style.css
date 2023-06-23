@@ -221,6 +221,7 @@ a .icon-stroke:hover {
   align-items: center;
   border-radius: .9rem;
   color: var(--clr-dark);
+  cursor: pointer;
   display: flex;  
   gap: 5px;
   justify-content: center;
