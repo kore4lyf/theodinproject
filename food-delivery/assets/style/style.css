@@ -658,19 +658,16 @@ img.restaurant-profile {
     +++++++++++++++++++++ */
 .menu-item-display {
   background-color: var(--clr-dark);
-  /* height: 50vh; */
 }
 
 .menu-item-display div {
   height: inherit;
   width: 50%;
   position: relative;
-  border: 1px solid red;
 }
 
 .menu-item-display img{
   display: block;
-  border: 1px solid yellow;
   width: 100%;
   bottom: 0px;
 }
@@ -743,10 +740,6 @@ img.restaurant-profile {
 @media screen and (orientation: landscape) {
   body {
     width: 50%;
-  }
-
-  .menu-item-display{
-    /* height: 70vh; */
   }
 }
 
