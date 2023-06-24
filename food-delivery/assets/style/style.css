@@ -662,14 +662,13 @@ img.restaurant-profile {
 
 .menu-item-display div {
   height: inherit;
-  width: 50%;
+  width: 40%;
   position: relative;
 }
 
 .menu-item-display img{
   display: block;
   width: 100%;
-  bottom: 0px;
 }
 
 

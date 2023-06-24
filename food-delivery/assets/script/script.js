@@ -300,7 +300,7 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
          <div>
            <button class="remove-from-cart disabled"> - </button>
            <span class="currency">₦</span>
-           <span class="price">${item.price}</span>
+           <span class="price">${parseInt(item.price).toLocaleString()}</span>
            <button class="add-to-cart"> + </button>
          </div>
        </div>
