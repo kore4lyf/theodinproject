@@ -592,7 +592,6 @@ img.restaurant-profile {
   margin: auto;
   object-fit: cover;
   object-position: center;
-  transition: transform ease-in-out 0.3s;
   transform: translateY(50px);
   width: 200px;
   overflow: hidden;
@@ -600,9 +599,6 @@ img.restaurant-profile {
 
 .restaurant .item:hover img {
   filter: saturate(1.2);
-  transform: 
-      scale(1.1) 
-      translateY(40px);
 }
 
 .item-price-addtocart {
@@ -658,20 +654,30 @@ img.restaurant-profile {
     +++++++++++++++++++++ */
 .menu-item-display {
   background-color: var(--clr-dark);
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  z-index: -1;
 }
 
 .menu-item-display div {
   height: inherit;
-  width: 40%;
+  width: 100%;
   position: relative;
 }
 
 .menu-item-display img{
   display: block;
+  transition: transform ease-in-out 0.3s;
   width: 100%;
 }
 
 
+.menu-item-display:hover img {
+  filter: saturate(1.2);
+  transform: scale(1.1);
+}
 
 
 /*
