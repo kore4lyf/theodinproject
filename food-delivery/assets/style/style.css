@@ -203,6 +203,28 @@ a .icon-stroke:hover {
   fill-opacity: 1;
 }
 
+.btn-active {
+  background: var(--clr-accent);
+  color: white;
+}
+
+.btn-active:hover,
+.btn-active:focus {
+  background-color: #ff4444;
+}
+
+.big-btn {
+  display: block;
+  font-size: 1.2rem;
+  padding: 1.5rem;
+  margin-inline: auto;
+  transform: translateY(-35px);
+}
+
+.big-btn p {
+  margin: 0px;
+}
+
 
 
 /** ---category--- **/
