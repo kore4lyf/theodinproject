@@ -213,17 +213,7 @@ a .icon-stroke:hover {
   background-color: #ff4444;
 }
 
-.big-btn {
-  display: block;
-  font-size: 1.2rem;
-  padding: 1.5rem;
-  margin-inline: auto;
-  transform: translateY(-35px);
-}
 
-.big-btn p {
-  margin: 0px;
-}
 
 
 
@@ -650,35 +640,63 @@ img.restaurant-profile {
   font-family: calibri, sans-serif;
 }
 
-.add-to-cart, 
-.remove-from-cart {
-  border: 1px solid lightgray;
-  border-radius: .5rem;
-  font-family: var(--ff-gotham-reg);
-  font-size: 1.3rem;
-}
-
-.remove-from-cart.disabled,
-.remove-from-cart.disabled:hover,
-.remove-from-cart.disabled:focus {
-  cursor:not-allowed;
-  color: lightgray !important;
-}
-
-  
-
-.add-to-cart:hover, 
-.remove-from-cart:hover,
-.add-to-cart:focus, 
-.remove-from-cart:focus {
-  color: var(--clr-accent)
-}
 
 
 
   /* +++++++++++++++++++++ 
         restaurant.html 
     +++++++++++++++++++++ */
+
+
+.add-to-cart, 
+.remove-from-cart {
+  background-color: white;
+  border: 0px;
+  color: gray;
+  font-family: var(--ff-gotham-reg);
+  font-size: 1.5rem;
+  padding: .5em;
+  width: fit-content;
+}
+
+.add-to-cart:hover, 
+.remove-from-cart:hover,
+.add-to-cart:focus, 
+.remove-from-cart:focus {
+  background-color: rgb(252, 252, 252);
+}
+
+.add-to-cart {
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+.remove-from-cart {
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+}
+
+.add-to-cart:hover, 
+.remove-from-cart:hover,
+.add-to-cart:focus, 
+.remove-from-cart:focus {
+  color: var(--clr-accent);
+}
+
+
+.big-btn {
+  display: block;
+  font-size: 1rem;
+  padding: 1rem;
+  margin-inline: auto;
+  transform: translateY(-35px);
+}
+
+.big-btn p {
+  margin: 0px;
+}
+
+
 .menu-item-display {
   background-color: var(--clr-dark);
 }
@@ -700,6 +718,17 @@ img.restaurant-profile {
 .menu-item-display:hover img {
   filter: saturate(1.2);
   transform: scale(1.1);
+}
+
+.inc-dec-in-cart {
+  
+}
+
+.inc-dec-in-cart .no-in-cart{
+  display: inline;
+  color: var(--clr-dark);
+  font-size: 2em;
+  margin: 10px;
 }
 
 
