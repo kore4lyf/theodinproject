@@ -41,6 +41,7 @@
 
 :root {
   --clr-accent: #ff2121;
+  --clr-faint-accent: #ff4444;
   --clr-dark: #302f3c;
   --clr-secondary: #fafafa;
   --rounded-1: .5rem;
@@ -202,18 +203,6 @@ a .icon-stroke:hover {
   stroke-opacity: 1;
   fill-opacity: 1;
 }
-
-.btn-active {
-  background: var(--clr-accent);
-  color: white;
-}
-
-.btn-active:hover,
-.btn-active:focus {
-  background-color: #ff4444;
-}
-
-
 
 
 
@@ -667,13 +656,13 @@ img.restaurant-profile {
 }
 
 .add-to-cart {
-  border-top-right-radius: .5rem;
-  border-bottom-right-radius: .5rem;
+  border-top-right-radius: var(--padding-2);
+  border-bottom-right-radius: var(--padding-2);
 }
 
 .remove-from-cart {
-  border-top-left-radius: .5rem;
-  border-bottom-left-radius: .5rem;
+  border-top-left-radius: var(--padding-2);
+  border-bottom-left-radius: var(--padding-2);
 }
 
 .add-to-cart:hover, 
@@ -683,18 +672,34 @@ img.restaurant-profile {
   color: var(--clr-accent);
 }
 
+.add-to-cart-container {
+  position: relative;
+  transform: translateY(-26px);
+}
+
 
 .big-btn {
   display: block;
   font-size: 1rem;
   padding: 1rem;
   margin-inline: auto;
-  transform: translateY(-35px);
 }
 
 .big-btn p {
   margin: 0px;
 }
+
+.btn-active {
+  background: var(--clr-accent);
+  color: white;
+}
+
+.btn-active:hover,
+.btn-active:focus {
+  background-color: var(--clr-faint-accent);
+}
+
+
 
 
 .menu-item-display {
@@ -721,14 +726,21 @@ img.restaurant-profile {
 }
 
 .inc-dec-in-cart {
-  
+  font-size: 1rem;
+  background: white;
+  border-radius: calc(var(--padding-2) + 2px);
+  margin: auto;
+  width: fit-content;
+  position: absolute;
+  inset: 0;
+
 }
 
 .inc-dec-in-cart .no-in-cart{
   display: inline;
   color: var(--clr-dark);
   font-size: 2em;
-  margin: 10px;
+  padding: 10px;
 }
 
 
@@ -743,7 +755,7 @@ img.restaurant-profile {
 }
 
 .hide {
-  /* display: none; */
+  display: none;
 }
 
 .mb-1rem {
