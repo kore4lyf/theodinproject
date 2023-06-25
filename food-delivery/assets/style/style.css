@@ -659,20 +659,16 @@ img.restaurant-profile {
     +++++++++++++++++++++ */
 .menu-item-display {
   background-color: var(--clr-dark);
-  /* position: absolute; */
-  top: 0px;
-  left: 0;
-  right: 0;
-  z-index: -1;
 }
 
 .menu-item-display div {
   height: inherit;
-  width: 100%;
+  width: 70%;
   position: relative;
 }
 
 .menu-item-display img{
+  padding-top: 4rem;
   display: block;
   transition: transform ease-in-out 0.3s;
   width: 100%;
