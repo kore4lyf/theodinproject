@@ -120,7 +120,7 @@ p, .search input[type=text] {
 }
 
 .intro-text {
-  font-size: clamp(1.3rem, .5rem + 5vw, 2.5rem);
+  font-size: clamp(1.3rem, .5rem + 7, 2.5rem);
   font-weight: 900;
   margin: auto;
   text-align: center;
@@ -133,7 +133,7 @@ p, .search input[type=text] {
   font-weight: 900;
 }
 
-.text-faint-dark {
+.text-faint {
   color: var(--clr-dark);
   opacity: .6;
 }
@@ -731,15 +731,43 @@ img.restaurant-profile {
 .inc-dec-in-cart .no-in-cart{
   display: inline;
   color: var(--clr-dark);
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 10px;
+}
+
+.product-name-desc-price {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .product-name-desc-price .subheader{
   font-size: 2rem;
 }
 .product-name-desc-price .currency {
+  color: var(--clr-accent);
   font-family: calibri, sans-serif;
+}
+
+.product-name-desc-price .name-desc {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name-desc-price p,
+.product-name-desc-price .name-desc h2 {
+  margin: 2px;
+}
+
+.product-name-desc-price .price {
+  align-items: center;
+  color: var(--clr-dark);
+  display: flex;
+  font-size: clamp(1.5rem, 8vw + .1rem, 2rem);
+  font-weight: 900;
+  gap: .2rem;
+  padding-block: .8rem;
 }
 
 
