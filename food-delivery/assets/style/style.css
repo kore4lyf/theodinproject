@@ -41,7 +41,7 @@
 
 :root {
   --clr-accent: #ff2121;
-  --clr-faint-accent: #ff4444;
+  --clr-faint-accent: #fb2c2c;
   --clr-dark: #302f3c;
   --clr-secondary: #fafafa;
   --rounded-1: .5rem;
@@ -121,15 +121,16 @@ p, .search input[type=text] {
 
 .intro-text {
   font-size: clamp(1.3rem, .5rem + 5vw, 2.5rem);
-  font-weight: bold;
+  font-weight: 900;
   margin: auto;
   text-align: center;
   /* padding-block: 2rem; */
-  width: 15ch;
+  width: 14ch;
 }
 
 .subheader {
   font-size: clamp(1.2rem, .1rem + 4vw, 1.8rem);
+  font-weight: 900;
 }
 
 .text-faint-dark {
