@@ -622,15 +622,6 @@ img.restaurant-profile {
   justify-content: center;
 }
 
-.item-price-addtocart div {
-  padding: 1rem;
-}
-
-.restaurant .currency {
-  font-family: calibri, sans-serif;
-}
-
-
 
 
   /* +++++++++++++++++++++ 
@@ -743,6 +734,15 @@ img.restaurant-profile {
   font-size: 2em;
   padding: 10px;
 }
+
+.product-name-desc-price .subheader{
+  font-size: 2rem;
+}
+.product-name-desc-price .currency {
+  font-family: calibri, sans-serif;
+}
+
+
 
 
 /*
