@@ -120,7 +120,7 @@ p, .option, .search input[type=text] {
 }
 
 .intro-text {
-  font-size: clamp(1.3rem, .5rem + 7, 2.5rem);
+  font-size: clamp(1.4rem, .5rem + 5vw, 2.5rem);
   font-weight: 900;
   margin: auto;
   text-align: center;
@@ -220,6 +220,10 @@ a .icon-stroke:hover {
   white-space: nowrap;
 }
 
+.delivery-and-rating .options{
+  padding-bottom: .5rem;
+}
+
 
 .menu-category .options::-webkit-scrollbar  {
   display: none;
@@ -308,7 +312,7 @@ a .icon-stroke:hover {
   flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 450px));
-  gap: 2rem;
+  gap: 2.5rem;
   justify-content: center;
   padding-left: 0px;
   padding-bottom: 4rem;
@@ -568,15 +572,14 @@ img.restaurant-profile {
 }
 
 .restaurant .item {
-  /* background-color: #302f3c; */
   border: 1px solid var(--clr-secondary);
   border-radius: 1.8rem;
-  /* min-width: 100px;
-  max-width: 200px; */
 }
 
+.restaurant .item:hover,
 .restaurant .item:focus {
-  border: 1px solid var(--clr-secondary);
+  border: 1px solid #ff212150;
+  
 }
 
 
@@ -601,7 +604,7 @@ img.restaurant-profile {
   margin: auto;
   object-fit: cover;
   object-position: center;
-  transform: translateY(50px);
+  transform: translateY(20px);
   width: 200px;
   overflow: hidden;
 }
@@ -682,8 +685,20 @@ img.restaurant-profile {
   margin-inline: auto;
 }
 
-.big-btn p {
+.big-btn p, .small-btn p {
   margin: 0px;
+}
+
+.small-btn {
+  display: block;
+  font-size: .8rem;
+  padding: .8em;
+  margin-inline: auto;
+  border-radius: .6rem;
+}
+
+#restaurant .small-btn {
+  margin-bottom: 2rem;
 }
 
 .btn-active {
@@ -787,6 +802,10 @@ img.restaurant-profile {
   color: var(--clr-dark);
   opacity: .8;
   padding-block: .5rem;
+}
+
+.ingredients ul li:first-of-type {
+  padding-top: 0px;
 }
 
 .ingredients ul li::marker {

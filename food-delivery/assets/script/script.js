@@ -29,7 +29,7 @@ const productPageLoaded = document.querySelector("#product");
 
 /** Condition for Pages With Back Botton **/
 
-if (restaurantPageLoaded) {
+if (restaurantPageLoaded || productPageLoaded) {
   const backBtn = document.querySelector("#back");
 
   backBtn.addEventListener("click", function () {
@@ -294,7 +294,6 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
     
   // create a menu items
   for (let item of restaurantMenuData) {
-    console.log(item)
     // Create a new element to hold menu items
     let menuItem = document.createElement("li");
     // Add class name .item to the new element
@@ -303,7 +302,9 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
     menuItem.innerHTML = `
       <img loading="lazy" src="./assets/images/menu/${item.photoName}" alt="Chillox Chicken Burger">
        <p class="item-name">${item.name}</p>
-       <p class="item-desc"><small>${item.desc}</small></p>
+       <p class="item-desc text-faint">${item.desc}</p>
+       <button class="btn btn-active small-btn text-bold shadow">
+       <p>  Add to cart </p> </button>
        </div>
     `;
     
@@ -316,5 +317,44 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
 
 
 }
+
+
+
+
+
+/* ################## 
+      PRODUCT PAGE 
+    ################## */
+    
+
+
+
+function loadProductDetail(productData) {
+
+  // Set image path
+  // Fetch image DOM
+  const imageDOM = document.querySelector(".menu-item-display img");
+  // Fetch image path
+  let imageSrc = `./assets/images/menu/large/${productData.photoName}`
+  // Set path
+  imageDOM.src = imageSrc;
+
+  
+  // Set product name
+  // let ima
+  // displayImage.style.display = "none";
+}
+
+loadProductDetail({
+  name: "Beef Burger",
+  restaurant: "Chillox",
+  category: "Burger",
+  photoName: "chillox-beef-burger.png",
+  desc: "Beef Patty and special sauce",
+  price: 5790
+})
+
+
+
 
 // * Focus on .seach-menu when menu search button is pressed 
