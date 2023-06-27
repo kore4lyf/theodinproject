@@ -768,11 +768,16 @@ img.restaurant-profile {
   font-weight: 900;
   gap: .2rem;
   padding-block: .8rem;
+  border-bottom: 2px solid var(--clr-secondary);
 }
 
+.delivery-and-rating {
+}
 
-
-
+.delivery-and-rating ul{
+   padding-left: 0px;
+  /* background-color: red; */
+}
 /*
   #################
     Other Styles
