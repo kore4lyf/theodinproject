@@ -142,7 +142,7 @@ function loadPopularCategory(categoryName) {
               <img loading="lazy" src="./assets/images/restaurants/${restaurant.profilePhoto}" alt="Chillox logo">
               <span>
                 <p class="item-title" title="${restaurant.name}">${restaurant.name.length <= 16 ? restaurant.name : restaurant.name.slice(0,13) + "..."}</p>
-                <p class="item-desc text-faint-dark"><span>${capCategoryName}</span> 
+                <p class="item-desc text-faint"><span>${capCategoryName}</span> 
                   <span class="period-divider">
                     <svg fill="currentColor" viewBox="0 0 128 512">
                       <path d="M64 352c-35.35 0-64 28.65-64 64c0 35.35 28.65 64 64 64s64-28.65 64-64C128 380.7 99.35 352 64 352z"/>
@@ -192,10 +192,11 @@ function switchMenuCategory(category) {
 
 
 /** 
- * loadRestaurantContent() load the restaurtants logo, name,
+ * loadRestaurantContent() loads the restaurtants logo, name,
  * delivery fee, rating, menu and food.
  * @name: is the retaurants name.
  * @category: represents food category
+ * 
  * */
 
 function loadRestaurantContent(name, category) {
@@ -238,6 +239,13 @@ function loadRestaurantContent(name, category) {
 }
 
 
+/** 
+ * loadRestaurantContent() loads the restaurtants logo, name,
+ * delivery fee, rating, menu and food.
+ * @restaurantName: is the retaurants name.
+ * @activeCategory: represents the current/active food category
+ * 
+ * */
 function loadMenuCategory(restaurantName, activeCategory) {
   // convert characters to lowercase
   restaurantName = restaurantName.toLowerCase();
@@ -296,13 +304,6 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
       <img loading="lazy" src="./assets/images/menu/${item.photoName}" alt="Chillox Chicken Burger">
        <p class="item-name">${item.name}</p>
        <p class="item-desc"><small>${item.desc}</small></p>
-       <div class="item-price-addtocart">
-         <div>
-           <button class="remove-from-cart disabled"> - </button>
-           <span class="currency">₦</span>
-           <span class="price">${parseInt(item.price).toLocaleString()}</span>
-           <button class="add-to-cart"> + </button>
-         </div>
        </div>
     `;
     
