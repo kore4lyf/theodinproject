@@ -115,7 +115,7 @@ h6 {
   font-weight: bold;
 }
 
-p, .search input[type=text] {
+p, .option, .search input[type=text] {
   font-family: var(--ff-gotham-reg);
 }
 
@@ -206,9 +206,9 @@ a .icon-stroke:hover {
 }
 
 
-
 /** ---category--- **/
-.menu-category .options {
+.menu-category .options,
+.delivery-and-rating .options {
   display: flex;
   font-size: small;
   gap: 1rem;
@@ -225,7 +225,8 @@ a .icon-stroke:hover {
   display: none;
 }
 
-.menu-category .option {
+.menu-category .option,
+.delivery-and-rating .option {
   align-items: center;
   border-radius: .9rem;
   color: var(--clr-dark);
@@ -249,7 +250,8 @@ a .icon-stroke:hover {
 }
 
 
-.menu-category .option p {
+.menu-category .option p,
+.delivery-and-rating p {
   margin: 0px;
 }
 
@@ -771,13 +773,24 @@ img.restaurant-profile {
   border-bottom: 2px solid var(--clr-secondary);
 }
 
-.delivery-and-rating {
+
+.ingredients ul {
+  gap: 1rem;
 }
 
-.delivery-and-rating ul{
-   padding-left: 0px;
-  /* background-color: red; */
+.ingredients ul li {
+  color: var(--clr-dark);
+  opacity: .8;
+  padding-left: 0px;
+  padding-block: .5rem;
+
 }
+
+.ingredients ul li::marker {
+  color: red;
+}
+
+
 /*
   #################
     Other Styles
