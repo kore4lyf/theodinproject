@@ -35,7 +35,19 @@ const productPageLoaded = document.querySelector("#product");
     loadMenuCategory("chillox", "burger");
     loadRestaurantMenu("chillox", "burger");
   } else if(productPageLoaded) {
-    
+    loadProductDetail({
+      bigPhotoName: "chillox-beef-burger.png",
+      category: "Burger",
+      deliveryFee: "Free",
+      desc: "Beef Patty and special sauce",
+      ingredients: ["Beef", "Lettuce", "Olive Oil", "Egg", "Tomatoes"],
+      name: "Beef Burger",
+      price: 5790,
+      rating: 4.3,
+      restaurant: "Chillox",
+      smallPhotoName: "chillox-beef-burger.png",
+      about:"This special beef burger uses special quality beef with sliced lettuce."
+    });
   }
   
 
@@ -435,24 +447,22 @@ function loadProductDetail(productData) {
 
     // Append list to DOMFragment
     DOMFragment.appendChild(listItem);
-
   }
+
   // Append changes to Ingredient element in the DOM
   productIngredientsDOM.appendChild(DOMFragment);
+
+
+  // 9. Set information about the product
+  // setAboutProduct(productData.about)
+    // Fetch product about element in the DOM
+  const aboutDOM = document.querySelector("#product .about p");
+    // Set about information
+  aboutDOM.innerText = productData.about;
+  
 }
 
-loadProductDetail({
-  bigPhotoName: "chillox-beef-burger.png",
-  category: "Burger",
-  deliveryFee: "Free",
-  desc: "Beef Patty and special sauce",
-  ingredients: ["Beef", "Lettuce", "Olive Oil", "Egg", "Tomatoes"],
-  name: "Beef Burger",
-  price: 5790,
-  rating: 4.3,
-  restaurant: "Chillox",
-  smallPhotoName: "chillox-beef-burger.png"
-});
+
 
 
 

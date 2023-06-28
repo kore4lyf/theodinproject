@@ -12,7 +12,9 @@ export const restaurantsMenu = [
       price: 3500,
       rating: 4.4,
       restaurant: "Chillox",
-      smallPhotoName: "chillox-chicken-burger.png"  
+      smallPhotoName: "chillox-chicken-burger.png",
+      about:"This special beef burger uses special quality beef with sliced lettuce."
+
     },
     {
       bigPhotoName: "chillox-beef-burger.png",
@@ -24,7 +26,9 @@ export const restaurantsMenu = [
       price: 5790,
       rating: 4.3,
       restaurant: "Chillox",
-      smallPhotoName: "chillox-beef-burger.png"
+      smallPhotoName: "chillox-beef-burger.png",
+      about:"This special beef burger uses special quality beef with sliced lettuce."
+
     },
     {
       bigPhotoName: "chillox-french-fries.png",
@@ -36,7 +40,9 @@ export const restaurantsMenu = [
       price: 2800,
       rating: 4.2,
       restaurant: "Chillox",
-      smallPhotoName: "chillox-french-fries.png",      
+      smallPhotoName: "chillox-french-fries.png",
+      about:"This special beef burger uses special quality beef with sliced lettuce."
+
     },
     {
       bigPhotoName: "chillox-naga-drums.png",
@@ -48,7 +54,9 @@ export const restaurantsMenu = [
       price: 7200,
       rating: 4.8,
       restaurant: "Chillox",
-      smallPhotoName: "chillox-naga-drums.png",      
+      smallPhotoName: "chillox-naga-drums.png",
+      about:"This special beef burger uses special quality beef with sliced lettuce."
+
     },
     {
       bigPhotoName: "chillox-xl-burger.png",
@@ -60,7 +68,9 @@ export const restaurantsMenu = [
       price: 7920,
       rating: 4.5,
       restaurant: "Chillox",
-      smallPhotoName: "chillox-xl-burger.png"      
+      smallPhotoName: "chillox-xl-burger.png",
+      about:"This special beef burger uses special quality beef with sliced lettuce."
+
     },
     {
       bigPhotoName: "chillox-chicken-fried.png",
@@ -72,7 +82,9 @@ export const restaurantsMenu = [
       price: 5750,
       rating: 4.9,
       restaurant: "Chillox",
-      smallPhotoName: "chillox-chicken-fried.png"    
+      smallPhotoName: "chillox-chicken-fried.png",
+      about:"This special beef burger uses special quality beef with sliced lettuce."
+
     }
 ];
 
