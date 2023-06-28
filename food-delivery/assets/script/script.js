@@ -360,30 +360,7 @@ function loadProductDetail(productData) {
   
 
   // 2. Set the total number number of orders in cart
-  // setNumberOfOrdersInCart(cart, productData.name)
-    // Add to cart DOM
-  const addToCartDOM = document.querySelector("#product #add-item-to-cart");
-  
-    // Increase and decrease total item DOM
-  const totalOfItemDOM = document.querySelector("#product .inc-dec-in-cart");
-  
-    // Fetch Total number x item in cart
-  const totalOfItem = document.querySelector("#product .total-of-item");
-
-    // Find the product in the cart
-  const productIndex = cart.findIndex(item => item.name.toLowerCase() === productData.name.toLowerCase());
-  const product = cart[productIndex];
-    
-    // Check whether produc exists in the cart
-  const productInCart = productIndex !== -1;
-  if (productInCart) { // Show/hide elements depending on the status of the condition 
-    totalOfItem.innerText = product.totalOrder;
-    addToCartDOM.classList.add("hide");
-    totalOfItem.classList.remove("hide");
-  } else {
-    totalOfItemDOM.classList.add("hide");
-    addToCartDOM.classList.remove("hide");
-  }
+  setNumberOfOrdersInCart(cart, productData.name)
 
 
   // 3. Set Product Name
@@ -461,14 +438,46 @@ function loadProductDetail(productData) {
  * @imageName : Represent the name for the image file to be displayed
  */
 function setProductImage(imageName) {
-  // Fetch image DOM
-const imageDOM = document.querySelector("#product .menu-item-display img");
-  // Fetch image path
-let imageSrc = `./assets/images/menu/large/${imageName}`
-  // Set path
-imageDOM.src = imageSrc;
+    // Fetch image DOM
+  const imageDOM = document.querySelector("#product .menu-item-display img");
+    // Fetch image path
+  let imageSrc = `./assets/images/menu/large/${imageName}`
+    // Set path
+  imageDOM.src = imageSrc;
 }
 
+
+/**
+ * setNumberOfOrdersInCart : Gets the number time a product was order from the
+ * cart and set it to UI
+ * @cart : It contains all the data of the item in the cart
+ * @productName : Represent the the name of the Product
+ */
+function setNumberOfOrdersInCart(cart, productName) {
+    // Add to cart DOM
+  const addToCartDOM = document.querySelector("#product #add-item-to-cart");
+
+    // Increase and decrease total item DOM
+  const totalOfItemDOM = document.querySelector("#product .inc-dec-in-cart");
+
+    // Fetch Total number x item in cart
+  const totalOfItem = document.querySelector("#product .total-of-item");
+
+    // Find the product in the cart
+  const productIndex = cart.findIndex(item => item.name.toLowerCase() === productName.toLowerCase());
+  const product = cart[productIndex];
+    
+    // Check whether produc exists in the cart
+  const productInCart = productIndex !== -1;
+  if (productInCart) { // Show/hide elements depending on the status of the condition 
+    totalOfItem.innerText = product.totalOrder;
+    addToCartDOM.classList.add("hide");
+    totalOfItem.classList.remove("hide");
+  } else {
+    totalOfItemDOM.classList.add("hide");
+    addToCartDOM.classList.remove("hide");
+  }
+}
 
 
 // * Focus on .seach-menu when menu search button is pressed 
