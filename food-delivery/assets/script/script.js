@@ -1,6 +1,18 @@
 import * as data from './data.js'; // Import all menu and menu categories
 
 
+// Cart Data 
+let cart = [
+  {
+    name: "Beef Burger",
+    restaurant: "Chillox",
+    category: "Burger",
+    smallPhotoName: "chillox-beef-burger.png",
+    price: 5790,
+    totalOrder: 1
+  }
+]
+
 // Home DOM
 const homePageLoaded = document.querySelector("#home");
 
@@ -300,7 +312,7 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
     menuItem.classList.add("item");
     // Add the new elements inner content
     menuItem.innerHTML = `
-      <img loading="lazy" src="./assets/images/menu/${item.photoName}" alt="Chillox Chicken Burger">
+      <img loading="lazy" src="./assets/images/menu/${item.smallPhotoName}" alt="Chillox Chicken Burger">
        <p class="item-name">${item.name}</p>
        <p class="item-desc text-faint">${item.desc}</p>
        <button class="btn btn-active small-btn text-bold shadow">
@@ -332,12 +344,28 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
 function loadProductDetail(productData) {
 
   // Set image path
-  // Fetch image DOM
+    // Fetch image DOM
   const imageDOM = document.querySelector(".menu-item-display img");
-  // Fetch image path
-  let imageSrc = `./assets/images/menu/large/${productData.photoName}`
-  // Set path
+    // Fetch image path
+  let imageSrc = `./assets/images/menu/large/${productData.bigPhotoName}`
+    // Set path
   imageDOM.src = imageSrc;
+
+
+  // Fetch the total number number of orders in cart
+    // Fetch Total number x item in cart
+  const totalOfItem = document.querySelector(".total-of-item");
+    // Find the product in the cart
+  const product = cart.filter(item => item.name.toLowerCase() === productData.name.toLowerCase());
+    
+    // Check whether produc exists in the cart
+  const productInCart = product.length;
+  console.log(productInCart)
+  if (productInCart) {
+    totalOfItem.innerText = cart.totalOrder;
+  } else {
+    totalOfItem.innerText = 1;
+  }
 
   
   // Set product name
@@ -349,10 +377,11 @@ loadProductDetail({
   name: "Beef Burger",
   restaurant: "Chillox",
   category: "Burger",
-  photoName: "chillox-beef-burger.png",
+  smallPhotoName: "chillox-beef-burger.png",
+  bigPhotoName: "chillox-beef-burger.png",
   desc: "Beef Patty and special sauce",
   price: 5790
-})
+});
 
 
 

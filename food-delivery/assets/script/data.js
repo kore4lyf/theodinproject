@@ -6,7 +6,8 @@ export const restaurantsMenu = [
       name: "Chicken Burger",
       restaurant: "Chillox",
       category: "Burger",
-      photoName: "chillox-chicken-burger.png",
+      bigPhotoName: "chillox-chicken-burger.png",
+      smallPhotoName: "chillox-chicken-burger.png",      
       desc: "Chicken Patty and special sauce",
       price: 3500
     },
@@ -14,7 +15,8 @@ export const restaurantsMenu = [
       name: "Beef Burger",
       restaurant: "Chillox",
       category: "Burger",
-      photoName: "chillox-beef-burger.png",
+      bigPhotoName: "chillox-beef-burger.png",
+      smallPhotoName: "chillox-beef-burger.png",      
       desc: "Beef Patty and special sauce",
       price: 5790
     },
@@ -22,7 +24,8 @@ export const restaurantsMenu = [
       name: "French Fries",
       restaurant: "Chillox",
       category: "Fries",
-      photoName: "chillox-french-fries.png",
+      bigPhotoName: "chillox-french-fries.png",
+      smallPhotoName: "chillox-french-fries.png",      
       desc: "Sliced deep fries potatoes",
       price: 2800
     },
@@ -30,7 +33,8 @@ export const restaurantsMenu = [
       name: "Naga Drums",
       restaurant: "Chillox",
       category: "Chicken",
-      photoName: "chillox-naga-drums.png",
+      bigPhotoName: "chillox-naga-drums.png",
+      smallPhotoName: "chillox-naga-drums.png",      
       desc: "Crispy fried chicken drum",
       price: 7200
     },
@@ -38,7 +42,8 @@ export const restaurantsMenu = [
       name: "XL Burger",
       restaurant: "Chillox",
       category: "Burger",
-      photoName: "chillox-xl-burger.png",
+      bigPhotoName: "chillox-xl-burger.png",
+      smallPhotoName: "chillox-xl-burger.png",      
       desc: "Cheese & beef pastra",
       price: 7920
     },
@@ -46,7 +51,8 @@ export const restaurantsMenu = [
       name: "Chicken Fried",
       restaurant: "Chillox",
       category: "Chicken",
-      photoName: "chillox-chicken-fried.png",
+      bigPhotoName: "chillox-chicken-fried.png",
+      smallPhotoName: "chillox-chicken-fried.png",      
       desc: "Delicious crispy fried breaded chicken",
       price: 5750
     }

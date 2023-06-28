@@ -748,7 +748,7 @@ img.restaurant-profile {
 
 }
 
-.inc-dec-in-cart .no-in-cart{
+.inc-dec-in-cart .total-of-item{
   display: inline;
   color: var(--clr-dark);
   font-size: 1.5em;
