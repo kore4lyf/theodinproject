@@ -344,7 +344,7 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
 function loadProductDetail(productData) {
 
   // 1. Set image path
-  // fetchProductImage(productData.bigPhotoName);
+  // setProductImage(productData.bigPhotoName);
     // Fetch image DOM
   const imageDOM = document.querySelector(".menu-item-display img");
     // Fetch image path
@@ -353,8 +353,8 @@ function loadProductDetail(productData) {
   imageDOM.src = imageSrc;
 
 
-  // 2. Fetch the total number number of orders in cart
-  // fetchNumberOfOrdersInCart(cart, productData.name)
+  // 2. Set the total number number of orders in cart
+  // setNumberOfOrdersInCart(cart, productData.name)
     // Add to cart DOM
   const addToCartDOM = document.querySelector("#add-item-to-cart");
   
@@ -381,22 +381,31 @@ function loadProductDetail(productData) {
 
 
   // 3. Set Product Name
-  // fetchProductName(productData.name);
+  // setProductName(productData.name);
     // Fetch Product name element in the DOM
   const productNameDOM = document.querySelector(".product-name-desc-price .subheader");
-    // set name
+    // Set name
   productNameDOM.innerText = productData.name;
 
 
   // 4. Set product description
-  // fetchProductDescription(productData.desc);
+  // setProductDescription(productData.desc);
     // Fetch product descriptionn element in the DOM 
   const productDescDOM = document.querySelector(".product-name-desc-price .desc small");
-  console.log(productDescDOM);
+    // Set description 
   productDescDOM.innerHTML = productData.desc;
+
+
+  // 5. Set product price
+  // setProductPrice(productData.price)
+    // Fetch product price element in the DOM
+  const productPriceDOM = document.querySelector(".product-name-desc-price .cost");
+    // Set price
+  productPriceDOM.innerHTML = parseInt(productData.price).toLocaleString();
   
 
-  
+  // 6. Set product delivery fee
+  // setProductDeliveryFee(productData.)
   
 }
 
