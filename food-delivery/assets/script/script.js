@@ -357,19 +357,12 @@ function loadProductDetail(productData) {
 
   // 1. Set image path
   setProductImage(productData.bigPhotoName);
-  
 
   // 2. Set the total number number of orders in cart
   setNumberOfOrdersInCart(cart, productData.name)
 
-
   // 3. Set Product Name
-  // setProductName(productData.name);
-    // Fetch Product name element in the DOM
-  const productNameDOM = document.querySelector("#product .product-name-desc-price .subheader");
-    // Set name
-  productNameDOM.innerText = productData.name;
-
+  setProductName(productData.name);
 
   // 4. Set product description
   // setProductDescription(productData.desc);
@@ -430,30 +423,30 @@ function loadProductDetail(productData) {
   const aboutDOM = document.querySelector("#product .about p");
     // Set about information
   aboutDOM.innerText = productData.about;
-  
-}
 
-/** 
- * SetProductImage : Sets Product image on the product page
- * @imageName : Represent the name for the image file to be displayed
- */
-function setProductImage(imageName) {
+
+
+    /** 
+   * SetProductImage : Sets Product image on the product page
+   * @imageName : Represent the name for the image file to be displayed
+   */
+  function setProductImage(imageName) {
     // Fetch image DOM
   const imageDOM = document.querySelector("#product .menu-item-display img");
     // Fetch image path
   let imageSrc = `./assets/images/menu/large/${imageName}`
     // Set path
   imageDOM.src = imageSrc;
-}
+  }
 
 
-/**
- * setNumberOfOrdersInCart : Gets the number time a product was order from the
- * cart and set it to UI
- * @cart : It contains all the data of the item in the cart
- * @productName : Represent the the name of the Product
- */
-function setNumberOfOrdersInCart(cart, productName) {
+  /**
+  * setNumberOfOrdersInCart : Gets the number time a product was order from the
+  * cart and set it to UI
+  * @cart : It contains all the data of the item in the cart
+  * @productName : Represent the the name of the Product
+  */
+  function setNumberOfOrdersInCart(cart, productName) {
     // Add to cart DOM
   const addToCartDOM = document.querySelector("#product #add-item-to-cart");
 
@@ -477,7 +470,26 @@ function setNumberOfOrdersInCart(cart, productName) {
     totalOfItemDOM.classList.add("hide");
     addToCartDOM.classList.remove("hide");
   }
+  }
+
+
+  /**
+  * setProductName : Set product name in product.page
+  * cart and set it to UI
+  * @cart : It contains all the data of the item in the cart
+  * @productName : Represent the the name of the Product
+  */
+
+  function setProductName(productName) {
+    // Fetch Product name element in the DOM
+    const productNameDOM = document.querySelector("#product .product-name-desc-price .subheader");
+    // Set name
+    productNameDOM.innerText = productName;
+  }
+  
 }
+
+
 
 
 // * Focus on .seach-menu when menu search button is pressed 
