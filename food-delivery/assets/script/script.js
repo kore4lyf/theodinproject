@@ -416,21 +416,29 @@ function loadProductDetail(productData) {
   // setProductRating(productData.rating)
     // Fetch product rating element in the DOM
   const productRatingDOM = document.querySelector("#product .delivery-and-rating .rating p");
-  console.log(productData);
     // Set rating
   productRatingDOM.innerText = productData.rating;
 
 
   // 8. Set product ingredients
   // setProductIngredients(productData.ingredients)
+    // Create Document Fragment
+  const DOMFragment = document.createDocumentFragment();
     // Fetch product ingredients element in the DOM
-  const productIngredientsDOM = document.querySelector("#product .ingredients options");
+  const productIngredientsDOM = document.querySelector("#product .ingredients .options");
     // Add ingredients to DOM
-  for (ingredient of productData.ingredients) {
-    // create new ingredient
+  for (let ingredient of productData.ingredients) {
+    // Create new ingredient
     const listItem = document.createElement("li");
     listItem.classList.add("option");
+    listItem.innerText = ingredient;
+
+    // Append list to DOMFragment
+    DOMFragment.appendChild(listItem);
+
   }
+  // Append changes to Ingredient element in the DOM
+  productIngredientsDOM.appendChild(DOMFragment);
 }
 
 loadProductDetail({
