@@ -115,7 +115,7 @@ function displayCategoryItems() {
   
   /*
    * swithCategory: Switches active tab propertise on click
-   * @itemName: The name of the current active tab
+   * @itemName : The name of the current active tab
    *  
    */
   function switchCategory(itemName) { 
@@ -216,12 +216,12 @@ function switchMenuCategory(category) {
 
 
 /** 
- * loadRestaurantContent() loads the restaurtants logo, name,
+ * loadRestaurantContent : loads the restaurtants logo, name,
  * delivery fee, rating, menu and food.
- * @name: is the retaurants name.
- * @category: represents food category
+ * @name : is the retaurants name.
+ * @category : represents food category
  * 
- * */
+ */
 
 function loadRestaurantContent(name, category) {
   name = name.toLowerCase();
@@ -266,8 +266,8 @@ function loadRestaurantContent(name, category) {
 /** 
  * loadRestaurantContent() loads the restaurtants logo, name,
  * delivery fee, rating, menu and food.
- * @restaurantName: is the retaurants name.
- * @activeCategory: represents the current/active food category
+ * @restaurantName : is the retaurants name.
+ * @activeCategory : represents the current/active food category
  * 
  * */
 function loadMenuCategory(restaurantName, activeCategory) {
@@ -356,14 +356,8 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
 function loadProductDetail(productData) {
 
   // 1. Set image path
-  // setProductImage(productData.bigPhotoName);
-    // Fetch image DOM
-  const imageDOM = document.querySelector("#product .menu-item-display img");
-    // Fetch image path
-  let imageSrc = `./assets/images/menu/large/${productData.bigPhotoName}`
-    // Set path
-  imageDOM.src = imageSrc;
-
+  setProductImage(productData.bigPhotoName);
+  
 
   // 2. Set the total number number of orders in cart
   // setNumberOfOrdersInCart(cart, productData.name)
@@ -462,8 +456,18 @@ function loadProductDetail(productData) {
   
 }
 
-
-
+/** 
+ * SetProductImage : Sets Product image on the product page
+ * @imageName : Represent the name for the image file to be displayed
+ */
+function setProductImage(imageName) {
+  // Fetch image DOM
+const imageDOM = document.querySelector("#product .menu-item-display img");
+  // Fetch image path
+let imageSrc = `./assets/images/menu/large/${imageName}`
+  // Set path
+imageDOM.src = imageSrc;
+}
 
 
 
