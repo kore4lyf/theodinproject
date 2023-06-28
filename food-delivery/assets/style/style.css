@@ -743,9 +743,6 @@ img.restaurant-profile {
   border-radius: calc(var(--padding-2) + 2px);
   margin: auto;
   width: fit-content;
-  position: absolute;
-  inset: 0;
-
 }
 
 .inc-dec-in-cart .total-of-item{

@@ -353,18 +353,29 @@ function loadProductDetail(productData) {
 
 
   // Fetch the total number number of orders in cart
+    // Add to cart DOM
+  const addToCartDOM = document.querySelector("#add-item-to-cart");
+  
+    // Increase and decrease total item DOM
+  const totalOfItemDOM = document.querySelector(".inc-dec-in-cart");
+  
     // Fetch Total number x item in cart
   const totalOfItem = document.querySelector(".total-of-item");
+
     // Find the product in the cart
-  const product = cart.filter(item => item.name.toLowerCase() === productData.name.toLowerCase());
+  const productIndex = cart.findIndex(item => item.name.toLowerCase() === productData.name.toLowerCase());
+  const product = cart[productIndex];
+  console.log(productIndex);
     
     // Check whether produc exists in the cart
-  const productInCart = product.length;
-  console.log(productInCart)
-  if (productInCart) {
-    totalOfItem.innerText = cart.totalOrder;
+  const productInCart = productIndex !== -1;
+  if(productInCart) {
+    totalOfItem.innerText = product.totalOrder;
+    addToCartDOM.classList.add("hide");
+    totalOfItem.classList.remove("hide");
   } else {
-    totalOfItem.innerText = 1;
+    totalOfItemDOM.classList.add("hide");
+    addToCartDOM.classList.remove("hide");
   }
 
   
