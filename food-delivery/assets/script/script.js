@@ -365,12 +365,8 @@ function loadProductDetail(productData) {
   setProductName(productData.name);
 
   // 4. Set product description
-  // setProductDescription(productData.desc);
-    // Fetch product descriptionn element in the DOM 
-  const productDescDOM = document.querySelector("#product .product-name-desc-price .desc small");
-    // Set description 
-  productDescDOM.innerText = productData.desc;
-
+  setProductDescription(productData.desc);
+  
 
   // 5. Set product price
   // setProductPrice(productData.price)
@@ -474,10 +470,9 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductName : Set product name in product.page
+  * setProductName : Set product name in product page
   * cart and set it to UI
-  * @cart : It contains all the data of the item in the cart
-  * @productName : Represent the the name of the Product
+  * @productName : Represent the name of the product
   */
 
   function setProductName(productName) {
@@ -486,6 +481,20 @@ function loadProductDetail(productData) {
     // Set name
     productNameDOM.innerText = productName;
   }
+
+
+  /**
+  * setProductDesc : Set product description in product page
+  * cart and set it to UI
+  * @productDesc : Is a description of the product
+  */
+  function setProductDescription(productDesc) {
+    // Fetch product descriptionn element in the DOM 
+  const productDescDOM = document.querySelector("#product .product-name-desc-price .desc small");
+    // Set description 
+  productDescDOM.innerText = productDesc;
+}
+
   
 }
 
