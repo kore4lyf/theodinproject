@@ -3,58 +3,76 @@ export const foodCategoryList = ["burger", "pizza", "salad", "chicken", "sushi"]
 
 export const restaurantsMenu = [
     {
-      name: "Chicken Burger",
-      restaurant: "Chillox",
-      category: "Burger",
       bigPhotoName: "chillox-chicken-burger.png",
-      smallPhotoName: "chillox-chicken-burger.png",      
+      deliveryFee: "Free",
       desc: "Chicken Patty and special sauce",
-      price: 3500
+      category: "Burger",
+      ingredients: [],
+      name: "Chicken Burger",
+      price: 3500,
+      rating: 4.4,
+      restaurant: "Chillox",
+      smallPhotoName: "chillox-chicken-burger.png"  
     },
     {
-      name: "Beef Burger",
-      restaurant: "Chillox",
-      category: "Burger",
       bigPhotoName: "chillox-beef-burger.png",
-      smallPhotoName: "chillox-beef-burger.png",      
-      desc: "Beef Patty and special sauce",
-      price: 5790
-    },
-    {
-      name: "French Fries",
-      restaurant: "Chillox",
-      category: "Fries",
-      bigPhotoName: "chillox-french-fries.png",
-      smallPhotoName: "chillox-french-fries.png",      
-      desc: "Sliced deep fries potatoes",
-      price: 2800
-    },
-    {
-      name: "Naga Drums",
-      restaurant: "Chillox",
-      category: "Chicken",
-      bigPhotoName: "chillox-naga-drums.png",
-      smallPhotoName: "chillox-naga-drums.png",      
-      desc: "Crispy fried chicken drum",
-      price: 7200
-    },
-    {
-      name: "XL Burger",
-      restaurant: "Chillox",
       category: "Burger",
-      bigPhotoName: "chillox-xl-burger.png",
-      smallPhotoName: "chillox-xl-burger.png",      
-      desc: "Cheese & beef pastra",
-      price: 7920
+      deliveryFee: "Free",
+      desc: "Beef Patty and special sauce",
+      ingredients: ["Beef", "Lettuce", "Olive Oil", "Egg", "Tomatoes"],
+      name: "Beef Burger",
+      price: 5790,
+      rating: 4.3,
+      restaurant: "Chillox",
+      smallPhotoName: "chillox-beef-burger.png"
     },
     {
-      name: "Chicken Fried",
+      bigPhotoName: "chillox-french-fries.png",
+      category: "Fries",
+      deliveryFee: "Free",
+      desc: "Sliced deep fries potatoes",
+      ingredients: [],
+      name: "French Fries",
+      price: 2800,
+      rating: 4.2,
       restaurant: "Chillox",
+      smallPhotoName: "chillox-french-fries.png",      
+    },
+    {
+      bigPhotoName: "chillox-naga-drums.png",
       category: "Chicken",
+      deliveryFee: "Free",
+      desc: "Crispy fried chicken drum",
+      ingredients: [],
+      name: "Naga Drums",
+      price: 7200,
+      rating: 4.8,
+      restaurant: "Chillox",
+      smallPhotoName: "chillox-naga-drums.png",      
+    },
+    {
+      bigPhotoName: "chillox-xl-burger.png",
+      category: "Burger",
+      deliveryFee: "Free",
+      desc: "Cheese & beef pastra",
+      ingredients: [],
+      name: "XL Burger",
+      price: 7920,
+      rating: 4.5,
+      restaurant: "Chillox",
+      smallPhotoName: "chillox-xl-burger.png"      
+    },
+    {
       bigPhotoName: "chillox-chicken-fried.png",
-      smallPhotoName: "chillox-chicken-fried.png",      
+      category: "Chicken",
+      deliveryFee: "Free",
       desc: "Delicious crispy fried breaded chicken",
-      price: 5750
+      ingredients: [],
+      name: "Chicken Fried",
+      price: 5750,
+      rating: 4.9,
+      restaurant: "Chillox",
+      smallPhotoName: "chillox-chicken-fried.png"    
     }
 ];
 

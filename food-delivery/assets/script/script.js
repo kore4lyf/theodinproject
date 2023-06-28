@@ -346,7 +346,7 @@ function loadProductDetail(productData) {
   // 1. Set image path
   // setProductImage(productData.bigPhotoName);
     // Fetch image DOM
-  const imageDOM = document.querySelector(".menu-item-display img");
+  const imageDOM = document.querySelector("#product .menu-item-display img");
     // Fetch image path
   let imageSrc = `./assets/images/menu/large/${productData.bigPhotoName}`
     // Set path
@@ -356,13 +356,13 @@ function loadProductDetail(productData) {
   // 2. Set the total number number of orders in cart
   // setNumberOfOrdersInCart(cart, productData.name)
     // Add to cart DOM
-  const addToCartDOM = document.querySelector("#add-item-to-cart");
+  const addToCartDOM = document.querySelector("#product #add-item-to-cart");
   
     // Increase and decrease total item DOM
-  const totalOfItemDOM = document.querySelector(".inc-dec-in-cart");
+  const totalOfItemDOM = document.querySelector("#product .inc-dec-in-cart");
   
     // Fetch Total number x item in cart
-  const totalOfItem = document.querySelector(".total-of-item");
+  const totalOfItem = document.querySelector("#product .total-of-item");
 
     // Find the product in the cart
   const productIndex = cart.findIndex(item => item.name.toLowerCase() === productData.name.toLowerCase());
@@ -383,7 +383,7 @@ function loadProductDetail(productData) {
   // 3. Set Product Name
   // setProductName(productData.name);
     // Fetch Product name element in the DOM
-  const productNameDOM = document.querySelector(".product-name-desc-price .subheader");
+  const productNameDOM = document.querySelector("#product .product-name-desc-price .subheader");
     // Set name
   productNameDOM.innerText = productData.name;
 
@@ -391,32 +391,59 @@ function loadProductDetail(productData) {
   // 4. Set product description
   // setProductDescription(productData.desc);
     // Fetch product descriptionn element in the DOM 
-  const productDescDOM = document.querySelector(".product-name-desc-price .desc small");
+  const productDescDOM = document.querySelector("#product .product-name-desc-price .desc small");
     // Set description 
-  productDescDOM.innerHTML = productData.desc;
+  productDescDOM.innerText = productData.desc;
 
 
   // 5. Set product price
   // setProductPrice(productData.price)
     // Fetch product price element in the DOM
-  const productPriceDOM = document.querySelector(".product-name-desc-price .cost");
+  const productPriceDOM = document.querySelector("#product .product-name-desc-price .cost");
     // Set price
-  productPriceDOM.innerHTML = parseInt(productData.price).toLocaleString();
+  productPriceDOM.innerText = parseInt(productData.price).toLocaleString();
   
 
   // 6. Set product delivery fee
-  // setProductDeliveryFee(productData.)
+  // setProductDeliveryFee(productData.deliveryFee)
+    // Fetch product price element in the DOM
+  const productDeliverFeeDOM = document.querySelector("#product .delivery-and-rating .delivery-fee p");
+    // Set Delivery Fee
+  productDeliverFeeDOM.innerText = isNaN(productData.deliveryFee) ? "Free" : productData.deliveryFee;
+
   
+  // 7. Set product rating
+  // setProductRating(productData.rating)
+    // Fetch product rating element in the DOM
+  const productRatingDOM = document.querySelector("#product .delivery-and-rating .rating p");
+  console.log(productData);
+    // Set rating
+  productRatingDOM.innerText = productData.rating;
+
+
+  // 8. Set product ingredients
+  // setProductIngredients(productData.ingredients)
+    // Fetch product ingredients element in the DOM
+  const productIngredientsDOM = document.querySelector("#product .ingredients options");
+    // Add ingredients to DOM
+  for (ingredient of productData.ingredients) {
+    // create new ingredient
+    const listItem = document.createElement("li");
+    listItem.classList.add("option");
+  }
 }
 
 loadProductDetail({
-  name: "Beef Burger",
-  restaurant: "Chillox",
-  category: "Burger",
-  smallPhotoName: "chillox-beef-burger.png",
   bigPhotoName: "chillox-beef-burger.png",
+  category: "Burger",
+  deliveryFee: "Free",
   desc: "Beef Patty and special sauce",
-  price: 5790
+  ingredients: ["Beef", "Lettuce", "Olive Oil", "Egg", "Tomatoes"],
+  name: "Beef Burger",
+  price: 5790,
+  rating: 4.3,
+  restaurant: "Chillox",
+  smallPhotoName: "chillox-beef-burger.png"
 });
 
 
