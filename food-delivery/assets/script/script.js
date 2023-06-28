@@ -343,7 +343,8 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
 
 function loadProductDetail(productData) {
 
-  // Set image path
+  // 1. Set image path
+  // fetchProductImage(productData.bigPhotoName);
     // Fetch image DOM
   const imageDOM = document.querySelector(".menu-item-display img");
     // Fetch image path
@@ -352,7 +353,8 @@ function loadProductDetail(productData) {
   imageDOM.src = imageSrc;
 
 
-  // Fetch the total number number of orders in cart
+  // 2. Fetch the total number number of orders in cart
+  // fetchNumberOfOrdersInCart(cart, productData.name)
     // Add to cart DOM
   const addToCartDOM = document.querySelector("#add-item-to-cart");
   
@@ -365,11 +367,10 @@ function loadProductDetail(productData) {
     // Find the product in the cart
   const productIndex = cart.findIndex(item => item.name.toLowerCase() === productData.name.toLowerCase());
   const product = cart[productIndex];
-  console.log(productIndex);
     
     // Check whether produc exists in the cart
   const productInCart = productIndex !== -1;
-  if(productInCart) {
+  if (productInCart) { // Show/hide elements depending on the status of the condition 
     totalOfItem.innerText = product.totalOrder;
     addToCartDOM.classList.add("hide");
     totalOfItem.classList.remove("hide");
@@ -378,10 +379,25 @@ function loadProductDetail(productData) {
     addToCartDOM.classList.remove("hide");
   }
 
+
+  // 3. Set Product Name
+  // fetchProductName(productData.name);
+    // Fetch Product name element in the DOM
+  const productNameDOM = document.querySelector(".product-name-desc-price .subheader");
+    // set name
+  productNameDOM.innerText = productData.name;
+
+
+  // 4. Set product description
+  // fetchProductDescription(productData.desc);
+    // Fetch product descriptionn element in the DOM 
+  const productDescDOM = document.querySelector(".product-name-desc-price .desc small");
+  console.log(productDescDOM);
+  productDescDOM.innerHTML = productData.desc;
   
-  // Set product name
-  // let ima
-  // displayImage.style.display = "none";
+
+  
+  
 }
 
 loadProductDetail({
