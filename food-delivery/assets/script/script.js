@@ -373,11 +373,7 @@ function loadProductDetail(productData) {
   
 
   // 6. Set product delivery fee
-  // setProductDeliveryFee(productData.deliveryFee)
-    // Fetch product price element in the DOM
-  const productDeliverFeeDOM = document.querySelector("#product .delivery-and-rating .delivery-fee p");
-    // Set Delivery Fee
-  productDeliverFeeDOM.innerText = isNaN(productData.deliveryFee) ? "Free" : productData.deliveryFee;
+  setProductDeliveryFee(productData.deliveryFee)
 
   
   // 7. Set product rating
@@ -434,7 +430,7 @@ function loadProductDetail(productData) {
 
   /**
   * setNumberOfOrdersInCart : Gets the number time a product was order from the
-  * cart and set it to UI
+  * cart and sets it to UI
   * @cart : It contains all the data of the item in the cart
   * @productName : Represent the the name of the Product
   */
@@ -466,8 +462,7 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductName : Set product name in product page
-  * cart and set it to UI
+  * setProductName : Sets product name in product page
   * @productName : Represent the name of the product
   */
 
@@ -480,8 +475,7 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductDesc : Set product description in product page
-  * cart and set it to UI
+  * setProductDesc : Sets product description in product page
   * @productDesc : Is a description of the product
   */
   function setProductDescription(productDesc) {
@@ -493,17 +487,27 @@ function loadProductDetail(productData) {
   
   
   /**
-  * setProductPrice : Set product price in product page
-  * cart and set it to UI
+  * setProductPrice : Sets product price in product page
   * @productPrice : Is the product product
   */
   function setProductPrice(productPrice) {
-    // Fetch product price element in the DOM
-  const productPriceDOM = document.querySelector("#product .product-name-desc-price .cost");
-    // Set price
-  productPriceDOM.innerText = parseInt(productPrice).toLocaleString();
-}
+      // Fetch product price element in the DOM
+    const productPriceDOM = document.querySelector("#product .product-name-desc-price .cost");
+      // Set price
+    productPriceDOM.innerText = parseInt(productPrice).toLocaleString();
+  }
 
+
+  /**
+  * setProductDeliveryFee : Sets product delivery fee in product page
+  * @productDeliveryFee : Is the product product
+  */
+  function setProductDeliveryFee(productDeliveryFee) {
+      // Fetch product price element in the DOM
+    const productDeliverFeeDOM = document.querySelector("#product .delivery-and-rating .delivery-fee p");
+      // Set Delivery Fee
+    productDeliverFeeDOM.innerText = isNaN(productDeliveryFee) ? "Free" : productDeliveryFee;
+  }
   
 }
 
