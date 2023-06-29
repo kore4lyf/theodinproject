@@ -373,15 +373,11 @@ function loadProductDetail(productData) {
   
 
   // 6. Set product delivery fee
-  setProductDeliveryFee(productData.deliveryFee)
+  setProductDeliveryFee(productData.deliveryFee);
 
   
   // 7. Set product rating
-  // setProductRating(productData.rating)
-    // Fetch product rating element in the DOM
-  const productRatingDOM = document.querySelector("#product .delivery-and-rating .rating p");
-    // Set rating
-  productRatingDOM.innerText = productData.rating;
+  setProductRating(productData.rating)
 
 
   // 8. Set product ingredients
@@ -465,7 +461,6 @@ function loadProductDetail(productData) {
   * setProductName : Sets product name in product page
   * @productName : Represent the name of the product
   */
-
   function setProductName(productName) {
     // Fetch Product name element in the DOM
     const productNameDOM = document.querySelector("#product .product-name-desc-price .subheader");
@@ -500,7 +495,7 @@ function loadProductDetail(productData) {
 
   /**
   * setProductDeliveryFee : Sets product delivery fee in product page
-  * @productDeliveryFee : Is the product product
+  * @productDeliveryFee : Is the products delivery fee
   */
   function setProductDeliveryFee(productDeliveryFee) {
       // Fetch product price element in the DOM
@@ -508,6 +503,19 @@ function loadProductDetail(productData) {
       // Set Delivery Fee
     productDeliverFeeDOM.innerText = isNaN(productDeliveryFee) ? "Free" : productDeliveryFee;
   }
+
+
+  /**
+  * setProductRating : Sets product rating in product page
+  * @productRating : Is the product's rating
+  */
+  function setProductRating(productRating) {
+      // Fetch product rating element in the DOM
+    const productRatingDOM = document.querySelector("#product .delivery-and-rating .rating p");
+      // Set rating
+    productRatingDOM.innerText = productRating;
+  }
+
   
 }
 
