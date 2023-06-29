@@ -377,20 +377,17 @@ function loadProductDetail(productData) {
 
   
   // 7. Set product rating
-  setProductRating(productData.rating)
+  setProductRating(productData.rating);
 
 
   // 8. Set product ingredients
-  setProductIngredients(productData.ingredients)
+  setProductIngredients(productData.ingredients);
 
 
   // 9. Set information about the product
-  // setAboutProduct(productData.about)
-    // Fetch product about element in the DOM
-  const aboutDOM = document.querySelector("#product .about p");
-    // Set about information
-  aboutDOM.innerText = productData.about;
+  setAboutProduct(productData.about);
 
+  
 
 
     /** 
@@ -441,7 +438,7 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductName : Sets product name in product page
+  * setProductName : Writes product name to the product page
   * @productName : Represent the name of the product
   */
   function setProductName(productName) {
@@ -453,7 +450,7 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductDesc : Sets product description in product page
+  * setProductDesc : Writes product description to the product page
   * @productDesc : Is a description of the product
   */
   function setProductDescription(productDesc) {
@@ -465,7 +462,7 @@ function loadProductDetail(productData) {
   
   
   /**
-  * setProductPrice : Sets product price in product page
+  * setProductPrice : Writes product price to the product page
   * @productPrice : Is the product product
   */
   function setProductPrice(productPrice) {
@@ -477,7 +474,7 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductDeliveryFee : Sets product delivery fee in product page
+  * setProductDeliveryFee : Writes product delivery fee to the product page
   * @productDeliveryFee : Is the products delivery fee
   */
   function setProductDeliveryFee(productDeliveryFee) {
@@ -489,7 +486,7 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductRating : Sets product rating in product page
+  * setProductRating : Writes product rating to the product page
   * @productRating : Is the product's rating
   */
   function setProductRating(productRating) {
@@ -502,28 +499,40 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductIngredients : Writes a list of a product's ingredients to the product page
+  * setProductIngredients : Writes a list of a ingredients to the product page
   * @productIngredients : Is a list of ingredients used in making the product
   */
   function setProductIngredients(productIngredients) {
-    // Create Document Fragment
-  const DOMFragment = document.createDocumentFragment();
-    // Fetch product ingredients element in the DOM
-  const productIngredientsDOM = document.querySelector("#product .ingredients .options");
-    // Add ingredients to DOM
-  for (let productIngredient of productIngredients) {
-    // Create new ingredient
-    const listItem = document.createElement("li");
-    listItem.classList.add("option");
-    listItem.innerText = productIngredient;
+      // Create Document Fragment
+    const DOMFragment = document.createDocumentFragment();
+      // Fetch product ingredients element in the DOM
+    const productIngredientsDOM = document.querySelector("#product .ingredients .options");
+      // Add ingredients to DOM
+    for (let productIngredient of productIngredients) {
+      // Create new ingredient
+      const listItem = document.createElement("li");
+      listItem.classList.add("option");
+      listItem.innerText = productIngredient;
 
-    // Append list to DOMFragment
-    DOMFragment.appendChild(listItem);
+      // Append list to DOMFragment
+      DOMFragment.appendChild(listItem);
+    }
+
+    // Append changes to Ingredient element in the DOM
+    productIngredientsDOM.appendChild(DOMFragment);
   }
 
-  // Append changes to Ingredient element in the DOM
-  productIngredientsDOM.appendChild(DOMFragment);
-}
+
+  /**
+  * setAboutProduct : Writes information about the product to the product page
+  * @aboutProduct : Information about the product
+  */
+  function setAboutProduct(aboutProduct) {
+      // Fetch product about element in the DOM
+    const aboutDOM = document.querySelector("#product .about p");
+      // Set about information
+    aboutDOM.innerText = aboutProduct;
+  }
 
 
   
