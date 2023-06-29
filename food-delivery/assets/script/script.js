@@ -553,22 +553,40 @@ function loadProductDetail(productData) {
  */
 function searchFocus() {
   // Get search icon in DOM
-  const searchIcon = document.querySelector(".search .search-icon");
+  const searchIconDOM = document.querySelector(".search .search-icon");
 
-  // Get search input
-  const searchInput = document.querySelector(".search .search-box");
+  // Get search input DOM
+  const searchInputDOM = document.querySelector(".search .search-box");
 
   // Show suggest when search input focused
-  searchInput.addEventListener("focus", function () {
-    
-  })
+  searchInputDOM.addEventListener("input", SearchSuggestions(searchInputDOM.value.toLowerCase()));
+
   // Add click event
-  searchIcon.addEventListener("click", function() {
-    searchInput.focus();
+  searchIconDOM.addEventListener("click", function() {
+    searchInputDOM.focus();
   })
 }
 
 function SearchSuggestions(input) {
-  // Collect 
-}
+  // Get Suggestion DOM
+  const suggestionDOM = document.querySelector(".suggestion");
+  const suggestionListDOM = document.querySelector(".suggestion .list");
 
+  
+  if (input.length > 0) {
+    //show suggestions
+    suggestionDOM.remove("hide");
+
+    //Filter database
+    suggestionDOM.style.transform = "scaleY(1)";
+    
+    let inputGlobal = new RegExp(input.toLowerCase());
+    let inputCaseInsensitive = new RegExp(input)
+    let suggestions = foodNames.filter(
+      name => inputCaseInsensitive.test(name.toLowerCase()) 
+      || inputGlobal.test(name.toLowerCase()));
+    console.log(suggestions);
+  } else {
+    suggestionDOM.add("hide");
+  }
+}
