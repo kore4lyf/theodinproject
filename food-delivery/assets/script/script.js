@@ -13,6 +13,10 @@ let cart = [
   }
 ]
 
+// Collect all food menu names
+let foodNames = data.restaurantsMenu.map(food => food.name);
+console.log(foodNames);
+
 // Home DOM
 const homePageLoaded = document.querySelector("#home");
 
@@ -355,7 +359,10 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
     
 
 
-
+/** 
+   * loadProductDetail : Writes product details to UI
+   * @productData : Contains all the information about the product
+   */
 function loadProductDetail(productData) {
 
   // 1. Set image path
@@ -393,7 +400,7 @@ function loadProductDetail(productData) {
   
 
 
-    /** 
+  /** 
    * SetProductImage : Sets Product image on the product page
    * @imageName : Represent the name for the image file to be displayed
    */
@@ -408,11 +415,11 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setNumberOfOrdersInCart : Gets the number time a product was order from the
-  * cart and sets it to UI
-  * @cart : It contains all the data of the item in the cart
-  * @productName : Represent the the name of the Product
-  */
+   * setNumberOfOrdersInCart : Gets the number time a product was order from the
+   * cart and sets it to UI
+   * @cart : It contains all the data of the item in the cart
+   * @productName : Represent the the name of the Product
+   */
   function setNumberOfOrdersInCart(cart, productName) {
       // Add to cart DOM
     const addToCartDOM = document.querySelector("#product #add-item-to-cart");
@@ -441,9 +448,9 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductName : Writes product name to the product page
-  * @productName : Represent the name of the product
-  */
+   * setProductName : Writes product name to the product page
+   * @productName : Represent the name of the product
+   */
   function setProductName(productName) {
     // Fetch Product name element in the DOM
     const productNameDOM = document.querySelector("#product .product-name-desc-price .subheader");
@@ -453,9 +460,9 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductDesc : Writes product description to the product page
-  * @productDesc : Is a description of the product
-  */
+   * setProductDesc : Writes product description to the product page
+   * @productDesc : Is a description of the product
+   */
   function setProductDescription(productDesc) {
     // Fetch product descriptionn element in the DOM 
   const productDescDOM = document.querySelector("#product .product-name-desc-price .desc small");
@@ -465,9 +472,9 @@ function loadProductDetail(productData) {
   
   
   /**
-  * setProductPrice : Writes product price to the product page
-  * @productPrice : Is the product product
-  */
+   * setProductPrice : Writes product price to the product page
+   * @productPrice : Is the product product
+   */
   function setProductPrice(productPrice) {
       // Fetch product price element in the DOM
     const productPriceDOM = document.querySelector("#product .product-name-desc-price .cost");
@@ -477,9 +484,9 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductDeliveryFee : Writes product delivery fee to the product page
-  * @productDeliveryFee : Is the products delivery fee
-  */
+    * setProductDeliveryFee : Writes product delivery fee to the product page
+    * @productDeliveryFee : Is the products delivery fee
+    */
   function setProductDeliveryFee(productDeliveryFee) {
       // Fetch product price element in the DOM
     const productDeliverFeeDOM = document.querySelector("#product .delivery-and-rating .delivery-fee p");
@@ -489,9 +496,9 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductRating : Writes product rating to the product page
-  * @productRating : Is the product's rating
-  */
+   * setProductRating : Writes product rating to the product page
+   * @productRating : Is the product's rating
+   */
   function setProductRating(productRating) {
       // Fetch product rating element in the DOM
     const productRatingDOM = document.querySelector("#product .delivery-and-rating .rating p");
@@ -502,9 +509,9 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setProductIngredients : Writes a list of a ingredients to the product page
-  * @productIngredients : Is a list of ingredients used in making the product
-  */
+   * setProductIngredients : Writes a list of a ingredients to the product page
+   * @productIngredients : Is a list of ingredients used in making the product
+   */
   function setProductIngredients(productIngredients) {
       // Create Document Fragment
     const DOMFragment = document.createDocumentFragment();
@@ -527,9 +534,9 @@ function loadProductDetail(productData) {
 
 
   /**
-  * setAboutProduct : Writes information about the product to the product page
-  * @aboutProduct : Information about the product
-  */
+   * setAboutProduct : Writes information about the product to the product page
+   * @aboutProduct : Information about the product
+   */
   function setAboutProduct(aboutProduct) {
       // Fetch product about element in the DOM
     const aboutDOM = document.querySelector("#product .about p");
@@ -541,8 +548,9 @@ function loadProductDetail(productData) {
 
 
 
-
-// Focus on .seach-menu when menu search button is pressed
+/**
+ * setAboutProduct : Focuses on .seach-menu when menu search button is pressed
+ */
 function searchFocus() {
   // Get search icon in DOM
   const searchIcon = document.querySelector(".search .search-icon");
@@ -550,9 +558,17 @@ function searchFocus() {
   // Get search input
   const searchInput = document.querySelector(".search .search-box");
 
+  // Show suggest when search input focused
+  searchInput.addEventListener("focus", function () {
+    
+  })
   // Add click event
   searchIcon.addEventListener("click", function() {
     searchInput.focus();
   })
+}
+
+function SearchSuggestions(input) {
+  // Collect 
 }
 

@@ -447,7 +447,9 @@ a .icon-stroke:hover {
   display: flex;
   padding: var(--padding-2);
   justify-content: space-between;
+  position: relative;
   stroke-opacity: .5;
+  z-index: 3;
 }
 
 .search > span {
@@ -564,6 +566,63 @@ img.restaurant-profile {
 }
 
 
+.suggestion {
+  
+  /* align-items: center; */
+  border: 1px solid red;
+  color: var(--clr-dark);
+  display: flex;
+  font-family: var(--ff-gotham-reg);
+  justify-content: center;
+  position: absolute;
+  top: 2.1rem;
+  z-index: 2;
+  left: 0px;
+  right: 0px;
+}
+
+.suggestion .list {
+  background: white;
+  border: 1px solid var(--clr-secondary);
+  border-radius: var(--rounded-1);
+  display: block;
+  padding-left: 0px;
+  left: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow: auto;
+  width: 80%;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 2.5px;
+}
+
+.suggestion .list::-webkit-scrollbar-track {
+  background: white;
+}
+
+.suggestion .list::-webkit-scrollbar-thumb {
+  background: lightgray;
+}
+
+
+.suggestion .list-item {
+  border-bottom: 1px solid #302f3c20;
+  padding: 1rem;
+  width: 100%;
+}
+
+.suggestion .list-item:last-of-type {
+  border-bottom: 0px;
+}
+
+.suggestion .list-item:hover,
+.suggestion .list-item:focus {
+  background: #302f3c10;
+}
+
 
 /* +++++++++++++++++++++ 
       restaurant.html 
@@ -630,8 +689,10 @@ img.restaurant-profile {
 
 
 
+
+
   /* +++++++++++++++++++++ 
-        restaurant.html 
+        product.html 
     +++++++++++++++++++++ */
 
 .about {
@@ -809,6 +870,9 @@ img.restaurant-profile {
 .ingredients ul li::marker {
   color: red;
 }
+
+
+
 
 
 /*
