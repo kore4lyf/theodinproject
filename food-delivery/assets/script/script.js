@@ -369,11 +369,7 @@ function loadProductDetail(productData) {
   
 
   // 5. Set product price
-  // setProductPrice(productData.price)
-    // Fetch product price element in the DOM
-  const productPriceDOM = document.querySelector("#product .product-name-desc-price .cost");
-    // Set price
-  productPriceDOM.innerText = parseInt(productData.price).toLocaleString();
+  setProductPrice(productData.price);
   
 
   // 6. Set product delivery fee
@@ -493,6 +489,19 @@ function loadProductDetail(productData) {
   const productDescDOM = document.querySelector("#product .product-name-desc-price .desc small");
     // Set description 
   productDescDOM.innerText = productDesc;
+  }
+  
+  
+  /**
+  * setProductPrice : Set product price in product page
+  * cart and set it to UI
+  * @productPrice : Is the product product
+  */
+  function setProductPrice(productPrice) {
+    // Fetch product price element in the DOM
+  const productPriceDOM = document.querySelector("#product .product-name-desc-price .cost");
+    // Set price
+  productPriceDOM.innerText = parseInt(productPrice).toLocaleString();
 }
 
   
