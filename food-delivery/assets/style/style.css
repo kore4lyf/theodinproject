@@ -460,6 +460,7 @@ a .icon-stroke:hover {
   background: transparent;
   border: 0px;
   caret-color: var(--clr-accent);
+  color: var(--clr-accent);
   font-size: small;
   width: 100%;
 }

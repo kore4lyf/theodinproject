@@ -30,10 +30,13 @@ const productPageLoaded = document.querySelector("#product");
   if (homePageLoaded) {
     displayCategoryItems();
     loadPopularCategory("burger");
+    searchFocus();
+
   } else if(restaurantPageLoaded) {
     loadRestaurantContent("Chillox", "Burger");
     loadMenuCategory("chillox", "burger");
     loadRestaurantMenu("chillox", "burger");
+    searchFocus()
   } else if(productPageLoaded) {
     loadProductDetail({
       bigPhotoName: "chillox-beef-burger.png",
@@ -534,11 +537,22 @@ function loadProductDetail(productData) {
     aboutDOM.innerText = aboutProduct;
   }
 
-
-  
 }
 
 
 
 
-// * Focus on .seach-menu when menu search button is pressed 
+// Focus on .seach-menu when menu search button is pressed
+function searchFocus() {
+  // Get search icon in DOM
+  const searchIcon = document.querySelector(".search .search-icon");
+
+  // Get search input
+  const searchInput = document.querySelector(".search .search-box");
+
+  // Add click event
+  searchIcon.addEventListener("click", function() {
+    searchInput.focus();
+  })
+}
+
