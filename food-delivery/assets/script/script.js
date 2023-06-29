@@ -381,24 +381,7 @@ function loadProductDetail(productData) {
 
 
   // 8. Set product ingredients
-  // setProductIngredients(productData.ingredients)
-    // Create Document Fragment
-  const DOMFragment = document.createDocumentFragment();
-    // Fetch product ingredients element in the DOM
-  const productIngredientsDOM = document.querySelector("#product .ingredients .options");
-    // Add ingredients to DOM
-  for (let ingredient of productData.ingredients) {
-    // Create new ingredient
-    const listItem = document.createElement("li");
-    listItem.classList.add("option");
-    listItem.innerText = ingredient;
-
-    // Append list to DOMFragment
-    DOMFragment.appendChild(listItem);
-  }
-
-  // Append changes to Ingredient element in the DOM
-  productIngredientsDOM.appendChild(DOMFragment);
+  setProductIngredients(productData.ingredients)
 
 
   // 9. Set information about the product
@@ -415,12 +398,12 @@ function loadProductDetail(productData) {
    * @imageName : Represent the name for the image file to be displayed
    */
   function setProductImage(imageName) {
-    // Fetch image DOM
-  const imageDOM = document.querySelector("#product .menu-item-display img");
-    // Fetch image path
-  let imageSrc = `./assets/images/menu/large/${imageName}`
-    // Set path
-  imageDOM.src = imageSrc;
+      // Fetch image DOM
+    const imageDOM = document.querySelector("#product .menu-item-display img");
+      // Fetch image path
+    let imageSrc = `./assets/images/menu/large/${imageName}`
+      // Set path
+    imageDOM.src = imageSrc;
   }
 
 
@@ -431,29 +414,29 @@ function loadProductDetail(productData) {
   * @productName : Represent the the name of the Product
   */
   function setNumberOfOrdersInCart(cart, productName) {
-    // Add to cart DOM
-  const addToCartDOM = document.querySelector("#product #add-item-to-cart");
+      // Add to cart DOM
+    const addToCartDOM = document.querySelector("#product #add-item-to-cart");
 
-    // Increase and decrease total item DOM
-  const totalOfItemDOM = document.querySelector("#product .inc-dec-in-cart");
+      // Increase and decrease total item DOM
+    const totalOfItemDOM = document.querySelector("#product .inc-dec-in-cart");
 
-    // Fetch Total number x item in cart
-  const totalOfItem = document.querySelector("#product .total-of-item");
+      // Fetch Total number x item in cart
+    const totalOfItem = document.querySelector("#product .total-of-item");
 
-    // Find the product in the cart
-  const productIndex = cart.findIndex(item => item.name.toLowerCase() === productName.toLowerCase());
-  const product = cart[productIndex];
-    
-    // Check whether produc exists in the cart
-  const productInCart = productIndex !== -1;
-  if (productInCart) { // Show/hide elements depending on the status of the condition 
-    totalOfItem.innerText = product.totalOrder;
-    addToCartDOM.classList.add("hide");
-    totalOfItem.classList.remove("hide");
-  } else {
-    totalOfItemDOM.classList.add("hide");
-    addToCartDOM.classList.remove("hide");
-  }
+      // Find the product in the cart
+    const productIndex = cart.findIndex(item => item.name.toLowerCase() === productName.toLowerCase());
+    const product = cart[productIndex];
+      
+      // Check whether produc exists in the cart
+    const productInCart = productIndex !== -1;
+    if (productInCart) { // Show/hide elements depending on the status of the condition 
+      totalOfItem.innerText = product.totalOrder;
+      addToCartDOM.classList.add("hide");
+      totalOfItem.classList.remove("hide");
+    } else {
+      totalOfItemDOM.classList.add("hide");
+      addToCartDOM.classList.remove("hide");
+    }
   }
 
 
@@ -515,6 +498,33 @@ function loadProductDetail(productData) {
       // Set rating
     productRatingDOM.innerText = productRating;
   }
+
+
+
+  /**
+  * setProductIngredients : Writes a list of a product's ingredients to the product page
+  * @productIngredients : Is a list of ingredients used in making the product
+  */
+  function setProductIngredients(productIngredients) {
+    // Create Document Fragment
+  const DOMFragment = document.createDocumentFragment();
+    // Fetch product ingredients element in the DOM
+  const productIngredientsDOM = document.querySelector("#product .ingredients .options");
+    // Add ingredients to DOM
+  for (let productIngredient of productIngredients) {
+    // Create new ingredient
+    const listItem = document.createElement("li");
+    listItem.classList.add("option");
+    listItem.innerText = productIngredient;
+
+    // Append list to DOMFragment
+    DOMFragment.appendChild(listItem);
+  }
+
+  // Append changes to Ingredient element in the DOM
+  productIngredientsDOM.appendChild(DOMFragment);
+}
+
 
   
 }
