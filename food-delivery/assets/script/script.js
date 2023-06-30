@@ -15,7 +15,6 @@ let cart = [
 
 // Collect all food menu names
 let foodNames = data.restaurantsMenu.map(food => food.name);
-console.log(foodNames);
 
 // Home DOM
 const homePageLoaded = document.querySelector("#home");
@@ -26,11 +25,6 @@ const restaurantPageLoaded = document.querySelector("#restaurant");
 // Product Page
 const productPageLoaded = document.querySelector("#product");
 
-// home.addEventListener("DOMContentLoaded", () => {
-  //   displayCategoryItems();
-  //   console.log("hey");
-  // });
-  
   if (homePageLoaded) {
     displayCategoryItems();
     loadPopularCategory("burger");
@@ -64,7 +58,7 @@ if (restaurantPageLoaded || productPageLoaded) {
   const backBtn = document.querySelector("#back");
 
   backBtn.addEventListener("click", function () {
-    console.log(window.history.back());
+    window.history.back();
   })
   }
 
@@ -597,11 +591,27 @@ function SearchSuggestions(input) {
       for (let suggestion of suggestions) {
         // Empty suggestion list
         suggestionListDOM.innerHTML = "";
-        // Create a list item for each suggestion
-        let listItem = document.createElement("li");
-        listItem.classList.add("list-item");
-        listItem.innerText = suggestion;
         
+        // Create a list item for each suggestion
+        const listItem = document.createElement("li");
+        listItem.className = "list-item";
+        const startIndex = suggestion.toLowerCase().search(inputCaseInsensitive)
+          || suggestion.toLowerCase().search(inputGlobal);
+        const endIndex = input.length;
+
+        const textBoldHTML = "<span class='text-bold'>"
+        const textBoldHTMLLen = textBoldHTML.length;
+        suggestion = suggestion.slice(0, startIndex) + textBold + suggestion.slice(startIndex)
+          
+        //startIndex, 0, "<span class='text-bold'>".split());
+        console.log(suggestion);
+        suggestion = suggestion.slice(0, startIndex + textBoldHTMLLen + endIndex) + "</span>" + suggestion.slice(startIndex + textBoldHTMLLen + endIndex,);
+        // suggestion = suggestion.join("");
+        console.log(suggestion);
+        listItem.innerHTML = suggestion;
+
+        
+        // Append changes to DOMFragment
         DOMFragment.appendChild(listItem);
       }
 
@@ -613,9 +623,6 @@ function SearchSuggestions(input) {
       suggestionDOM.classList.add("hide");
       suggestionDOM.classList.remove("active");
     }
-    
-    console.log("YES")
-    console.log(suggestions);
   } else {
     suggestionDOM.classList.add("hide");
   }
