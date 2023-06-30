@@ -559,7 +559,7 @@ function searchFocus() {
   const searchInputDOM = document.querySelector(".search .search-box");
 
   // Show suggest when search input focused
-  searchInputDOM.addEventListener("input", SearchSuggestions(searchInputDOM.value.toLowerCase()));
+  searchInputDOM.addEventListener("input", () => SearchSuggestions(searchInputDOM.value.trim().toLowerCase()));
 
   // Add click event
   searchIconDOM.addEventListener("click", function() {
@@ -570,23 +570,53 @@ function searchFocus() {
 function SearchSuggestions(input) {
   // Get Suggestion DOM
   const suggestionDOM = document.querySelector(".suggestion");
+
+  // Get Suggestion List DOM
   const suggestionListDOM = document.querySelector(".suggestion .list");
 
   
   if (input.length > 0) {
-    //show suggestions
-    suggestionDOM.remove("hide");
-
-    //Filter database
-    suggestionDOM.style.transform = "scaleY(1)";
     
-    let inputGlobal = new RegExp(input.toLowerCase());
+
+    // Fetch foodNames that match input
+    let inputGlobal = new RegExp(input);
     let inputCaseInsensitive = new RegExp(input)
     let suggestions = foodNames.filter(
       name => inputCaseInsensitive.test(name.toLowerCase()) 
-      || inputGlobal.test(name.toLowerCase()));
+        || inputGlobal.test(name.toLowerCase()));
+    
+    if (suggestions.length > 0) {
+      //show suggestions
+      suggestionDOM.classList.remove("hide");
+      suggestionDOM.classList.add("active");
+
+
+      //Create DOM Fragment
+      const DOMFragment = document.createDocumentFragment();
+      
+      for (let suggestion of suggestions) {
+        // Empty suggestion list
+        suggestionListDOM.innerHTML = "";
+        // Create a list item for each suggestion
+        let listItem = document.createElement("li");
+        listItem.classList.add("list-item");
+        listItem.innerText = suggestion;
+        
+        DOMFragment.appendChild(listItem);
+      }
+
+      // Append changes to Suggestion DOM
+      suggestionListDOM.appendChild(DOMFragment);
+
+    } else {
+      //hide suggestions
+      suggestionDOM.classList.add("hide");
+      suggestionDOM.classList.remove("active");
+    }
+    
+    console.log("YES")
     console.log(suggestions);
   } else {
-    suggestionDOM.add("hide");
+    suggestionDOM.classList.add("hide");
   }
 }
