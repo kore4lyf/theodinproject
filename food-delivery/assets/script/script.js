@@ -572,7 +572,7 @@ function SearchSuggestions(input) {
   
   if (input.length > 0) {
     // Filter input
-    input = input.replace(/[\\,\/,]/g, '');
+    input = input.replace(/[^A-Za-z0-9\s]/g, '');
 
     // Fetch foodNames that match input
     let inputGlobal = new RegExp(input.toLowerCase(), 'g');
