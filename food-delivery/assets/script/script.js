@@ -556,7 +556,8 @@ function searchFocus() {
   searchInputDOM.addEventListener("input", () => SearchSuggestions(searchInputDOM.value.trim().toLowerCase()));
 
   // Add click event
-  searchIconDOM.addEventListener("click", function() {
+  searchIconDOM.addEventListener("click", function () {
+    
     searchInputDOM.focus();
   })
 }
@@ -570,10 +571,11 @@ function SearchSuggestions(input) {
 
   
   if (input.length > 0) {
-    
+    // Filter input
+    input = input.replace(/[\\,\/,]/g, '');
 
     // Fetch foodNames that match input
-    let inputGlobal = new RegExp(input);
+    let inputGlobal = new RegExp(input.toLowerCase(), 'g');
     let inputCaseInsensitive = new RegExp(input)
     let suggestions = foodNames.filter(
       name => inputCaseInsensitive.test(name.toLowerCase()) 
@@ -601,12 +603,9 @@ function SearchSuggestions(input) {
 
         const textBoldHTML = "<span class='text-bold'>"
         const textBoldHTMLLen = textBoldHTML.length;
-        suggestion = suggestion.slice(0, startIndex) + textBold + suggestion.slice(startIndex)
-          
-        //startIndex, 0, "<span class='text-bold'>".split());
-        console.log(suggestion);
+        suggestion = suggestion.slice(0, startIndex) + textBoldHTML + suggestion.slice(startIndex);
         suggestion = suggestion.slice(0, startIndex + textBoldHTMLLen + endIndex) + "</span>" + suggestion.slice(startIndex + textBoldHTMLLen + endIndex,);
-        // suggestion = suggestion.join("");
+        // suggestion = suggestion.join("");s
         console.log(suggestion);
         listItem.innerHTML = suggestion;
 
@@ -622,8 +621,12 @@ function SearchSuggestions(input) {
       //hide suggestions
       suggestionDOM.classList.add("hide");
       suggestionDOM.classList.remove("active");
+
     }
   } else {
     suggestionDOM.classList.add("hide");
+      suggestionDOM.classList.remove("active");
+
+
   }
 }

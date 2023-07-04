@@ -568,7 +568,6 @@ img.restaurant-profile {
 
 .suggestion {
   align-items: center;
-  border: 1px solid red;
   color: var(--clr-dark);
   display: flex;
   font-family: var(--ff-gotham-reg);
@@ -605,9 +604,22 @@ img.restaurant-profile {
   width: 2.5px;
 }
 
-.suggestion.active {
-  transform: scaleY(1);
-  opacity: 1;
+.search .suggestion.active {
+  animation: stretchDown ease-in .3s;
+  animation-fill-mode: forwards;
+  /* animation-direction: alternate-reverse; */
+}
+
+@keyframes stretchDown {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }
 
 .suggestion .list::-webkit-scrollbar-track {
