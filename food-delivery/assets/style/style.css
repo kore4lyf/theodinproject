@@ -710,6 +710,15 @@ img.restaurant-profile {
   justify-content: center;
 }
 
+.sort {
+  transform: translateX(15px)
+}
+
+.sort.active {
+  stroke: var(--clr-accent)!important;
+  stroke-opacity: 1;  
+
+}
 
 
 
