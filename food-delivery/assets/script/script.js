@@ -573,20 +573,22 @@ function setSearchBehaviour(activePage) {
   if (activePage === "home") {
       // Add input event listener on search box
     searchInputDOM.addEventListener("input",
-      () => searchSuggestions(searchInputDOM.value.trim().toLowerCase()));
+      () => showSearchSuggestions(searchInputDOM.value.trim().toLowerCase()));
   } else {
       // Add input event listener on search box
     searchInputDOM.addEventListener("input",
-      () => searchFilter(searchInputDOM.value.trim().toLowerCase()));
+      () => filterSearch(searchInputDOM.value.trim().toLowerCase()));
   }
   
 }
 
+
+
 /**
- * searchSuggestions : Suggests food in the food menu depending on the food name or characters searched
+ * showSearchSuggestions : Suggests food in the food menu depending on the food name or characters searched
  * @input : this is/are the characters entered by the user
  */
-function searchSuggestions(input) {
+function showSearchSuggestions(input) {
   console.log(input)
   // Get Suggestion DOM
   const suggestionDOM = document.querySelector(".suggestion");
@@ -656,17 +658,30 @@ function searchSuggestions(input) {
 
 
 /**
- * searchfilter : Suggests food in the food menu depending on the food name or characters searched
+ * filterSearch : Suggests food in the food menu depending on the food name or characters searched
  * @input : this is/are the characters entered by the user
  */
-// function searchFilter() {
-//   // get restaurant display container 
-//   const domContainer = document.querySelector('.restaurant .items');
+function filterSearch() {
+  // Create DOMFragment
+  const DOMFragment = document.createDocumentFragment();
+
+  // get restaurant display container 
+  const restaurantContainer = document.querySelector('.restaurant .items');
     
-//   // get restaurant display items 
-//   const domItems = document.querySelector('.restaurant .items .item');
-//   console.log(domContainer)
-// }
+  // get restaurant display items 
+  const restaurantItems = document.querySelectorAll('.restaurant .items .item');
+  console.log(restaurantItems)
+
+   // get restaurant display items names
+  const restaurantItemNames = [];
+
+  for (let item of restaurantItems) {
+    let itemName = item.querySelector(".item-name").innerHTML;
+    restaurantItemNames.push(itemName);
+  }
+  console.log(restaurantItemNames)
+
+}
 
 
 /**
