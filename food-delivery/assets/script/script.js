@@ -589,7 +589,6 @@ function setSearchBehaviour(activePage) {
  * @input : this is/are the characters entered by the user
  */
 function showSearchSuggestions(input) {
-  console.log(input)
   // Get Suggestion DOM
   const suggestionDOM = document.querySelector(".suggestion");
 
@@ -601,21 +600,28 @@ function showSearchSuggestions(input) {
     // Filter input
     input = input.replace(/[^A-Za-z0-9\s]/g, '');
 
+    
+    
     // Fetch foodNames that match input
-    let inputGlobal = new RegExp(input.toLowerCase(), 'g');
-    let inputCaseInsensitive = new RegExp(input)
-    let suggestions = foodNames.filter(
-      name => inputCaseInsensitive.test(name.toLowerCase()) 
-        || inputGlobal.test(name.toLowerCase()));
+    let suggestions = getSearchSuggestions(input);
+    
+    
     
     if (suggestions.length > 0) {
       //show suggestions
       suggestionDOM.classList.remove("hide");
-      suggestionDOM.classList.add("active");
-
-
+      suggestionDOM.classList.add("animate");
+      
+      
       //Create DOM Fragment
       const DOMFragment = document.createDocumentFragment();
+      
+      // Regular expression to make input search case insensitive
+      let inputCaseInsensitive = new RegExp(input, 'i');
+
+      // Regular expression to make search global to all characters in a string
+      let inputGlobal = new RegExp(input.toLowerCase(), 'g');
+
       
       for (let suggestion of suggestions) {
         // Empty suggestion list
@@ -645,13 +651,18 @@ function showSearchSuggestions(input) {
       suggestionListDOM.appendChild(DOMFragment);
 
     } else {
-      //hide suggestions
-      suggestionDOM.classList.add("hide");
-      suggestionDOM.classList.remove("active");
+      hideSuggestions();
     }
   } else {
+      hideSuggestions();
+  }
+
+  /**
+ * hideSuggestion : uses class name "hide" to ensure an item name is not listed in
+ */
+  function hideSuggestions() {
     suggestionDOM.classList.add("hide");
-      suggestionDOM.classList.remove("active");
+    suggestionDOM.classList.remove("animate");
   }
 }
 
@@ -661,10 +672,8 @@ function showSearchSuggestions(input) {
  * filterSearch : Suggests food in the food menu depending on the food name or characters searched
  * @input : this is/are the characters entered by the user
  */
-function filterSearch() {
-  // Create DOMFragment
-  const DOMFragment = document.createDocumentFragment();
-
+function filterSearch(input) {
+  console.log(input)
   // get restaurant display container 
   const restaurantContainer = document.querySelector('.restaurant .items');
     
@@ -679,8 +688,33 @@ function filterSearch() {
     let itemName = item.querySelector(".item-name").innerHTML;
     restaurantItemNames.push(itemName);
   }
-  console.log(restaurantItemNames)
+  console.log(restaurantItemNames);
+  // console.log(restaurantItemNames[0].includes())
 
+  // Fetch food names that match input
+  let suggestions = getSearchSuggestions(input);
+  console.log(suggestions);
+  
+  function filterDomList() {
+
+  }
+
+}
+
+/**
+ * getSearchSuggestions : Fetch food names that match input
+ */
+function getSearchSuggestions(input) {
+  
+  // Regular expression to make search global to all characters in a string
+  let inputCaseInsensitive = new RegExp(input, 'i')
+  // Regular expression to make input search case insensitive
+  let inputGlobal = new RegExp(input.toLowerCase(), 'g');
+  let suggestions = foodNames.filter(
+    name => inputCaseInsensitive.test(name.toLowerCase()) 
+      || inputGlobal.test(name.toLowerCase()));
+  
+  return suggestions;
 }
 
 

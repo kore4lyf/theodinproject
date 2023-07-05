@@ -604,7 +604,7 @@ img.restaurant-profile {
   width: 2.5px;
 }
 
-.search .suggestion.active {
+.search .suggestion.animate {
   animation: stretchDown ease-in .3s;
   animation-fill-mode: forwards;
   /* animation-direction: alternate-reverse; */
