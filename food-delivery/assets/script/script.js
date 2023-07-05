@@ -30,14 +30,16 @@ const productPageLoaded = document.querySelector("#product");
   if (homePageLoaded) {
     displayCategoryItems();
     loadPopularCategory("burger");
-    searchFocus("home");
+    searchFocus();
+    setSearchBehaviour("home")
 
 
   } else if(restaurantPageLoaded) {
     loadRestaurantContent("Chillox", "Burger");
     loadMenuCategory("chillox", "burger");
     loadRestaurantMenu("chillox", "burger");
-    searchFocus("restaurant");
+    searchFocus();
+    setSearchBehaviour("restaurant")
 
   } else if(productPageLoaded) {
     loadProductDetail({
@@ -548,39 +550,44 @@ function loadProductDetail(productData) {
 
 /**
  * searchFocus : Focuses on .seach-menu when menu search button is pressed
- * @page : is used to define how search is done depending the active page rendering it
  */
-function searchFocus(page) {
+function searchFocus() {
   // Get search icon in DOM
   const searchIconDOM = document.querySelector(".search .search-icon");
   
+  // Add click event to search item
+  searchIconDOM.addEventListener("click", () => searchInputDOM.focus());
+}
+
+
+
+/**
+ * setSearchBehaviour : Defines how search is done depending the active page rendering it
+ * @activePage : is the active page's name
+ */
+function setSearchBehaviour(activePage) {
   // Get search input DOM
   const searchInputDOM = document.querySelector(".search .search-box");
-  
-  // Add click event to search item
-  searchIconDOM.addEventListener("click", function () {searchInputDOM.focus();
-  
-    // Show suggest when search input focused
-  if (page === "home") {
+
+  // Show suggest when search input focused
+  if (activePage === "home") {
       // Add input event listener on search box
     searchInputDOM.addEventListener("input",
       () => searchSuggestions(searchInputDOM.value.trim().toLowerCase()));
   } else {
-      
       // Add input event listener on search box
     searchInputDOM.addEventListener("input",
-      () => searchFilter());
+      () => searchFilter(searchInputDOM.value.trim().toLowerCase()));
   }
-
-  })
+  
 }
-
 
 /**
  * searchSuggestions : Suggests food in the food menu depending on the food name or characters searched
  * @input : this is/are the characters entered by the user
  */
 function searchSuggestions(input) {
+  console.log(input)
   // Get Suggestion DOM
   const suggestionDOM = document.querySelector(".suggestion");
 
@@ -652,15 +659,20 @@ function searchSuggestions(input) {
  * searchfilter : Suggests food in the food menu depending on the food name or characters searched
  * @input : this is/are the characters entered by the user
  */
-function searchFilter() {
-
-}
+// function searchFilter() {
+//   // get restaurant display container 
+//   const domContainer = document.querySelector('.restaurant .items');
+    
+//   // get restaurant display items 
+//   const domItems = document.querySelector('.restaurant .items .item');
+//   console.log(domContainer)
+// }
 
 
 /**
  * searchSort : Suggests food in the food menu depending on the food name or characters searched
  * @input : this is/are the characters entered by the user
  */
- function searchSort(domContainer, domItems) {
+//  function searchSort(domContainer, domItems) {
 
-}
+// }
