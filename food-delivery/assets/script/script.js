@@ -598,20 +598,17 @@ function showSearchSuggestions(input) {
   
   if (input.length > 0) {
     // Filter input
-    input = input.replace(/[^A-Za-z0-9\s]/g, '');
+    input = filterInput(input);
 
-    
-    
     // Fetch foodNames that match input
     let suggestions = getSearchSuggestions(input);
     
-    
-    
-    if (suggestions.length > 0) {
+    let inputContainsText = suggestions.length > 0;
+
+    if (inputContainsText) {
       //show suggestions
       suggestionDOM.classList.remove("hide");
       suggestionDOM.classList.add("animate");
-      
       
       //Create DOM Fragment
       const DOMFragment = document.createDocumentFragment();
@@ -699,6 +696,11 @@ function filterSearch(input) {
 
   }
 
+}
+
+function filterInput(input) {
+  // Remove symbols or sepecial characters
+  return input.replace(/[^A-Za-z0-9\s]/g, '');
 }
 
 /**
