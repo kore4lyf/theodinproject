@@ -329,6 +329,10 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
     let menuItem = document.createElement("li");
     // Add class name .item to the new element
     menuItem.classList.add("item");
+
+    //set foodId on menu item
+    menuItem.setAttribute("data-food-id", item.foodId);
+
     // Add the new elements inner content
     menuItem.innerHTML = `
       <img loading="lazy" src="./assets/images/menu/${item.smallPhotoName}" alt="Chillox Chicken Burger">
@@ -605,7 +609,7 @@ function showSearchSuggestions(input) {
     input = filterInput(input);
 
     // Fetch foodNames that match input
-    let suggestions = getSearchSuggestions(input);
+    let suggestions = getSearchSuggestions(input, foodNames);
     
     let inputMatchFoodName = suggestions.length > 0;
 
@@ -683,30 +687,53 @@ function filterSearch(input) {
     // Remove symbols or special characters 
     input = filterInput(input);
 
-    // get restaurant display container 
-    const restaurantContainer = document.querySelector('.restaurant .items');
     
     // get restaurant display items 
     const restaurantItems = document.querySelectorAll('.restaurant .items .item');
-    console.log(restaurantItems)
+
 
     // get restaurant display items names
     const restaurantItemNames = [];
-
+      // get names from item-name from DOM
     for (let item of restaurantItems) {
-      let itemName = item.querySelector(".item-name").innerHTML;
+      let itemName = item.querySelector(".item-name").innerHTML.trim();
       restaurantItemNames.push(itemName);
     }
-    console.log(restaurantItemNames);
-    // console.log(restaurantItemNames[0].includes())
 
     // Fetch food names that match input
-    let suggestions = getSearchSuggestions(input);
-    console.log(suggestions);
+    let suggestions = getSearchSuggestions(input, foodNames);
+    
+    filterRestaurantItems(suggestions, restaurantItems);
+  } 
   
-  }
-  
-  function filterRestaurantItems(suggestions) {
+  function filterRestaurantItems(suggestions, items) {
+    let suggestionIsEmpty = suggestions.length === 0;
+    
+    console.log("No of suggestions: ", suggestions.length);
+    console.log("suggestion: ", suggestions);
+    for (let item of items) {
+      console.log("item: ", item);
+      let itemName = item.querySelector(".item-name").innerHTML.trim();
+      console.log("@DOM itemName: ", itemName)
+      let itemNotInSuggestions = !suggestions.includes(itemName);
+      let itemIsHidden = item.classList.contains("hide");
+      let itemIsNotHidden = !item.classList.contains("hide");
+      
+      if (suggestionIsEmpty) {
+          console.log("empty suggestion")
+          // Make hidden items visible
+          if (itemIsHidden) item.classList.remove("hide");
+
+        } else if (itemNotInSuggestions) {
+        console.log("item not in suggestion: ", itemName);
+        
+          if (itemIsNotHidden) {
+            // Hide items that are not in the suggestion
+            console.log(item + " is hidden and ")
+            item.classList.add("hide");
+          }
+        }
+    }
     
   }
 
@@ -726,7 +753,7 @@ function filterInput(input) {
 /**
  * getSearchSuggestions : Fetch food names that match input
  */
-function getSearchSuggestions(input) {
+function getSearchSuggestions(input, foodNames) {
   
   // Regular expression to make search global to all characters in a string
   let inputCaseInsensitive = new RegExp(input, 'i')
