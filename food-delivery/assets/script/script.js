@@ -554,6 +554,9 @@ function loadProductDetail(productData) {
 function searchFocus() {
   // Get search icon in DOM
   const searchIconDOM = document.querySelector(".search .search-icon");
+
+  // Get search input DOM
+  const searchInputDOM = document.querySelector(".search .search-box");
   
   // Add click event to search item
   searchIconDOM.addEventListener("click", () => searchInputDOM.focus());
@@ -595,17 +598,18 @@ function showSearchSuggestions(input) {
   // Get Suggestion List DOM
   const suggestionListDOM = document.querySelector(".suggestion .list");
 
+  let inputContainsText = input.length > 0;
   
-  if (input.length > 0) {
+  if (inputContainsText) {
     // Filter input
     input = filterInput(input);
 
     // Fetch foodNames that match input
     let suggestions = getSearchSuggestions(input);
     
-    let inputContainsText = suggestions.length > 0;
+    let inputMatchFoodName = suggestions.length > 0;
 
-    if (inputContainsText) {
+    if (inputMatchFoodName) {
       //show suggestions
       suggestionDOM.classList.remove("hide");
       suggestionDOM.classList.add("animate");
@@ -654,7 +658,8 @@ function showSearchSuggestions(input) {
       hideSuggestions();
   }
 
-  /**
+
+/**
  * hideSuggestion : uses class name "hide" to ensure an item name is not listed in
  */
   function hideSuggestions() {
@@ -670,33 +675,48 @@ function showSearchSuggestions(input) {
  * @input : this is/are the characters entered by the user
  */
 function filterSearch(input) {
-  console.log(input)
-  // get restaurant display container 
-  const restaurantContainer = document.querySelector('.restaurant .items');
+
+  let inputContainsText = input.length > 0;
+
+  if (inputContainsText) {
+
+    // Remove symbols or special characters 
+    input = filterInput(input);
+
+    // get restaurant display container 
+    const restaurantContainer = document.querySelector('.restaurant .items');
     
-  // get restaurant display items 
-  const restaurantItems = document.querySelectorAll('.restaurant .items .item');
-  console.log(restaurantItems)
+    // get restaurant display items 
+    const restaurantItems = document.querySelectorAll('.restaurant .items .item');
+    console.log(restaurantItems)
 
-   // get restaurant display items names
-  const restaurantItemNames = [];
+    // get restaurant display items names
+    const restaurantItemNames = [];
 
-  for (let item of restaurantItems) {
-    let itemName = item.querySelector(".item-name").innerHTML;
-    restaurantItemNames.push(itemName);
-  }
-  console.log(restaurantItemNames);
-  // console.log(restaurantItemNames[0].includes())
+    for (let item of restaurantItems) {
+      let itemName = item.querySelector(".item-name").innerHTML;
+      restaurantItemNames.push(itemName);
+    }
+    console.log(restaurantItemNames);
+    // console.log(restaurantItemNames[0].includes())
 
-  // Fetch food names that match input
-  let suggestions = getSearchSuggestions(input);
-  console.log(suggestions);
+    // Fetch food names that match input
+    let suggestions = getSearchSuggestions(input);
+    console.log(suggestions);
   
-  function filterDomList() {
-
+  }
+  
+  function filterRestaurantItems(suggestions) {
+    
   }
 
 }
+
+
+/**
+ * filter : Removes special characters
+ * @input : this is/are the characters entered by the user
+ */
 
 function filterInput(input) {
   // Remove symbols or sepecial characters
