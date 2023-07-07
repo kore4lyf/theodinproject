@@ -720,23 +720,56 @@ function filterSearch(input) {
       let itemIsNotHidden = !item.classList.contains("hide");
       
       if (suggestionIsEmpty) {
-          console.log("empty suggestion")
-          // Make hidden items visible
-          if (itemIsHidden) item.classList.remove("hide");
+        console.log("empty suggestion");
+        // Make hidden items visible
+        if (itemIsHidden) item.classList.remove("hide");
 
-        } else if (itemNotInSuggestions) {
-        console.log("item not in suggestion: ", itemName);
+      } else {
         
+        
+        if (itemNotInSuggestions) {
+          console.log("item not in suggestion: ", itemName);
+          
           if (itemIsNotHidden) {
             // Hide items that are not in the suggestion
-            console.log(item + " is hidden and ")
+            console.log(item + " is hidden")
             item.classList.add("hide");
           }
+        } else {
+          if (itemIsHidden) item.classList.remove("hide");
+          showSearchGuide(!suggestionIsEmpty, true)
         }
-    }
+      }
+    } 
+  }
+}
+
+
+function showSearchGuide(input = "", suggestionsExist, show) {
+  // Fetch search status DOM
+  let searchGuideDOM = document.querySelector(".search-guide");
+  
+  // Fetch search result state
+  let searchResultStateDOM = document.querySelector(".search-guide .search-result-state");
+  
+  // Fetch search input
+  let copySearchInputDOM = document.querySelector(".search-guide .copy-search-input");
+  console.log(copySearchInputDOM)
+  if (input === "") {
     
   }
-
+  if (show && input !== "") {
+    searchGuideDOM.classList.remove("hide");
+    if (suggestionsExist) {
+      searchResultStateDOM.innerText = "Showing"
+      copySearchInputDOM.innerText = input;
+    } else {
+      searchResultStateDOM.innerText = "No";
+      copySearchInputDOM.innerText = input;
+    }
+  } else {
+    searchGuideDOM.classList.remove("hide");
+  }
 }
 
 
