@@ -694,7 +694,6 @@ function filterSearch(input) {
 
   console.error("contains text")
 
-  // if (inputContainsText) {
  
     // Remove symbols or special characters 
     input = filterInput(input);
@@ -720,7 +719,6 @@ function filterSearch(input) {
     filterRestaurantItems(suggestions, restaurantItems);
     console.error("Called-T2");
 
-  // } 
   
   function filterRestaurantItems(suggestions, items) {
     // Get search input value
@@ -755,11 +753,11 @@ function filterSearch(input) {
             console.log(item + " is hidden")
             item.classList.add("hide");
           }
-          showSearchGuide(searchInputValue, !suggestionIsEmpty, true);
+          showSearchGuide(searchInputValue, suggestionIsEmpty, true);
 
         } else {
           if (itemIsHidden) item.classList.remove("hide");
-          showSearchGuide(searchInputValue, !suggestionIsEmpty, true);
+          showSearchGuide(searchInputValue, suggestionIsEmpty, true);
         }
       }
     } 
