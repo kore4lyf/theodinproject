@@ -575,16 +575,18 @@ function searchFocus() {
 function setSearchBehaviour(activePage) {
   // Get search input DOM
   const searchInputDOM = document.querySelector(".search .search-box");
+  console.error(searchInputDOM.value.length);
+  console.error(searchInputDOM.value);
 
   // Show suggest when search input focused
   if (activePage === "home") {
       // Add input event listener on search box
     searchInputDOM.addEventListener("input",
-      () => showSearchSuggestions(searchInputDOM.value.trim().toLowerCase()));
+      () => showSearchSuggestions(searchInputDOM.value.toLowerCase()));
   } else {
       // Add input event listener on search box
     searchInputDOM.addEventListener("input",
-      () => filterSearch(searchInputDOM.value.trim().toLowerCase()));
+      () => filterSearch(searchInputDOM.value.toLowerCase()));
   }
   
 }
@@ -596,18 +598,21 @@ function setSearchBehaviour(activePage) {
  * @input : this is/are the characters entered by the user
  */
 function showSearchSuggestions(input) {
+  // Remove padded whitespaces
+  input = input.trim();
+  console.error(input);
+  
   // Get Suggestion DOM
   const suggestionDOM = document.querySelector(".suggestion");
 
   // Get Suggestion List DOM
   const suggestionListDOM = document.querySelector(".suggestion .list");
 
-  let inputContainsText = input.length > 0;
+  let inputContainsText = input.length;
   
   if (inputContainsText) {
     // Filter input
     input = filterInput(input);
-
     // Fetch foodNames that match input
     let suggestions = getSearchSuggestions(input, foodNames);
     
@@ -679,13 +684,22 @@ function showSearchSuggestions(input) {
  * @input : this is/are the characters entered by the user
  */
 function filterSearch(input) {
+  console.error("Called");
 
-  let inputContainsText = input.length > 0;
+  // Remove padded whitespaces
+  input = input.trim();
 
-  if (inputContainsText) {
+  let inputContainsText = input.length;
+  console.error(inputContainsText)
 
+  console.error("contains text")
+
+  // if (inputContainsText) {
+ 
     // Remove symbols or special characters 
     input = filterInput(input);
+    console.error(input);
+
 
     
     // get restaurant display items 
@@ -704,9 +718,14 @@ function filterSearch(input) {
     let suggestions = getSearchSuggestions(input, foodNames);
     
     filterRestaurantItems(suggestions, restaurantItems);
-  } 
+    console.error("Called-T2");
+
+  // } 
   
   function filterRestaurantItems(suggestions, items) {
+    // Get search input value
+    const searchInputValue = document.querySelector(".search .search-box").value;
+
     let suggestionIsEmpty = suggestions.length === 0;
     
     console.log("No of suggestions: ", suggestions.length);
@@ -722,7 +741,8 @@ function filterSearch(input) {
       if (suggestionIsEmpty) {
         console.log("empty suggestion");
         // Make hidden items visible
-        if (itemIsHidden) item.classList.remove("hide");
+        if (itemIsNotHidden) item.classList.add("hide");
+        showSearchGuide(searchInputValue, suggestionIsEmpty, true);
 
       } else {
         
@@ -735,9 +755,11 @@ function filterSearch(input) {
             console.log(item + " is hidden")
             item.classList.add("hide");
           }
+          showSearchGuide(searchInputValue, !suggestionIsEmpty, true);
+
         } else {
           if (itemIsHidden) item.classList.remove("hide");
-          showSearchGuide(!suggestionIsEmpty, true)
+          showSearchGuide(searchInputValue, !suggestionIsEmpty, true);
         }
       }
     } 
@@ -745,7 +767,7 @@ function filterSearch(input) {
 }
 
 
-function showSearchGuide(input = "", suggestionsExist, show) {
+function showSearchGuide(input = "", suggestionsIsEmpty, show) {
   // Fetch search status DOM
   let searchGuideDOM = document.querySelector(".search-guide");
   
@@ -755,20 +777,18 @@ function showSearchGuide(input = "", suggestionsExist, show) {
   // Fetch search input
   let copySearchInputDOM = document.querySelector(".search-guide .copy-search-input");
   console.log(copySearchInputDOM)
-  if (input === "") {
-    
-  }
+
   if (show && input !== "") {
     searchGuideDOM.classList.remove("hide");
-    if (suggestionsExist) {
-      searchResultStateDOM.innerText = "Showing"
+    if (suggestionsIsEmpty) {
+      searchResultStateDOM.innerText = "No"
       copySearchInputDOM.innerText = input;
     } else {
-      searchResultStateDOM.innerText = "No";
+      searchResultStateDOM.innerText = "Showing";
       copySearchInputDOM.innerText = input;
     }
   } else {
-    searchGuideDOM.classList.remove("hide");
+    searchGuideDOM.classList.add("hide");
   }
 }
 
@@ -779,6 +799,7 @@ function showSearchGuide(input = "", suggestionsExist, show) {
  */
 
 function filterInput(input) {
+  console.info(input)
   // Remove symbols or sepecial characters
   return input.replace(/[^A-Za-z0-9\s]/g, '');
 }
