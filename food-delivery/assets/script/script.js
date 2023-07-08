@@ -575,8 +575,6 @@ function searchFocus() {
 function setSearchBehaviour(activePage) {
   // Get search input DOM
   const searchInputDOM = document.querySelector(".search .search-box");
-  console.error(searchInputDOM.value.length);
-  console.error(searchInputDOM.value);
 
   // Show suggest when search input focused
   if (activePage === "home") {
@@ -600,7 +598,6 @@ function setSearchBehaviour(activePage) {
 function showSearchSuggestions(input) {
   // Remove padded whitespaces
   input = input.trim();
-  console.error(input);
   
   // Get Suggestion DOM
   const suggestionDOM = document.querySelector(".suggestion");
@@ -648,8 +645,8 @@ function showSearchSuggestions(input) {
         const textBoldHTMLLen = textBoldHTML.length;
         suggestion = suggestion.slice(0, startIndex) + textBoldHTML + suggestion.slice(startIndex);
         suggestion = suggestion.slice(0, startIndex + textBoldHTMLLen + endIndex) + "</span>" + suggestion.slice(startIndex + textBoldHTMLLen + endIndex,);
-        // suggestion = suggestion.join("");s
-        console.log(suggestion);
+
+        // Show suggestion in listItem
         listItem.innerHTML = suggestion;
 
         
@@ -684,26 +681,14 @@ function showSearchSuggestions(input) {
  * @input : this is/are the characters entered by the user
  */
 function filterSearch(input) {
-  console.error("Called");
-
   // Remove padded whitespaces
   input = input.trim();
-
-  let inputContainsText = input.length;
-  console.error(inputContainsText)
-
-  console.error("contains text")
-
  
     // Remove symbols or special characters 
     input = filterInput(input);
-    console.error(input);
-
-
     
     // get restaurant display items 
     const restaurantItems = document.querySelectorAll('.restaurant .items .item');
-
 
     // get restaurant display items names
     const restaurantItemNames = [];
@@ -717,51 +702,43 @@ function filterSearch(input) {
     let suggestions = getSearchSuggestions(input, foodNames);
     
     filterRestaurantItems(suggestions, restaurantItems);
-    console.error("Called-T2");
+}
 
-  
-  function filterRestaurantItems(suggestions, items) {
-    // Get search input value
-    const searchInputValue = document.querySelector(".search .search-box").value;
 
-    let suggestionIsEmpty = suggestions.length === 0;
+function filterRestaurantItems(suggestions, items) {
+  // Get search input value
+  const searchInputValue = document.querySelector(".search .search-box").value;
+
+  let suggestionIsEmpty = suggestions.length === 0;
+
+  for (let item of items) {
+    let itemName = item.querySelector(".item-name").innerHTML.trim();
+    let itemNotInSuggestions = !suggestions.includes(itemName);
+    let itemIsHidden = item.classList.contains("hide");
+    let itemIsNotHidden = !item.classList.contains("hide");
     
-    console.log("No of suggestions: ", suggestions.length);
-    console.log("suggestion: ", suggestions);
-    for (let item of items) {
-      console.log("item: ", item);
-      let itemName = item.querySelector(".item-name").innerHTML.trim();
-      console.log("@DOM itemName: ", itemName)
-      let itemNotInSuggestions = !suggestions.includes(itemName);
-      let itemIsHidden = item.classList.contains("hide");
-      let itemIsNotHidden = !item.classList.contains("hide");
+    if (suggestionIsEmpty) {
+      // Make hidden items visible
+      if (itemIsNotHidden) item.classList.add("hide");
+      showSearchGuide(searchInputValue, suggestionIsEmpty, true);
+
+    } else {
       
-      if (suggestionIsEmpty) {
-        console.log("empty suggestion");
-        // Make hidden items visible
-        if (itemIsNotHidden) item.classList.add("hide");
+      
+      if (itemNotInSuggestions) {
+        
+        if (itemIsNotHidden) {
+          // Hide items that are not in the suggestion
+          item.classList.add("hide");
+        }
         showSearchGuide(searchInputValue, suggestionIsEmpty, true);
 
       } else {
-        
-        
-        if (itemNotInSuggestions) {
-          console.log("item not in suggestion: ", itemName);
-          
-          if (itemIsNotHidden) {
-            // Hide items that are not in the suggestion
-            console.log(item + " is hidden")
-            item.classList.add("hide");
-          }
-          showSearchGuide(searchInputValue, suggestionIsEmpty, true);
-
-        } else {
-          if (itemIsHidden) item.classList.remove("hide");
-          showSearchGuide(searchInputValue, suggestionIsEmpty, true);
-        }
+        if (itemIsHidden) item.classList.remove("hide");
+        showSearchGuide(searchInputValue, suggestionIsEmpty, true);
       }
-    } 
-  }
+    }
+  } 
 }
 
 
@@ -774,7 +751,6 @@ function showSearchGuide(input = "", suggestionsIsEmpty, show) {
   
   // Fetch search input
   let copySearchInputDOM = document.querySelector(".search-guide .copy-search-input");
-  console.log(copySearchInputDOM)
 
   if (show && input !== "") {
     searchGuideDOM.classList.remove("hide");
@@ -797,7 +773,6 @@ function showSearchGuide(input = "", suggestionsIsEmpty, show) {
  */
 
 function filterInput(input) {
-  console.info(input)
   // Remove symbols or sepecial characters
   return input.replace(/[^A-Za-z0-9\s]/g, '');
 }
@@ -819,10 +794,50 @@ function getSearchSuggestions(input, foodNames) {
 }
 
 
+
+
 /**
- * searchSort : Suggests food in the food menu depending on the food name or characters searched
+ * eventBinder : Contains elements and the functions they are binded with.
+ */
+function eventBinder() {
+  // Bind sortSearch() with sort icon
+    // Fetch sort icon
+  const sortDOM = document.querySelector(".sort");
+  if (restaurantPageLoaded) {
+
+    // get restaurant display items 
+    const restaurantContainer = document.querySelector(".restaurant");
+
+    // get restaurant display items 
+    const restaurantItems = document.querySelectorAll('.restaurant .items .item');
+    
+    // set sort default descending order state
+    let inDecendingOrder = false;
+
+    // bind click event to sortDOM
+    sortDOM.addEventListener("click", () => sortSearch(sortDOM, restaurantContainer, restaurantContainer, inDecendingOrder = !inDecendingOrder));
+  }
+}
+
+eventBinder();
+/**
+ * sortSearch : Sort search food menu items in ascending or descending order
  * @input : this is/are the characters entered by the user
  */
-//  function searchSort(domContainer, domItems) {
+function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
+  console.log(inDescendingOrder);
+  // Highlight icon when clicked
+  if(inDescendingOrder) {
+    sortIcon.classList.add("active");
 
-// }
+  } else {
+    console.log("remove");
+    sortIcon.classList.remove("active");
+  }
+  
+  // Create document fragment
+  const DOMFragment = document.createDocumentFragment();
+  
+  // 
+
+}

@@ -205,6 +205,12 @@ a .icon-stroke:hover {
   fill-opacity: 1;
 }
 
+.icon-no-hover {
+  stroke: var(--clr-dark);
+  stroke-opacity: 1;
+  fill-opacity: 1;
+}
+
 
 /** ---category--- **/
 .menu-category .options,
