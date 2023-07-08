@@ -715,10 +715,14 @@ img.restaurant-profile {
   transform: translateX(10px)
 }
 
-.sort.active {
+.sort.active, .icon-stroke.active {
   stroke: var(--clr-accent)!important;
   stroke-opacity: 1;  
+}
 
+.icon-fill.active {
+  color: var(--clr-accent)!important;
+  fill-opacity: 1;  
 }
 
 .search-guide {

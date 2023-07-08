@@ -31,15 +31,14 @@ const productPageLoaded = document.querySelector("#product");
     displayCategoryItems();
     loadPopularCategory("burger");
     searchFocus();
-    setSearchBehaviour("home")
-
+    setSearchBehaviour();
 
   } else if(restaurantPageLoaded) {
     loadRestaurantContent("Chillox", "Burger");
     loadMenuCategory("chillox", "burger");
     loadRestaurantMenu("chillox", "burger");
     searchFocus();
-    setSearchBehaviour("restaurant")
+    setSearchBehaviour();
 
   } else if(productPageLoaded) {
     loadProductDetail({
@@ -563,7 +562,16 @@ function searchFocus() {
   const searchInputDOM = document.querySelector(".search .search-box");
   
   // Add click event to search item
-  searchIconDOM.addEventListener("click", () => searchInputDOM.focus());
+  searchIconDOM.addEventListener("click", () => {
+    searchIconDOM.classList.add("active");
+    searchInputDOM.focus();
+  });
+
+  // Highlight search icon when search box/input is focused
+  searchInputDOM.addEventListener("focusin", () => searchIconDOM.classList.add("active"));
+
+  // Undo highlight when search icon when search box/input is focused out
+  searchInputDOM.addEventListener("focusout", () => searchIconDOM.classList.remove("active"));
 }
 
 
@@ -572,12 +580,12 @@ function searchFocus() {
  * setSearchBehaviour : Defines how search is done depending the active page rendering it
  * @activePage : is the active page's name
  */
-function setSearchBehaviour(activePage) {
+function setSearchBehaviour() {
   // Get search input DOM
   const searchInputDOM = document.querySelector(".search .search-box");
 
   // Show suggest when search input focused
-  if (activePage === "home") {
+  if (homePageLoaded) {
       // Add input event listener on search box
     searchInputDOM.addEventListener("input",
       () => showSearchSuggestions(searchInputDOM.value.toLowerCase()));
