@@ -181,8 +181,8 @@ button.icon-fill,
   border: 0px;
 }
 
-button.icon-fill:not(.search-icon):hover,
-.icon-fill:not(.search-icon):hover {
+button.icon-fill.hover-effect:hover,
+.icon-fill.hover-effer:hover {
   color: var(--clr-accent);
   stroke-opacity: 1;
   fill-opacity: 1;
@@ -197,19 +197,14 @@ a .icon-stroke,
   border: 0px;
 }
 
-button.icon-stroke:hover,
-button .icon-stroke:hover,
+button.icon-stroke.hover-effect:hover,
+button .icon-stroke.hover-effect:hover,
 a .icon-stroke:hover {
   stroke: var(--clr-accent);
   stroke-opacity: 1;
   fill-opacity: 1;
 }
 
-.icon-no-hover {
-  stroke: var(--clr-dark);
-  stroke-opacity: 1;
-  fill-opacity: 1;
-}
 
 
 /** ---category--- **/
