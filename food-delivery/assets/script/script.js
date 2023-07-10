@@ -844,8 +844,23 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
   }
   
   // Create document fragment
-  const DOMFragment = document.createDocumentFragment();
+  const DOMFragment = domFragment();
   
   // 
+}
 
+const compose = (...functions) => x => functions.reduceRight((acc, fn) => fn(acc));
+
+function getDomElement(cssSelector) {
+  return document.querySelector(cssSelector);
+}
+
+function bindEvent(element) {
+  return (event = "click") =>
+    (action) =>
+      element.addEventListener(event, action);
+}
+
+function domFragment() {
+  return  document.createDocumentFragment();
 }
