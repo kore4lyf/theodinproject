@@ -729,6 +729,27 @@ img.restaurant-profile {
   padding-bottom: 1rem;
 }
 
+.sort-options {
+  display: flex;
+  background: #fff;
+  border: 1px solid var(--clr-secondary);
+  border-radius: var(--rounded-1);
+  flex-direction: column;
+  gap: .5rem;
+  padding-left: 0px;
+  padding: .8rem;
+  position: absolute;
+  right: 0;
+  top: 1rem;
+  font-family: var(--ff-gotham-reg);
+}
+
+.sort-options .sort-option{
+  align-items: center;
+  display: flex;
+  gap: .5rem;
+}
+
 
   /* +++++++++++++++++++++ 
         product.html 
