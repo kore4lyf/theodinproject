@@ -64,6 +64,7 @@ body {
   margin-inline: auto;
   min-width: 280px;
   position: relative;
+  text-rendering: optimizeSpeed;
   width: 100%;
 }
 

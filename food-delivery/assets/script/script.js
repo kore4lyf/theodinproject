@@ -79,7 +79,7 @@ if (restaurantPageLoaded || productPageLoaded) {
 function displayCategoryItems() {
 
   // Create DOM Fragment
-  const DOMFragment = document.createDocumentFragment();
+  const DOMFragment = domFragment();
 
   // Target  Home catgory options
   const homeCategoryOptions = document.querySelector("#home-category .options");
@@ -143,7 +143,7 @@ function displayCategoryItems() {
 function loadPopularCategory(categoryName) {
 
   // Create DOM Fragment
-  const DOMFragment = document.createDocumentFragment();
+  const DOMFragment = domFragment();
   
   const popularContainerDom = document.querySelector(".popular-container");
   const popularDom = document.createElement("ul");
@@ -284,7 +284,7 @@ function loadMenuCategory(restaurantName, activeCategory) {
   let restaurantMenuCategories = data.restaurants[restaurantName].menuCategory;
 
   // Create document fragment
-  let DOMFragment = document.createDocumentFragment();
+  const DOMFragment = domFragment();
   
   // Set list menu category options
   const menuCategoryDOM = document.querySelector(".menu-category .options");
@@ -312,7 +312,7 @@ function loadMenuCategory(restaurantName, activeCategory) {
 // * Set restaurant meun items
 function loadRestaurantMenu(restaurantName, activeCategory) {
   // Create document fragment
-  const DOMFragment = document.createDocumentFragment();
+  const DOMFragment = domFragment();
 
   // Target restaurant menu items
   const restaurantMenuItemsDOM = document.querySelector(".restaurant .items");
@@ -517,7 +517,7 @@ function loadProductDetail(productData) {
    */
   function setProductIngredients(productIngredients) {
       // Create Document Fragment
-    const DOMFragment = document.createDocumentFragment();
+    const DOMFragment = domFragment();
       // Fetch product ingredients element in the DOM
     const productIngredientsDOM = document.querySelector("#product .ingredients .options");
       // Add ingredients to DOM
@@ -629,7 +629,7 @@ function showSearchSuggestions(input) {
       suggestionDOM.classList.add("animate");
       
       //Create DOM Fragment
-      const DOMFragment = document.createDocumentFragment();
+      const DOMFragment = domFragment();
       
       // Regular expression to make input search case insensitive
       let inputCaseInsensitive = new RegExp(input, 'i');
@@ -805,16 +805,17 @@ function getSearchSuggestions(input, foodNames) {
 
 
 /**
- * eventBinder : Contains elements and the functions they are binded with.
+ * eventLoader : Contains elements and the functions they are binded with.
  */
-function eventBinder() {
+function eventLoader() {
   // Bind sortSearch() with sort icon
     // Fetch sort icon
   const sortDOM = document.querySelector(".sort");
   if (restaurantPageLoaded) {
 
     // get restaurant display items 
-    const restaurantContainer = document.querySelector(".restaurant");
+    let restaurantContainer = ".restaurant .items";
+    restaurantContainer = getDomElement(restaurantContainer);
 
     // get restaurant display items 
     const restaurantItems = document.querySelectorAll('.restaurant .items .item');
@@ -823,30 +824,39 @@ function eventBinder() {
     let inDecendingOrder = false;
 
     // bind click event to sortDOM
-    sortDOM.addEventListener("click", () => sortSearch(sortDOM, restaurantContainer, restaurantContainer, inDecendingOrder = !inDecendingOrder));
+    sortDOM.addEventListener("click", () => sortSearch(sortDOM, restaurantContainer, restaurantItems, inDecendingOrder = !inDecendingOrder));
   }
 }
 
-eventBinder();
+eventLoader();
 /**
  * sortSearch : Sort search food menu items in ascending or descending order
  * @input : this is/are the characters entered by the user
  */
 function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
-  console.log(inDescendingOrder);
+  console.log(domItems);
   // Highlight icon when clicked
   if(inDescendingOrder) {
     sortIcon.classList.add("active");
 
+    const numOfItemsInDOM = domItems.length - 1;
+
+    // Create document fragment
+    const DOMFragment = domFragment();
+
+    for (let i = numOfItemsInDOM; i >= 0; i--) {
+      DOMFragment.appendChild(domItems[i]);
+    }
+    domContainer.innerHTML = "";
+    domContainer.appendChild(DOMFragment);
+    // let descendingOrder = domItems.sort((item) => getInnerDomElement(item)(".item-name"));
+
   } else {
-    console.log("remove");
     sortIcon.classList.remove("active");
   }
   
-  // Create document fragment
-  const DOMFragment = domFragment();
   
-  // 
+  
 }
 
 /**
@@ -863,6 +873,16 @@ const compose = (...functions) => x => functions.reduceRight((acc, fn) => fn(acc
  */
 function getDomElement(cssSelector) {
   return document.querySelector(cssSelector);
+}
+
+/**
+ * getInnerDomElement : Returns a specified element within another element
+ * @outerElem : Represents an Element in the DOM
+ * @innerElemClassName : Represents a css selector that can be used to 
+ * access the element in the DOM.
+ */
+function getInnerDomElement(outerElem) {
+ return (innerElemClassName) => outerElem.querySelector(innerElemClassName);
 }
 
 
