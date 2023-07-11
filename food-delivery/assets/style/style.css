@@ -754,7 +754,6 @@ img.restaurant-profile {
 }
 
 .sort-option {
-  accent-color: var(--clr-accent);
   align-items: center;
   display: flex;
   padding: .8rem;
@@ -784,7 +783,9 @@ img.restaurant-profile {
   fill: var(--clr-dark);
 }
 
-.sort-order.active {
+
+.sort-order.active,
+.sort-order:hover {
   fill: var(--clr-accent);
   fill-opacity: 1;
 }
