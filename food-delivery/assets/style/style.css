@@ -779,6 +779,16 @@ img.restaurant-profile {
   background: red;
 }
 
+.sort-order {
+  width: 12px;
+  fill: var(--clr-dark);
+}
+
+.sort-order.active {
+  fill: var(--clr-accent);
+  fill-opacity: 1;
+}
+
   /* +++++++++++++++++++++ 
         product.html 
     +++++++++++++++++++++ */

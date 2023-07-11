@@ -834,11 +834,14 @@ eventLoader();
  * @input : this is/are the characters entered by the user
  */
 function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
-  console.log(domItems);
+  console.log([...domItems]);
   // Highlight icon when clicked
   if(inDescendingOrder) {
     sortIcon.classList.add("active");
 
+    function reverseElemByName(domItems) {
+      
+    }
     const numOfItemsInDOM = domItems.length - 1;
 
     // Create document fragment
