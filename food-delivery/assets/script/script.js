@@ -849,18 +849,39 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
   // 
 }
 
+/**
+ * compose : All allow multiple functions to be called one after the other
+ * taking the output of one function as the input of the other.
+ */
 const compose = (...functions) => x => functions.reduceRight((acc, fn) => fn(acc));
 
+
+/**
+ * getDomElement : Returns an element in DOM
+ * @cssSelector : Represents a css selector that can be used to 
+ * access the element in the DOM.
+ */
 function getDomElement(cssSelector) {
   return document.querySelector(cssSelector);
 }
 
+
+/**
+ * bindEvent : Binds an event to an element. (No return value).
+ * @element : Reprensents an elements in the DOM (DOM Element)
+ * @event : Represents the event that triggers @action (string) 
+ * @action : Represents the action that is performed when @event happens (FUnction)
+ */
+ 
 function bindEvent(element) {
   return (event = "click") =>
     (action) =>
       element.addEventListener(event, action);
 }
 
+/**
+ * domFragment : Creates a document fragment
+ */
 function domFragment() {
   return  document.createDocumentFragment();
 }
