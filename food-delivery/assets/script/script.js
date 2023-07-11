@@ -824,7 +824,7 @@ function eventLoader() {
     let inDecendingOrder = false;
 
     // bind click event to sortDOM
-    sortDOM.addEventListener("click", () => sortSearch(sortDOM, restaurantContainer, restaurantItems, inDecendingOrder = !inDecendingOrder));
+    sortDOM.addEventListener("click", () => showSortOptions(sortDOM, restaurantContainer, restaurantItems, inDecendingOrder = !inDecendingOrder));
   }
 }
 

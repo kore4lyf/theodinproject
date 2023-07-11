@@ -649,7 +649,8 @@ img.restaurant-profile {
 .suggestion .list-item:hover,
 .suggestion .list-item:focus,
 .sort-option:hover,
-.sort-option:focus
+.sort-option:focus,
+.sort-option.active
  {
   background: #302f3c10;
 }
@@ -744,19 +745,21 @@ img.restaurant-profile {
   border-radius: var(--rounded-1);
   color: var(--clr-dark);
   flex-direction: column;
+  font-family: var(--ff-gotham-reg);
   font-size: .8rem;
   padding-left: 0px;
   /* padding: .5rem; */
   position: absolute;
   right: 0;
   top: 1rem;
-  font-family: var(--ff-gotham-reg);
+  /* width: 95px; */
 }
 
 .sort-option {
   align-items: center;
   display: flex;
   padding: .8rem;
+  position: relative;
   gap: .5rem;
 }
 
@@ -779,8 +782,11 @@ img.restaurant-profile {
 }
 
 .sort-order {
-  width: 12px;
   fill: var(--clr-dark);
+}
+
+.sort-order svg {
+  width: 12px;
 }
 
 
