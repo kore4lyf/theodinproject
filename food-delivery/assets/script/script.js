@@ -546,10 +546,7 @@ function loadProductDetail(productData) {
       // Set about information
     aboutDOM.innerText = aboutProduct;
   }
-
 }
-console.log(typeof DOM)
-console.log(DOM.searchInput)
 
 
 /**
@@ -571,25 +568,95 @@ function searchFocus() {
 
 
 
+// ##################################
+// ##### REUSABLE FUNCTIONS ########
+// ################################
+
+/**
+ * toggleClassByComparism : Sort search food menu items in ascending or descending order
+ * @elem1 : Represents an element in the DOM, whos class will be toggled
+ * @elem1Class : Represents the class that will be toggled in element 1
+ * @elem2 : Represents an element in the DOM, whos class will be used as condition to toggle a class in element 1
+ * @elem2Class : Represents a class name who presence in element 2, determines how the element 1 class is toggled
+ */
+ function toggleClassByComparism(elem1, elem1Class, elem2, elem2class) {
+  const elem2hasClass = elem2.classList.contains(elem2class);
+  if (elem2hasClass) {
+    elem1.classList.remove(elem1Class);
+  } else {
+    elem1.classList.add(elem1Class);
+  }
+}
+
+
+/**
+ * getInnerDomElement : Returns a specified element within another element
+ * @outerElem : Represents an Element in the DOM
+ * @innerElemClassName : Represents a css selector that can be used to 
+ * access the element in the DOM.
+ */
+ function getInnerDomElement(outerElem) {
+  return (innerElemClassName) => outerElem.querySelector(innerElemClassName);
+ }
+ 
+ 
+ /**
+  * bindEvent : Binds an event to an element. (No return value).
+  * @element : Reprensents an elements in the DOM (DOM Element)
+  * @event : Represents the event that triggers @action (string) 
+  * @action : Represents the action that is performed when @event happens (FUnction)
+  */
+  
+ function bindEvent(element) {
+   return (event = "click") =>
+     (action) =>
+       element.addEventListener(event, action);
+ }
+ 
+ /**
+  * domFragment : Creates a document fragment
+  */
+ function domFragment() {
+   return  document.createDocumentFragment();
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ##################################
+// ###### NON REUSEABLE FUNCTIONS ##
+// ################################
+
 /**
  * setSearchBehaviour : Defines how search is done depending the active page rendering it
  * @activePage : is the active page's name
  */
 function setSearchBehaviour() {
-  // Get search input DOM
-  const searchInputDOM = document.querySelector(".search .search-box");
-
   // Show suggest when search input focused
   if (homePageLoaded) {
       // Add input event listener on search box
-    searchInputDOM.addEventListener("input",
-      () => showSearchSuggestions(searchInputDOM.value.toLowerCase()));
+    bindEvent(DOM.searchInput)("input")(
+      () => showSearchSuggestions(DOM.searchInput.value.toLowerCase()));
   } else {
       // Add input event listener on search box
-    searchInputDOM.addEventListener("input",
-      () => filterSearch(searchInputDOM.value.toLowerCase()));
+    bindEvent(DOM.searchInput)("input")(
+      () => filterSearch(DOM.searchInput.value.toLowerCase()));
   }
-  
 }
 
 
@@ -602,17 +669,12 @@ function showSearchSuggestions(input) {
   // Remove padded whitespaces
   input = input.trim();
   
-  // Get Suggestion DOM
-  const suggestionDOM = document.querySelector(".suggestion");
-
-  // Get Suggestion List DOM
-  const suggestionListDOM = document.querySelector(".suggestion .list");
-
   let inputContainsText = input.length;
   
   if (inputContainsText) {
     // Filter input
     input = filterInput(input);
+
     // Fetch foodNames that match input
     let suggestions = getSearchSuggestions(input, foodNames);
     
@@ -620,8 +682,8 @@ function showSearchSuggestions(input) {
 
     if (inputMatchFoodName) {
       //show suggestions
-      suggestionDOM.classList.remove("hide");
-      suggestionDOM.classList.add("animate");
+      DOM.suggestion.classList.remove("hide");
+      DOM.suggestion.classList.add("animate");
       
       //Create DOM Fragment
       const DOMFragment = domFragment();
@@ -635,7 +697,7 @@ function showSearchSuggestions(input) {
       
       for (let suggestion of suggestions) {
         // Empty suggestion list
-        suggestionListDOM.innerHTML = "";
+        DOM.suggestionList.innerHTML = "";
         
         // Create a list item for each suggestion
         const listItem = document.createElement("li");
@@ -658,7 +720,7 @@ function showSearchSuggestions(input) {
       }
 
       // Append changes to Suggestion DOM
-      suggestionListDOM.appendChild(DOMFragment);
+      DOM.suggestionList.appendChild(DOMFragment);
 
     } else {
       hideSuggestions();
@@ -672,8 +734,8 @@ function showSearchSuggestions(input) {
  * hideSuggestion : uses class name "hide" to ensure an item name is not listed in
  */
   function hideSuggestions() {
-    suggestionDOM.classList.add("hide");
-    suggestionDOM.classList.remove("animate");
+    DOM.suggestion.classList.add("hide");
+    DOM.suggestion.classList.remove("animate");
   }
 }
 
@@ -803,57 +865,85 @@ function getSearchSuggestions(input, foodNames) {
  * eventLoader : Contains elements and the functions they are binded with.
  */
 function eventLoader() {
-  // Bind sortSearch() with sort icon
-    // Fetch sort icon
-  const sortIconDOM = document.querySelector(".sort");
   if (restaurantPageLoaded) {
-
-    // get restaurant display items 
-    const restaurantContainerDOM = getDomElement(".restaurant .items");
-
-    // get restaurant display item
-    const restaurantItemsDOM = getDomElement('.restaurant .items .item');
-
-
-
-
-
-
-    // Get sort options
-    const sortOptionsDOM = getDomElement(".sort-options");
-
-    // Bind click event to sortIconDOM
-    bindEvent(sortIconDOM)("click")(() => {
-      // Toggle the hidden status of sortOptions
-      sortOptionsDOM.classList.toggle("hide");
-  
-      // Toogle active class on Sort Icon 
-      toggleClassByComparism(sortIconDOM, "active", sortOptionsDOM, "hide");
+    // Bind sortSearch() to sort icon
+    bindEvent(DOM.sortIcon)("click")(() => {
+      DOM.sortOptions.classList.toggle("hide");
+      DOM.sortOptions.classList.toggle("animate");
+      toggleClassByComparism(DOM.sortIcon, "active", DOM.sortOptions, "hide");
     });
    
-    // sortSearch(sortDOM, restaurantContainer, restaurantItems, inDecendingOrder = !inDecendingOrder)
+
+
+    // Bind click event to name sort
+    bindEvent(DOM.nameSort)("click")(() => {
+      console.log("name");
+
+      DOM.priceSort.classList.remove("active");
+      DOM.priceSortAsc.classList.remove("active");
+      DOM.priceSortDesc.classList.remove("active");
+      DOM.nameSort.classList.add("active");
+      switchActiveSort();
+    });
+    
+    // Bind click event to price sort
+    bindEvent(DOM.priceSort)("click")(() => {
+      console.log("price");
+
+      DOM.nameSort.classList.remove("active");
+      DOM.nameSortAsc.classList.remove("active");
+      DOM.nameSortDesc.classList.remove("active");
+      DOM.priceSort.classList.add("active");
+      switchActiveSort();
+    });
+
+
+    // sortSearch(sortDOM, DOM.restaurantContainer, DOM.restaurantItems, inDecendingOrder = !inDecendingOrder)
   }
 }
 
 eventLoader();
 
-/**
- * toggleClassByComparism : Sort search food menu items in ascending or descending order
- * @elem1 : Represents an element in the DOM, whos class will be toggled
- * @elem1Class : Represents the class that will be toggled in element 1
- * @elem2 : Represents an element in the DOM, whos class will be used as condition to toggle a class in element 1
- * @elem2Class : Represents a class name who presence in element 2, determines how the element 1 class is toggled
- */
-function toggleClassByComparism(elem1, elem1Class, elem2, elem2class) {
-  const elem2hasClass = elem2.classList.contains(elem2class);
-  if (elem2hasClass) {
-    elem1.classList.remove(elem1Class);
+
+
+function switchActiveSort() {
+  const nameIsActive = DOM.nameSort.classList.contains("active");
+
+  if (nameIsActive) {
+    const nameIsInAsc = DOM.nameSortAsc.classList.contains("active")
+    if (nameIsInAsc) {
+      // Make Desc Active
+      DOM.nameSortAsc.classList.remove("active");
+      DOM.nameSortAsc.classList.add("hide");
+      DOM.nameSortDesc.classList.add("active");
+      DOM.nameSortDesc.classList.remove("hide");
+    } else {
+      // Make Asc Active
+      DOM.nameSortAsc.classList.add("active");
+      DOM.nameSortAsc.classList.remove("hide");
+      DOM.nameSortDesc.classList.remove("active");
+      DOM.nameSortDesc.classList.add("hide");
+    }
   } else {
-    elem1.classList.add(elem1Class);
+    const priceIsInAsc = DOM.priceSortAsc.classList.contains("active");
+    
+    if (priceIsInAsc) {
+      // Make Desc Active
+      DOM.priceSortAsc.classList.remove("active");
+      DOM.priceSortAsc.classList.add("hide");
+      DOM.priceSortDesc.classList.add("active");
+      DOM.priceSortDesc.classList.remove("hide");
+      console.log("1");
+    } else {
+      console.log("2");
+      // Make Asc Active
+      DOM.priceSortAsc.classList.add("active");
+      DOM.priceSortAsc.classList.remove("hide");
+      DOM.priceSortDesc.classList.remove("active");
+      DOM.priceSortDesc.classList.add("hide");
+    }
   }
 }
-
-
 
 
 
@@ -885,9 +975,6 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
   } else {
     sortIcon.classList.remove("active");
   }
-  
-  
-  
 }
 
 /**
@@ -897,42 +984,4 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
 const compose = (...functions) => x => functions.reduceRight((acc, fn) => fn(acc));
 
 
-/**
- * getDomElement : Returns an element in DOM
- * @cssSelector : Represents a css selector that can be used to 
- * access the element in the DOM.
- */
-function getDomElement(cssSelector) {
-  return document.querySelector(cssSelector);
-}
 
-/**
- * getInnerDomElement : Returns a specified element within another element
- * @outerElem : Represents an Element in the DOM
- * @innerElemClassName : Represents a css selector that can be used to 
- * access the element in the DOM.
- */
-function getInnerDomElement(outerElem) {
- return (innerElemClassName) => outerElem.querySelector(innerElemClassName);
-}
-
-
-/**
- * bindEvent : Binds an event to an element. (No return value).
- * @element : Reprensents an elements in the DOM (DOM Element)
- * @event : Represents the event that triggers @action (string) 
- * @action : Represents the action that is performed when @event happens (FUnction)
- */
- 
-function bindEvent(element) {
-  return (event = "click") =>
-    (action) =>
-      element.addEventListener(event, action);
-}
-
-/**
- * domFragment : Creates a document fragment
- */
-function domFragment() {
-  return  document.createDocumentFragment();
-}

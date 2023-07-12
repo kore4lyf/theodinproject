@@ -794,6 +794,9 @@ img.restaurant-profile {
   fill-opacity: 1;
 }
 
+.sort-order.desc {
+  transform: translateY(3px);
+}
 
 
 
