@@ -1,7 +1,7 @@
 "use strict";
 
-import * as data from './data.js'; // Import all menu and menu categories
-
+import * as data from "./data.js"; // Import all menu and menu categories
+import * as DOM from "./domElems.js"; // Import decleared DOM Element
 
 // Cart Data 
 let cart = [
@@ -548,30 +548,25 @@ function loadProductDetail(productData) {
   }
 
 }
-
+console.log(typeof DOM)
+console.log(DOM.searchInput)
 
 
 /**
  * searchFocus : Focuses on .seach-menu when menu search button is pressed
  */
-function searchFocus() {
-  // Get search icon in DOM
-  const searchIconDOM = document.querySelector(".search .search-icon");
-
-  // Get search input DOM
-  const searchInputDOM = document.querySelector(".search .search-box");
-  
+function searchFocus() {  
   // Add click event to search item
-  searchIconDOM.addEventListener("click", () => {
-    searchIconDOM.classList.add("active");
+ DOM.searchIcon.addEventListener("click", () => {
+    DOM.searchIcon.classList.add("active");
     searchInputDOM.focus();
   });
 
   // Highlight search icon when search box/input is focused
-  searchInputDOM.addEventListener("focusin", () => searchIconDOM.classList.add("active"));
+  DOM.searchInput.addEventListener("focusin", () => DOM.searchIcon.classList.add("active"));
 
   // Undo highlight when search icon when search box/input is focused out
-  searchInputDOM.addEventListener("focusout", () => searchIconDOM.classList.remove("active"));
+  DOM.searchInput.addEventListener("focusout", () => DOM.searchIcon.classList.remove("active"));
 }
 
 
@@ -800,9 +795,7 @@ function getSearchSuggestions(input, foodNames) {
   
   return suggestions;
 }
-function declearDomElem() {
-  
-}
+
 
 
 

@@ -752,7 +752,7 @@ img.restaurant-profile {
   position: absolute;
   right: 0;
   top: 1.5rem;
-  /* width: 95px; */
+  transition: transform ease-in-out 0.3s;
 }
 
 .sort-option {
