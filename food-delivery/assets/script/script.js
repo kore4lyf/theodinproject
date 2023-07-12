@@ -800,7 +800,9 @@ function getSearchSuggestions(input, foodNames) {
   
   return suggestions;
 }
-
+function declearDomElem() {
+  
+}
 
 
 
@@ -816,25 +818,26 @@ function eventLoader() {
     // get restaurant display items 
     const restaurantContainerDOM = getDomElement(".restaurant .items");
 
-    // get restaurant display items 
+    // get restaurant display item
     const restaurantItemsDOM = getDomElement('.restaurant .items .item');
+
+
+
+
+
 
     // Get sort options
     const sortOptionsDOM = getDomElement(".sort-options");
-    
-    // set sort default descending order state
-    let inDecendingOrder = false;
 
-    // Bind click event to sortDOM
-    sortIconDOM.addEventListener("click", () => {
+    // Bind click event to sortIconDOM
+    bindEvent(sortIconDOM)("click")(() => {
       // Toggle the hidden status of sortOptions
       sortOptionsDOM.classList.toggle("hide");
-
+  
       // Toogle active class on Sort Icon 
       toggleClassByComparism(sortIconDOM, "active", sortOptionsDOM, "hide");
-
-      });
-
+    });
+   
     // sortSearch(sortDOM, restaurantContainer, restaurantItems, inDecendingOrder = !inDecendingOrder)
   }
 }
@@ -856,6 +859,9 @@ function toggleClassByComparism(elem1, elem1Class, elem2, elem2class) {
     elem1.classList.add(elem1Class);
   }
 }
+
+
+
 
 
 /**
