@@ -810,21 +810,37 @@ function getSearchSuggestions(input, foodNames) {
 function eventLoader() {
   // Bind sortSearch() with sort icon
     // Fetch sort icon
-  const sortDOM = document.querySelector(".sort");
+  const sortIconDOM = document.querySelector(".sort");
   if (restaurantPageLoaded) {
 
     // get restaurant display items 
-    let restaurantContainer = ".restaurant .items";
-    restaurantContainer = getDomElement(restaurantContainer);
+    const restaurantContainerDOM = getDomElement(".restaurant .items");
 
     // get restaurant display items 
-    const restaurantItems = document.querySelectorAll('.restaurant .items .item');
+    const restaurantItemsDOM = getDomElement('.restaurant .items .item');
+
+    // Get sort options
+    const sortOptionsDOM = getDomElement(".sort-options");
     
     // set sort default descending order state
     let inDecendingOrder = false;
 
     // bind click event to sortDOM
-    sortDOM.addEventListener("click", () => showSortOptions(sortDOM, restaurantContainer, restaurantItems, inDecendingOrder = !inDecendingOrder));
+    sortIconDOM.addEventListener("click", () => {
+      // Toggle the hidden status of sortOptions
+      sortOptionsDOM.classList.toggle("hide");
+
+      // Hightlight sort icon
+      const sortIconIsHightlighted = sortOptionsDOM.classList.contains("hide");
+      if (sortIconIsHightlighted) {
+        sortIconDOM.classList.remove("active")
+      } else {
+        sortIconDOM.classList.add("active");
+      }
+
+      });
+
+    // sortSearch(sortDOM, restaurantContainer, restaurantItems, inDecendingOrder = !inDecendingOrder)
   }
 }
 

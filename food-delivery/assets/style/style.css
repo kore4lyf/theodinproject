@@ -751,7 +751,7 @@ img.restaurant-profile {
   /* padding: .5rem; */
   position: absolute;
   right: 0;
-  top: 1rem;
+  top: 1.5rem;
   /* width: 95px; */
 }
 
@@ -789,12 +789,11 @@ img.restaurant-profile {
   width: 12px;
 }
 
-
-.sort-order.active,
-.sort-order:hover {
+.sort-order.active {
   fill: var(--clr-accent);
   fill-opacity: 1;
 }
+
 
   /* +++++++++++++++++++++ 
         product.html 
