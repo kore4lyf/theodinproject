@@ -782,16 +782,12 @@ img.restaurant-profile {
 }
 
 .sort-order {
-  fill: var(--clr-dark);
+  fill: var(--clr-accent);
+  fill-opacity: 1;
 }
 
 .sort-order svg {
   width: 12px;
-}
-
-.sort-order.active {
-  fill: var(--clr-accent);
-  fill-opacity: 1;
 }
 
 .sort-order.desc {

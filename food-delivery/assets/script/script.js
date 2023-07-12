@@ -879,10 +879,10 @@ function eventLoader() {
     bindEvent(DOM.nameSort)("click")(() => {
       console.log("name");
 
-      DOM.priceSort.classList.remove("active");
-      DOM.priceSortAsc.classList.remove("active");
-      DOM.priceSortDesc.classList.remove("active");
       DOM.nameSort.classList.add("active");
+      DOM.priceSort.classList.remove("active");
+      DOM.priceSortAsc.classList.add("hide");
+      DOM.priceSortDesc.classList.add("hide");
       switchActiveSort();
     });
     
@@ -891,12 +891,11 @@ function eventLoader() {
       console.log("price");
 
       DOM.nameSort.classList.remove("active");
-      DOM.nameSortAsc.classList.remove("active");
-      DOM.nameSortDesc.classList.remove("active");
       DOM.priceSort.classList.add("active");
+      DOM.nameSortAsc.classList.add("hide");
+      DOM.nameSortDesc.classList.add("hide");
       switchActiveSort();
     });
-
 
     // sortSearch(sortDOM, DOM.restaurantContainer, DOM.restaurantItems, inDecendingOrder = !inDecendingOrder)
   }
@@ -910,7 +909,7 @@ function switchActiveSort() {
   const nameIsActive = DOM.nameSort.classList.contains("active");
 
   if (nameIsActive) {
-    const nameIsInAsc = DOM.nameSortAsc.classList.contains("active")
+    const nameIsInAsc = !DOM.nameSortAsc.classList.contains("hide")
     if (nameIsInAsc) {
       // Make Desc Active
       DOM.nameSortAsc.classList.remove("active");
@@ -925,7 +924,7 @@ function switchActiveSort() {
       DOM.nameSortDesc.classList.add("hide");
     }
   } else {
-    const priceIsInAsc = DOM.priceSortAsc.classList.contains("active");
+    const priceIsInAsc = !DOM.priceSortAsc.classList.contains("hide");
     
     if (priceIsInAsc) {
       // Make Desc Active
