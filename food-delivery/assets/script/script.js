@@ -825,18 +825,13 @@ function eventLoader() {
     // set sort default descending order state
     let inDecendingOrder = false;
 
-    // bind click event to sortDOM
+    // Bind click event to sortDOM
     sortIconDOM.addEventListener("click", () => {
       // Toggle the hidden status of sortOptions
       sortOptionsDOM.classList.toggle("hide");
 
-      // Hightlight sort icon
-      const sortIconIsHightlighted = sortOptionsDOM.classList.contains("hide");
-      if (sortIconIsHightlighted) {
-        sortIconDOM.classList.remove("active")
-      } else {
-        sortIconDOM.classList.add("active");
-      }
+      // Toogle active class on Sort Icon 
+      toggleClassByComparism(sortIconDOM, "active", sortOptionsDOM, "hide");
 
       });
 
@@ -845,6 +840,24 @@ function eventLoader() {
 }
 
 eventLoader();
+
+/**
+ * toggleClassByComparism : Sort search food menu items in ascending or descending order
+ * @elem1 : Represents an element in the DOM, whos class will be toggled
+ * @elem1Class : Represents the class that will be toggled in element 1
+ * @elem2 : Represents an element in the DOM, whos class will be used as condition to toggle a class in element 1
+ * @elem2Class : Represents a class name who presence in element 2, determines how the element 1 class is toggled
+ */
+function toggleClassByComparism(elem1, elem1Class, elem2, elem2class) {
+  const elem2hasClass = elem2.classList.contains(elem2class);
+  if (elem2hasClass) {
+    elem1.classList.remove(elem1Class);
+  } else {
+    elem1.classList.add(elem1Class);
+  }
+}
+
+
 /**
  * sortSearch : Sort search food menu items in ascending or descending order
  * @input : this is/are the characters entered by the user
