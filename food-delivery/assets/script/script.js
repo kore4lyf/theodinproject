@@ -318,15 +318,16 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
   const restaurantMenuItemsDOM = document.querySelector(".restaurant .items");
 
 
-  // Create a new array, by collecting data that menu data using restaurantName and activeCategory
+  // Collecting menu restaurant menu data based on active category
   let restaurantMenuData = [...data.restaurantsMenu.filter(item => (
     item.restaurant.toLowerCase()
     === restaurantName.toLowerCase() && item.category.toLowerCase()
     === activeCategory.toLowerCase()))];
   
-  
-  
-  console.log(["z", "c", "t", "p"].sort((a,b) => a.localeCompare(b)))
+  // Sort restaurant menu data
+  restaurantMenuData = restaurantMenuData.sort((prev, next) => prev.name.localeCompare(next.name));
+
+
   // create a menu items
   for (let item of restaurantMenuData) {
     // Create a new element to hold menu items
@@ -874,6 +875,8 @@ function getSearchSuggestions(input, foodNames) {
 
 
 
+let inAscOrder = false;
+
 /**
  * eventLoader : Contains elements and the functions they are binded with.
  */
@@ -895,8 +898,7 @@ function eventLoader() {
       DOM.priceSort.classList.remove("active");
       DOM.priceSortAsc.classList.add("hide");
       DOM.priceSortDesc.classList.add("hide");
-      switchActiveSort();
-      sortByName();
+      sortByName(inAscOrder = !inAscOrder);
     });
     
     // Bind click event to price sort
@@ -922,19 +924,7 @@ function switchActiveSort() {
 
   if (nameIsActive) {
     const nameIsInAsc = !DOM.nameSortAsc.classList.contains("hide")
-    if (nameIsInAsc) {
-      // Make Desc Active
-      DOM.nameSortAsc.classList.remove("active");
-      DOM.nameSortAsc.classList.add("hide");
-      DOM.nameSortDesc.classList.add("active");
-      DOM.nameSortDesc.classList.remove("hide");
-    } else {
-      // Make Asc Active
-      DOM.nameSortAsc.classList.add("active");
-      DOM.nameSortAsc.classList.remove("hide");
-      DOM.nameSortDesc.classList.remove("active");
-      DOM.nameSortDesc.classList.add("hide");
-    }
+    
   } else {
     const priceIsInAsc = !DOM.priceSortAsc.classList.contains("hide");
     
@@ -987,22 +977,35 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
 
 
 
-function sortByName() {
+function sortByName(inAscOrder) {
+  console.log(inAscOrder)
    // Create document fragment
   const DOMFragment = domFragment();
 
   const restaurantItems = DOM.getDomElements(".restaurant .items .item");
   
-  // const numOfItemsInDOM = restaurantItems.length - 1;
 
-  // for (let i = numOfItemsInDOM; i >= 0; i--) {
   for (let item of restaurantItems) {
     DOMFragment.prepend(item);
   }
 
   DOM.restaurantContainer.innerHTML = "";
   DOM.restaurantContainer.appendChild(DOMFragment);
-
+  
+  // Switch active sort in UI
+  if (inAscOrder) {
+    // Make Desc Active
+    DOM.nameSortAsc.classList.remove("active");
+    DOM.nameSortAsc.classList.add("hide");
+    DOM.nameSortDesc.classList.add("active");
+    DOM.nameSortDesc.classList.remove("hide");
+  } else {
+    // Make Asc Active
+    DOM.nameSortAsc.classList.add("active");
+    DOM.nameSortAsc.classList.remove("hide");
+    DOM.nameSortDesc.classList.remove("active");
+    DOM.nameSortDesc.classList.add("hide");
+  }
 }
 
 
