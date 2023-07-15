@@ -877,7 +877,6 @@ function eventLoader() {
 
     // Bind click event to name sort
     bindEvent(DOM.nameSort)("click")(() => {
-      console.log("name");
 
       DOM.nameSort.classList.add("active");
       DOM.priceSort.classList.remove("active");
@@ -888,7 +887,6 @@ function eventLoader() {
     
     // Bind click event to price sort
     bindEvent(DOM.priceSort)("click")(() => {
-      console.log("price");
 
       DOM.nameSort.classList.remove("active");
       DOM.priceSort.classList.add("active");
@@ -932,9 +930,7 @@ function switchActiveSort() {
       DOM.priceSortAsc.classList.add("hide");
       DOM.priceSortDesc.classList.add("active");
       DOM.priceSortDesc.classList.remove("hide");
-      console.log("1");
     } else {
-      console.log("2");
       // Make Asc Active
       DOM.priceSortAsc.classList.add("active");
       DOM.priceSortAsc.classList.remove("hide");
@@ -951,7 +947,6 @@ function switchActiveSort() {
  * @input : this is/are the characters entered by the user
  */
 function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
-  console.log([...domItems]);
   // Highlight icon when clicked
   if(inDescendingOrder) {
     sortIcon.classList.add("active");
@@ -965,7 +960,7 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
     const DOMFragment = domFragment();
 
     for (let i = numOfItemsInDOM; i >= 0; i--) {
-      DOMFragment.appendChild(domItems[i]);
+      DOMFragment.appendChild(domItems.item(i));
     }
     domContainer.innerHTML = "";
     domContainer.appendChild(DOMFragment);

@@ -748,11 +748,11 @@ img.restaurant-profile {
   font-family: var(--ff-gotham-reg);
   font-size: .8rem;
   padding-left: 0px;
-  /* padding: .5rem; */
   position: absolute;
   right: 0;
   top: 1.5rem;
   transition: transform ease-in-out 0.3s;
+  width: 90px;
 }
 
 .sort-option {
@@ -787,11 +787,13 @@ img.restaurant-profile {
 }
 
 .sort-order svg {
+  position: absolute;
   width: 12px;
+  top: 10px;
 }
 
 .sort-order.desc {
-  transform: translateY(3px);
+  /* transform: translateY(3px); */
 }
 
 
