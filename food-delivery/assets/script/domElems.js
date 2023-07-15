@@ -1,9 +1,21 @@
+/**
+ * getDomElement : Returns an element in DOM
+ * @cssSelector : Represents a css selector that can be used to 
+ * access an element in the DOM.
+ */
+ export const getDomElement = cssSelector => document.querySelector(cssSelector);
+
+
+/**
+ * getDomElements : Returns a list of elements in DOM that can be identified by @cssSelector
+ * @cssSelector : Represents a css selector that can be used to 
+ * access an element or some elements in the DOM.
+ */
+ export const getDomElements = cssSelector => [...document.querySelectorAll(cssSelector)];
+
 
 // get restaurant display items  in the DOM
 export const restaurantContainer = getDomElement(".restaurant .items");
-
-// get restaurant display item in the DOM
-export const restaurantItems = getDomElement('.restaurant .items .item');
 
 // Get Suggestion DOM in the DOM
 export const suggestion = getDomElement(".suggestion");
@@ -41,15 +53,3 @@ export const priceSortAsc = getDomElement(".sort-option.price .asc");
 // Get search name sort-option descending in the DOM
 export const priceSortDesc = getDomElement(".sort-option.price .desc");
 
-
-
-
-
-/**
- * getDomElement : Returns an element in DOM
- * @cssSelector : Represents a css selector that can be used to 
- * access the element in the DOM.
- */
- function getDomElement(cssSelector) {
-  return document.querySelector(cssSelector);
-}

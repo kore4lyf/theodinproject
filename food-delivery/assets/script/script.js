@@ -319,9 +319,14 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
 
 
   // Create a new array, by collecting data that menu data using restaurantName and activeCategory
-  const restaurantMenuData = data.restaurantsMenu.filter(item => (
-    item.restaurant.toLowerCase() === restaurantName.toLowerCase() && item.category.toLowerCase() === activeCategory.toLowerCase() ));
-    
+  let restaurantMenuData = [...data.restaurantsMenu.filter(item => (
+    item.restaurant.toLowerCase()
+    === restaurantName.toLowerCase() && item.category.toLowerCase()
+    === activeCategory.toLowerCase()))];
+  
+  
+  
+  console.log(["z", "c", "t", "p"].sort((a,b) => a.localeCompare(b)))
   // create a menu items
   for (let item of restaurantMenuData) {
     // Create a new element to hold menu items
@@ -556,7 +561,7 @@ function searchFocus() {
   // Add click event to search item
  DOM.searchIcon.addEventListener("click", () => {
     DOM.searchIcon.classList.add("active");
-    searchInputDOM.focus();
+    DOM.searchInput.focus();
   });
 
   // Highlight search icon when search box/input is focused
@@ -571,6 +576,14 @@ function searchFocus() {
 // ##################################
 // ##### REUSABLE FUNCTIONS ########
 // ################################
+
+
+/**
+ * compose : All allow multiple functions to be called one after the other
+ * taking the output of one function as the input of the other.
+ */
+ const compose = (...functions) => x => functions.reduceRight((acc, fn) => fn(acc));
+
 
 /**
  * toggleClassByComparism : Sort search food menu items in ascending or descending order
@@ -883,6 +896,7 @@ function eventLoader() {
       DOM.priceSortAsc.classList.add("hide");
       DOM.priceSortDesc.classList.add("hide");
       switchActiveSort();
+      sortByName();
     });
     
     // Bind click event to price sort
@@ -971,11 +985,24 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
   }
 }
 
-/**
- * compose : All allow multiple functions to be called one after the other
- * taking the output of one function as the input of the other.
- */
-const compose = (...functions) => x => functions.reduceRight((acc, fn) => fn(acc));
 
+
+function sortByName() {
+   // Create document fragment
+  const DOMFragment = domFragment();
+
+  const restaurantItems = DOM.getDomElements(".restaurant .items .item");
+  
+  // const numOfItemsInDOM = restaurantItems.length - 1;
+
+  // for (let i = numOfItemsInDOM; i >= 0; i--) {
+  for (let item of restaurantItems) {
+    DOMFragment.prepend(item);
+  }
+
+  DOM.restaurantContainer.innerHTML = "";
+  DOM.restaurantContainer.appendChild(DOMFragment);
+
+}
 
 

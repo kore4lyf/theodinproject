@@ -788,13 +788,13 @@ img.restaurant-profile {
 
 .sort-order svg {
   position: absolute;
-  width: 20px;
-  top: 12px;
+  width: 15px;
+  top: 13.5px;
 }
 
 .sort-order.desc svg {
   /* transform: translateY(0px); */
-  top: -4px;
+  top: 2.5px;
 }
 
 
