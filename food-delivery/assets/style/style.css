@@ -855,20 +855,8 @@ img.restaurant-profile {
   margin-inline: auto;
 }
 
-.big-btn p, .small-btn p {
+.big-btn p {
   margin: 0px;
-}
-
-.small-btn {
-  display: block;
-  font-size: .8rem;
-  padding: .8em;
-  margin-inline: auto;
-  border-radius: .6rem;
-}
-
-#restaurant .small-btn {
-  margin-bottom: 2rem;
 }
 
 .btn-active {
@@ -933,7 +921,8 @@ img.restaurant-profile {
 .product-name-desc-price .subheader{
   font-size: 2rem;
 }
-.product-name-desc-price .currency {
+.product-name-desc-price .currency,
+.restaurant .currency {
   color: var(--clr-accent);
   font-family: calibri, sans-serif;
 }
@@ -948,7 +937,8 @@ img.restaurant-profile {
   margin: 2px;
 }
 
-.product-name-desc-price .price {
+.product-name-desc-price .price,
+.restaurant .price {
   align-items: center;
   color: var(--clr-dark);
   display: flex;
@@ -980,7 +970,19 @@ img.restaurant-profile {
 }
 
 
+.restaurant .price {
+  border-bottom: 0px;
+  font-size: 1.5rem;
+  margin-inline: auto;
+  padding-block: 0px;
+  width: fit-content;
+  margin-block: 1rem;
+  margin-bottom: 2rem; 
+}
 
+.restaurant .currency {
+  font-size: 1.3rem;
+}
 
 
 /*

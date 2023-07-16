@@ -343,9 +343,10 @@ function loadRestaurantMenu(restaurantName, activeCategory) {
       <img loading="lazy" src="./assets/images/menu/${item.smallPhotoName}" alt="Chillox Chicken Burger">
        <p class="item-name">${item.name}</p>
        <p class="item-desc text-faint">${item.desc}</p>
-       <button class="btn btn-active small-btn text-bold shadow">
-       <p>  Add to cart </p> </button>
-       </div>
+       <p class="price">
+          <span class="currency">₦</span>
+          <span class="cost">${item.price.toLocaleString()}</span>
+       </p>
     `;
     
     DOMFragment.appendChild(menuItem);
@@ -977,6 +978,7 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
 
 
 
+
 function sortByName(inAscOrder) {
   console.log(inAscOrder)
    // Create document fragment
@@ -1007,5 +1009,6 @@ function sortByName(inAscOrder) {
     DOM.nameSortDesc.classList.add("hide");
   }
 }
+
 
 
