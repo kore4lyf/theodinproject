@@ -1050,3 +1050,9 @@ function sortByPrice(sortPriceInAsc) {
   }
 }
 
+
+
+// Create a sort guide
+// Add like to all product - which in turn creates a wish list
+// Animate heart when a product is liked
+// 
