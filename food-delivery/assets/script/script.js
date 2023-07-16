@@ -876,7 +876,8 @@ function getSearchSuggestions(input, foodNames) {
 
 
 
-let inAscOrder = false;
+let sortNameInAsc = false;
+let sortPriceInAsc = false;
 
 /**
  * eventLoader : Contains elements and the functions they are binded with.
@@ -899,7 +900,7 @@ function eventLoader() {
       DOM.priceSort.classList.remove("active");
       DOM.priceSortAsc.classList.add("hide");
       DOM.priceSortDesc.classList.add("hide");
-      sortByName(inAscOrder = !inAscOrder);
+      sortByName(sortNameInAsc = !sortNameInAsc);
     });
     
     // Bind click event to price sort
@@ -909,7 +910,7 @@ function eventLoader() {
       DOM.priceSort.classList.add("active");
       DOM.nameSortAsc.classList.add("hide");
       DOM.nameSortDesc.classList.add("hide");
-      switchActiveSort();
+      sortByPrice(sortPriceInAsc = !sortPriceInAsc);
     });
 
     // sortSearch(sortDOM, DOM.restaurantContainer, DOM.restaurantItems, inDecendingOrder = !inDecendingOrder)
@@ -929,19 +930,7 @@ function switchActiveSort() {
   } else {
     const priceIsInAsc = !DOM.priceSortAsc.classList.contains("hide");
     
-    if (priceIsInAsc) {
-      // Make Desc Active
-      DOM.priceSortAsc.classList.remove("active");
-      DOM.priceSortAsc.classList.add("hide");
-      DOM.priceSortDesc.classList.add("active");
-      DOM.priceSortDesc.classList.remove("hide");
-    } else {
-      // Make Asc Active
-      DOM.priceSortAsc.classList.add("active");
-      DOM.priceSortAsc.classList.remove("hide");
-      DOM.priceSortDesc.classList.remove("active");
-      DOM.priceSortDesc.classList.add("hide");
-    }
+   
   }
 }
 
@@ -979,8 +968,8 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
 
 
 
-function sortByName(inAscOrder) {
-  console.log(inAscOrder)
+function sortByName(sortNameInAsc) {
+  console.log(sortNameInAsc)
    // Create document fragment
   const DOMFragment = domFragment();
 
@@ -995,7 +984,7 @@ function sortByName(inAscOrder) {
   DOM.restaurantContainer.appendChild(DOMFragment);
   
   // Switch active sort in UI
-  if (inAscOrder) {
+  if (sortNameInAsc) {
     // Make Desc Active
     DOM.nameSortAsc.classList.remove("active");
     DOM.nameSortAsc.classList.add("hide");
@@ -1011,4 +1000,53 @@ function sortByName(inAscOrder) {
 }
 
 
+function sortByPrice(sortPriceInAsc) {
+    // Create document fragment
+    const DOMFragment = domFragment();
+
+    const restaurantItems = [...DOM.getDomElements(".restaurant .items .item")];
+    
+    if (sortPriceInAsc) {
+      // Make Desc Active
+      DOM.priceSortAsc.classList.remove("active");
+      DOM.priceSortAsc.classList.add("hide");
+      DOM.priceSortDesc.classList.add("active");
+      DOM.priceSortDesc.classList.remove("hide");
+      
+      restaurantItems.sort((prev, next) =>
+        getInnerDomElement(next)('.cost').innerText.replace(",", "")
+        - getInnerDomElement(prev)('.cost').innerText.replace(",", ""));
+      
+      console.log([8, 2, 9, 5, 3 ].sort((a, b) => a-b))
+      
+      for (let item of restaurantItems) {
+         console.log(getInnerDomElement(item)('.cost').innerText.replace(",", ""));
+         DOMFragment.append(item);
+       }
+  
+      DOM.restaurantContainer.innerHTML = "";
+      DOM.restaurantContainer.appendChild(DOMFragment);
+
+    } else {
+      // Make Asc Active
+      DOM.priceSortAsc.classList.add("active");
+      DOM.priceSortAsc.classList.remove("hide");
+      DOM.priceSortDesc.classList.remove("active");
+      DOM.priceSortDesc.classList.add("hide");
+      
+      
+      restaurantItems.sort((prev, next) =>
+        getInnerDomElement(prev)('.cost').innerText.replace(",", "")
+        - getInnerDomElement(next)('.cost').innerText.replace(",", "")
+      );
+    
+    for (let item of restaurantItems) {
+      DOMFragment.append(item);
+    }
+
+    DOM.restaurantContainer.innerHTML = "";
+    DOM.restaurantContainer.appendChild(DOMFragment);
+    
+  }
+}
 
