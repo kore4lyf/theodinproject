@@ -665,6 +665,7 @@ img.restaurant-profile {
 }
 
 .restaurant .item {
+  background: white;
   border: 1px solid var(--clr-secondary);
   border-radius: 1.8rem;
 }
@@ -971,18 +972,52 @@ img.restaurant-profile {
 
 
 .restaurant .price {
-  border-bottom: 0px;
+  background-color: var(--clr-accent);
+  border: 0px;
+  border-bottom-left-radius: .8rem;
+  border-bottom-right-radius: .8rem;
+  box-shadow: 0px 3px 5px #00000020;
+  color: white;
+  display: flex;
   font-size: 1.5rem;
-  margin-inline: auto;
-  padding-block: 0px;
-  width: fit-content;
+  padding-block: 8px;
+  justify-content: center;
   margin-block: 1rem;
-  margin-bottom: 2rem; 
+  margin-bottom: 2rem;
+  margin-inline: auto;
+  transform: translateX(-12.5px);
+  width: 110%;
+}
+
+.restaurant .price::before {
+  border-right: 12px solid #a31414;
+  border-left: 12px solid transparent;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  content: "";
+  mix-blend-mode:color-dodge;
+  left: -12px;
+  top: -12px;
+  position: absolute;
+}
+
+.restaurant .price::after {
+  border-right: 12px solid transparent;
+  border-left: 12px solid #a31414;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  content: "";
+  mix-blend-mode:color-dodge;
+  right: -12px;
+  top: -12px;
+  position: absolute;
 }
 
 .restaurant .currency {
+  color: white;
   font-size: 1.3rem;
 }
+
 
 
 /*

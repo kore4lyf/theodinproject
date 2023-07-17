@@ -969,7 +969,6 @@ function sortSearch(sortIcon, domContainer, domItems, inDescendingOrder) {
 
 
 function sortByName(sortNameInAsc) {
-  console.log(sortNameInAsc)
    // Create document fragment
   const DOMFragment = domFragment();
 
@@ -1017,10 +1016,8 @@ function sortByPrice(sortPriceInAsc) {
         getInnerDomElement(next)('.cost').innerText.replace(",", "")
         - getInnerDomElement(prev)('.cost').innerText.replace(",", ""));
       
-      console.log([8, 2, 9, 5, 3 ].sort((a, b) => a-b))
       
       for (let item of restaurantItems) {
-         console.log(getInnerDomElement(item)('.cost').innerText.replace(",", ""));
          DOMFragment.append(item);
        }
   
