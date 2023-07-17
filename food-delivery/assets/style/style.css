@@ -990,10 +990,9 @@ img.restaurant-profile {
 }
 
 .restaurant .price::before {
-  border-right: 12px solid #a31414;
-  border-left: 12px solid transparent;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
+  border-width: 12px;
+  border-style: solid;
+  border-color: transparent #a31414 transparent transparent;
   content: "";
   mix-blend-mode:color-dodge;
   left: -12px;
@@ -1002,10 +1001,9 @@ img.restaurant-profile {
 }
 
 .restaurant .price::after {
-  border-right: 12px solid transparent;
-  border-left: 12px solid #a31414;
-  border-top: 12px solid transparent;
-  border-bottom: 12px solid transparent;
+  border-width: 12px;
+  border-style: solid;
+  border-color: transparent transparent transparent #a31414;
   content: "";
   mix-blend-mode:color-dodge;
   right: -12px;
