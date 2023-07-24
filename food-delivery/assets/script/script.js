@@ -989,12 +989,16 @@ function sortByName(sortNameInAsc) {
     DOM.nameSortAsc.classList.add("hide");
     DOM.nameSortDesc.classList.add("active");
     DOM.nameSortDesc.classList.remove("hide");
+
+    showSortGuide("name", false);
   } else {
     // Make Asc Active
     DOM.nameSortAsc.classList.add("active");
     DOM.nameSortAsc.classList.remove("hide");
     DOM.nameSortDesc.classList.remove("active");
     DOM.nameSortDesc.classList.add("hide");
+
+    showSortGuide("name", true);
   }
 }
 
@@ -1024,6 +1028,8 @@ function sortByPrice(sortPriceInAsc) {
       DOM.restaurantContainer.innerHTML = "";
       DOM.restaurantContainer.appendChild(DOMFragment);
 
+    showSortGuide("price", false);
+      
     } else {
       // Make Asc Active
       DOM.priceSortAsc.classList.add("active");
@@ -1044,9 +1050,68 @@ function sortByPrice(sortPriceInAsc) {
     DOM.restaurantContainer.innerHTML = "";
     DOM.restaurantContainer.appendChild(DOMFragment);
     
+    showSortGuide("price", true);
   }
 }
 
+
+
+/**
+ * showSortGuide : Shows the current state of sort
+ * @sortType : values can either be a "name" or "price"
+ * @state : values can either be true (ascending) or false (descending)
+ */
+function showSortGuide(sortType, state) {
+  if (sortType === "name" && state === true) {
+    // In ascending order
+    // Show sort by name guide
+    DOM.sortByNameGuide.classList.remove("hide");
+    
+    // Hide sort by price guide
+    DOM.sortByPriceGuide.classList.add("hide");
+
+    // Switch to A and Z
+    getInnerDomElement(DOM.sortByNameGuide)(".start").innerHTML = "A";
+    getInnerDomElement(DOM.sortByNameGuide)(".end").innerHTML = "Z";
+
+  } else if (sortType === "name" && state === false) {
+    // In descending order
+    // Show sort by name guide
+    DOM.sortByNameGuide.classList.remove("hide");
+    
+    // Hide sort by price guide
+    DOM.sortByPriceGuide.classList.add("hide");
+
+    // Switch to A and Z
+    getInnerDomElement(DOM.sortByNameGuide)(".start").innerHTML = "Z";
+    getInnerDomElement(DOM.sortByNameGuide)(".end").innerHTML = "A";
+
+  } else if (sortType === "price" && state === true) {
+    // In ascending order
+    // Hide sort by name guide
+    DOM.sortByNameGuide.classList.add("hide");
+    
+    // Show sort by price guide
+    DOM.sortByPriceGuide.classList.remove("hide");
+
+    // Switch to min and max
+    getInnerDomElement(DOM.sortByNameGuide)(".start").innerHTML = "min";
+    getInnerDomElement(DOM.sortByNameGuide)(".end").innerHTML = "max";
+
+  } else if (sortType === "price" && state === false) {
+    // In descending order
+    // Hide sort by name guide
+    DOM.sortByNameGuide.classList.add("hide");
+    
+    // Show sort by price guide
+    DOM.sortByPriceGuide.classList.remove("hide");
+
+    // Switch to max and min
+    getInnerDomElement(DOM.sortByPriceGuide)(".start").innerHTML = "max";
+    getInnerDomElement(DOM.sortByPriceGuide)(".end").innerHTML = "min";
+
+  }
+}
 
 
 // Create a sort guide

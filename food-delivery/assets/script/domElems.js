@@ -29,11 +29,17 @@ export const searchIcon = getDomElement(".search .search-icon");
 // Get search input in the DOM
 export const searchInput = getDomElement(".search .search-box");
 
-// Fetch sort icon in the DOM
+// Get sort icon in the DOM
 export const sortIcon = getDomElement(".sort");
 
 // Get sort options in the DOM
 export const sortOptions = getDomElement(".sort-options");
+
+// Get sort by name guide in the DOM 
+export const sortByNameGuide = getDomElement(".sort-by-name-guide");
+
+// Get sort By price guide in the DOM
+export const sortByPriceGuide = getDomElement(".sort-by-price-guide");
 
 // Get search name sort-option in the DOM
 export const nameSort = getDomElement(".sort-option.name");

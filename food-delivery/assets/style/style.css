@@ -739,6 +739,31 @@ img.restaurant-profile {
   padding-bottom: 1rem;
 }
 
+.sort-by-name-guide,
+.sort-by-price-guide {
+  background-color: #00000005;
+  border: 1px solid gray;
+  border-radius: .5rem;
+  color: gray;
+  font-size: .8rem;
+  font-weight: bold;
+  padding: .5rem;
+  width: fit-content;
+}
+
+.sort-by-name-guide .start,
+.sort-by-name-guide .end,
+.sort-by-price-guide .start,
+.sort-by-price-guide .end {
+  color: var(--clr-accent);
+}
+
+
+.sort-by-price-guide .currency {
+  color: gray !important;
+  font-size: 1rem !important;
+}
+
 .sort-options {
   display: flex;
   background: #fff;
