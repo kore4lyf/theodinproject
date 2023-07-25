@@ -1028,7 +1028,7 @@ function sortByPrice(sortPriceInAsc) {
       DOM.restaurantContainer.innerHTML = "";
       DOM.restaurantContainer.appendChild(DOMFragment);
 
-    showSortGuide("price", false);
+      showSortGuide("price", false);
       
     } else {
       // Make Asc Active
@@ -1095,8 +1095,11 @@ function showSortGuide(sortType, state) {
     DOM.sortByPriceGuide.classList.remove("hide");
 
     // Switch to min and max
-    getInnerDomElement(DOM.sortByNameGuide)(".start").innerHTML = "min";
-    getInnerDomElement(DOM.sortByNameGuide)(".end").innerHTML = "max";
+    getInnerDomElement(DOM.sortByPriceGuide)(".start").innerHTML = "MIN";
+    getInnerDomElement(DOM.sortByPriceGuide)(".end").innerHTML = "MAX";
+
+    console.log(getInnerDomElement(DOM.sortByPriceGuide)(".end"))
+
 
   } else if (sortType === "price" && state === false) {
     // In descending order
@@ -1106,9 +1109,9 @@ function showSortGuide(sortType, state) {
     // Show sort by price guide
     DOM.sortByPriceGuide.classList.remove("hide");
 
-    // Switch to max and min
-    getInnerDomElement(DOM.sortByPriceGuide)(".start").innerHTML = "max";
-    getInnerDomElement(DOM.sortByPriceGuide)(".end").innerHTML = "min";
+    // Switch to max and MIN
+    getInnerDomElement(DOM.sortByPriceGuide)(".start").innerHTML = "MAX";
+    getInnerDomElement(DOM.sortByPriceGuide)(".end").innerHTML = "MIN";
 
   }
 }
