@@ -972,15 +972,16 @@ function sortByName(sortNameInAsc) {
    // Create document fragment
   const DOMFragment = domFragment();
 
-  const restaurantItems = DOM.getDomElements(".restaurant .items .item");
+  let restaurantItems = [...DOM.getDomElements(".restaurant .items .item")];
+
+  // Sort restaurant menu data
+  restaurantItems.sort((prev, next) => {
+    prev = prev.querySelector(".item-name").innerText;
+    next = next.querySelector(".item-name").innerText;
+    console.log("prev: ", prev, " vs ", "next: ", next, " ",  prev.localeCompare(next))
+    return prev.localeCompare(next);
+  });
   
-
-  for (let item of restaurantItems) {
-    DOMFragment.prepend(item);
-  }
-
-  DOM.restaurantContainer.innerHTML = "";
-  DOM.restaurantContainer.appendChild(DOMFragment);
   
   // Switch active sort in UI
   if (sortNameInAsc) {
@@ -991,6 +992,15 @@ function sortByName(sortNameInAsc) {
     DOM.nameSortDesc.classList.remove("hide");
 
     showSortGuide("name", false);
+
+    // prepend restaurant menu data
+    for (let item of restaurantItems) {
+      DOMFragment.prepend(item);
+    }
+  
+    DOM.restaurantContainer.innerHTML = "";
+    DOM.restaurantContainer.appendChild(DOMFragment);
+
   } else {
     // Make Asc Active
     DOM.nameSortAsc.classList.add("active");
@@ -999,6 +1009,15 @@ function sortByName(sortNameInAsc) {
     DOM.nameSortDesc.classList.add("hide");
 
     showSortGuide("name", true);
+
+
+    // append restaurant menu data
+    for (let item of restaurantItems) {
+      DOMFragment.append(item);
+    }
+  
+    DOM.restaurantContainer.innerHTML = "";
+    DOM.restaurantContainer.appendChild(DOMFragment);
   }
 }
 
@@ -1098,7 +1117,6 @@ function showSortGuide(sortType, state) {
     getInnerDomElement(DOM.sortByPriceGuide)(".start").innerHTML = "MIN";
     getInnerDomElement(DOM.sortByPriceGuide)(".end").innerHTML = "MAX";
 
-    console.log(getInnerDomElement(DOM.sortByPriceGuide)(".end"))
 
 
   } else if (sortType === "price" && state === false) {
@@ -1112,7 +1130,6 @@ function showSortGuide(sortType, state) {
     // Switch to max and MIN
     getInnerDomElement(DOM.sortByPriceGuide)(".start").innerHTML = "MAX";
     getInnerDomElement(DOM.sortByPriceGuide)(".end").innerHTML = "MIN";
-
   }
 }
 
