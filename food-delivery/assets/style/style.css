@@ -753,6 +753,11 @@ img.restaurant-profile {
 .sort-by-price-guide .start,
 .sort-by-price-guide .end {
   color: var(--clr-accent);
+  border: 1px solid red;
+  border-radius: .2rem;
+  padding: .2rem;
+  border-radius: 
+  padding: .2rem;
 }
 
 
