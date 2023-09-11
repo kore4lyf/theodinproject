@@ -453,6 +453,9 @@ a .icon-stroke:hover {
   stroke-opacity: .5;
   z-index: 3;
 }
+section.search {
+  padding-inline: 1.25rem;
+}
 
 .search > span {
   display: flex;
