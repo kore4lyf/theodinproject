@@ -171,7 +171,7 @@ function loadPopularCategory(categoryName) {
             <span class="item-profile">
               <img loading="lazy" src="./assets/images/restaurants/${restaurant.profilePhoto}" alt="Chillox logo">
               <span>
-                <p class="item-title" title="${restaurant.name}">${restaurant.name.length <= 16 ? restaurant.name : restaurant.name.slice(0,13) + "..."}</p>
+                <a class="item-title" href="./restaurant.html" title="${restaurant.name}">${restaurant.name.length <= 16 ? restaurant.name : restaurant.name.slice(0,13) + "..."}</a>
                 <p class="item-desc text-faint"><span>${capCategoryName}</span> 
                   <span class="period-divider">
                     <svg fill="currentColor" viewBox="0 0 128 512">
@@ -1137,4 +1137,36 @@ function showSortGuide(sortType, state) {
 // Create a sort guide
 // Add like to all product - which in turn creates a wish list
 // Animate heart when a product is liked
-// 
+//
+
+
+// notification
+DOM.getDomElement('#notify')
+  .addEventListener('click', () => {
+    if (localStorage.getItem('notify') === 'true') {
+      localStorage.setItem('notify', false)
+      updateNotificationStatus()
+    }
+    else {
+      localStorage.setItem('notify', true)
+      updateNotificationStatus()
+    }
+
+    console.log(localStorage.getItem('notify'))
+  })
+  
+const updateNotificationStatus = () => {
+  if (localStorage.getItem('notify') === 'true') {
+    DOM.getDomElement('#notify').classList.remove('notify')
+
+  }
+  else {
+    DOM.getDomElement('#notify').classList.add('notify')
+  }
+}
+
+//updateNotificationStatus()
+
+
+// Likes
+localStorage.setItem('burgerLike', true)

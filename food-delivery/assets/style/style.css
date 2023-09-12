@@ -368,6 +368,11 @@ a .icon-stroke:hover {
   margin-top: 0px;
   margin-bottom: .5rem;
   word-break: keep-all;
+  text-decoration: none;
+}
+
+.popular .item-title:hover {
+  color: var(--clr-accent)
 }
 
 .popular .item .item-desc,
@@ -429,7 +434,7 @@ a .icon-stroke:hover {
   fill-opacity: .6;
 }
 
-.icon-effect:hover svg, .icon-effect.active svg  {
+.icon-effect:not(#notify):hover svg, .icon-effect.active svg  {
   color: var(--clr-accent);
   fill-opacity: 1;
 }
@@ -1046,11 +1051,15 @@ img.restaurant-profile {
   font-size: 1.3rem;
 }
 
+.notify svg {
+  color: var(--clr-accent) !important;
+  fill-opacity: 1;
+}
 
 
 /*
   #################
-    Other Styles
+    utility Styles
   #################
 */
 
