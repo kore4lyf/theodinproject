@@ -59,13 +59,21 @@ const productPageLoaded = document.querySelector("#product");
 
 /** Condition for Pages With Back Botton **/
 
-if (restaurantPageLoaded || productPageLoaded) {
+if (productPageLoaded) {
   const backBtn = document.querySelector("#back");
 
   backBtn.addEventListener("click", function () {
+    window.history.back()
+  })
+}
+
+if (restaurantPageLoaded) {
+  const backBtn = document.querySelector("#back");
+  
+  backBtn.addEventListener("click", function () {
     window.history.back();
   })
-  }
+}
 
 
 
@@ -1139,7 +1147,7 @@ function showSortGuide(sortType, state) {
 // Animate heart when a product is liked
 //
 
-if (restaurantPageLoaded) {
+if (homePageLoaded) {
   // notification
   DOM.getDomElement('#notify')
     .addEventListener('click', () => {
