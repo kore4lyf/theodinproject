@@ -1139,34 +1139,62 @@ function showSortGuide(sortType, state) {
 // Animate heart when a product is liked
 //
 
+if (restaurantPageLoaded) {
+  // notification
+  DOM.getDomElement('#notify')
+    .addEventListener('click', () => {
+      if (localStorage.getItem('notify') === 'true') {
+        localStorage.setItem('notify', false)
+        updateNotificationStatus()
+      }
+      else {
+        localStorage.setItem('notify', true)
+        updateNotificationStatus()
+      }
 
-// notification
-DOM.getDomElement('#notify')
-  .addEventListener('click', () => {
+      console.log(localStorage.getItem('notify'))
+    })
+    
+  const updateNotificationStatus = () => {
     if (localStorage.getItem('notify') === 'true') {
-      localStorage.setItem('notify', false)
-      updateNotificationStatus()
+      DOM.getDomElement('#notify').classList.add('notify')
     }
     else {
-      localStorage.setItem('notify', true)
-      updateNotificationStatus()
+      DOM.getDomElement('#notify').classList.remove('notify')
     }
+  }
 
-    console.log(localStorage.getItem('notify'))
-  })
-  
-const updateNotificationStatus = () => {
-  if (localStorage.getItem('notify') === 'true') {
-    DOM.getDomElement('#notify').classList.add('notify')
-  }
-  else {
-    DOM.getDomElement('#notify').classList.remove('notify')
-  }
+  updateNotificationStatus()
 }
 
-updateNotificationStatus()
 
 
+if (productPageLoaded) {
 
-// Likes
-localStorage.setItem('burgerLike', true)
+  
+  // Likes
+  DOM.getDomElement('#add-to-wish-list')
+  .addEventListener('click', () => {
+    if (localStorage.getItem('burgerLike') === 'true') {
+      localStorage.setItem('burgerLike', false)
+      updateBurgerLikeStatus()
+    }
+    else {
+      localStorage.setItem('burgerLike', true)
+      updateBurgerLikeStatus()
+    }
+
+    console.log(localStorage.getItem('burgerLike'))
+  })
+  
+  const updateBurgerLikeStatus = () => {
+    if (localStorage.getItem('burgerLike') === 'true') {
+      DOM.getDomElement('#add-to-wish-list svg').classList.add('active')
+    }
+    else {
+      DOM.getDomElement('#add-to-wish-list svg').classList.remove('active')
+    }
+  }
+
+  updateBurgerLikeStatus()
+}
