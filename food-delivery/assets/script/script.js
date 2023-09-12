@@ -1157,15 +1157,15 @@ DOM.getDomElement('#notify')
   
 const updateNotificationStatus = () => {
   if (localStorage.getItem('notify') === 'true') {
-    DOM.getDomElement('#notify').classList.remove('notify')
-
+    DOM.getDomElement('#notify').classList.add('notify')
   }
   else {
-    DOM.getDomElement('#notify').classList.add('notify')
+    DOM.getDomElement('#notify').classList.remove('notify')
   }
 }
 
-//updateNotificationStatus()
+updateNotificationStatus()
+
 
 
 // Likes
